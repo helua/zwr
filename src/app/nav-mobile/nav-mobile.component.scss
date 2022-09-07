@@ -1,0 +1,66 @@
+
+@import '../../sass/styles';
+
+//mobile menu
+.mobile{
+  position: fixed;
+  z-index: 9;
+  left:4%;
+  top: 3%;
+
+  @media only screen and (min-width: 1119px) {
+  display: none;
+  visibility: hidden;
+  }
+}
+.mat-nav-list{
+margin: 33px 0;
+}
+.mat-drawer{
+  position: fixed !important;
+  padding-top: 3rem;
+  width: 35%;
+  min-width: 200px;
+}
+.mat-drawer-container{
+  background-color: rgba($white, 0);
+}
+.mat-drawer-container-about{
+  background-color: red;
+}
+.mat-drawer-backdrop.mat-drawer-shown{
+  background-color: rgba($color, .6);
+}
+
+mat-sidenav img{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2.5vh;
+  width: 97px;
+}
+.mat-list-item{
+  font-size: 1.8rem;
+  letter-spacing: .05rem;
+  margin-top: 1.7vh;
+  font-family: $brygBoldItalic;
+  @include respond(phone){
+    font-size: 1.55rem;
+
+  }
+}
+.mat-list-item:hover{
+  background-color: $color;
+}
+.social-holder{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+ul.social{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+}
+

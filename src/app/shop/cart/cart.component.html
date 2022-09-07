@@ -1,0 +1,97 @@
+ <main>
+  <h3>
+    <fa-icon id="cart" [icon]="cartIcon" (click)="onClose()"></fa-icon>
+    Koszyk
+  </h3>
+  <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
+    <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}}<br>
+      <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
+    </p>
+    <div class="cart_product">
+      <div class="cart_product-image">
+        <img [src]="line_items.attributes.image_url" alt="">
+      </div>
+      <div class="cart_product-title">
+        <h4>{{line_items.attributes.name}}<br>
+          <span class="cart_count-total">{{line_items.attributes.sku_code}}</span></h4>
+
+
+        <fa-icon
+          *ngIf="isCheckoutEnabled"
+          [icon]="trashIcon"
+          (click)="trashItem(line_items.id)"
+          matTooltip="Opróżnij koszyk"
+          matTooltipShowDelay="200"
+          matTooltipHideDelay="100">
+        </fa-icon>
+
+        <!-- <p class="cart_product-price">{{cart.data.attributes.quantity}}{{cart.data.attributes.formatted_unit_amount}}
+        </p> -->
+      </div>
+
+    </div>
+
+    <!-- <ul class="cart_totals">
+      <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>
+      <li>zniżka: {{cart.data.attributes.formatted_discount_amount}}</li>
+      <li>wysyłka: {{cart.data.attributes.formatted_shipping_amount}}</li>
+      <li>podatek: {{cart.data.attributes.formatted_total_tax_amount}}</li>
+      <li>karta podarunkowa: {{cart.data.attributes.formatted_gift_card_amount}}</li>
+      <li>suma: {{cart.data.attributes.formatted_total_amount_with_taxes}}</li>
+    </ul> -->
+
+    <table *ngIf="isCheckoutEnabled">
+      <tr><td>suma:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+    </table>
+    <table *ngIf="!isCheckoutEnabled && shipment">
+      <tr><td>zakupy:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+      <tr><td>wysyłka:</td><td>{{ shipment.attributes.formatted_total_amount }}</td></tr>
+      <tr><td>suma:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
+    </table>
+    <div *ngIf="!isCheckoutEnabled && shipment && !isPaymentCaptured" class="cart_confirm" >
+      <p>Twoje zamówienie zostało przyjęte, zostanie ono potwierdzone, kiedy zaksięgujemy przelew lub prześlesz potwierdzenie.<br><br>
+        <span>P.P.H.U. WPIER POL JAKUB KNAP<br>
+        22 1160 2202 0000 0005 0974 7630</span>
+      </p>
+    </div>
+    <div *ngIf="isCheckoutUnfinished" class="cart_confirm">
+      <p>Zamówienie jest niedokończone.<br>Idź do checkoutu i dokończ je.</p>
+    </div>
+
+
+    <!-- {{cart.data.attributes.formatted_total_amount}} -->
+    <app-button
+      *ngIf="ord && isCheckoutEnabled"
+      text="idź do checkoutu"
+      [link]="checkout"
+      [orderId]="ord"
+      >
+    </app-button>
+
+    <fa-icon id="refresh"
+      *ngIf="isRefreshEnabled"
+      [icon]="syncIcon"
+      (click)="getCurrentOrder()"
+      matTooltip="Odśwież status zamówienia"
+      matTooltipShowDelay="200"
+      matTooltipHideDelay="100">
+    </fa-icon>
+
+    <fa-icon id="delete"
+      *ngIf="!isCheckoutEnabled && shipment"
+      [icon]="trashIcon"
+      (click)="clearLocalStorage()"
+      matTooltip="Usuń potwierdzenie i zamów jeszcze raz"
+      matTooltipShowDelay="200"
+      matTooltipHideDelay="100">
+    </fa-icon>
+
+
+  </div>
+  <ng-template #emptyCart>
+    <p class="cart_info">Twój koszyk jest pusty</p>
+  </ng-template>
+  <fa-icon id="close" [icon]="closeIcon" (click)="onClose()"></fa-icon>
+ </main>
+
+

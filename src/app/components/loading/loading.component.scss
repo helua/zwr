@@ -1,0 +1,34 @@
+@import '../../../sass/styles';
+
+.loading{
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  display: block;
+  & .loading-image{
+    width: 16vh;
+    margin: 42vh auto;
+    & img{
+      animation: loading 1s ease .0s infinite backwards;
+      transition: 0s;
+      width: 11vh;
+      padding: 2.5vh;
+    }
+  }
+
+}
+
+
+@keyframes loading {
+  0%{
+    transform: scale(1.4);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.39);
+  }
+
+}

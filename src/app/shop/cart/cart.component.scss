@@ -1,0 +1,142 @@
+@import '../../../sass/styles';
+:host{
+  & main{
+    width: 100%;
+    position: relative;
+    display: block;
+    & p.cart_order-number{
+      font-size: 1.2rem;
+      padding: 0;
+      text-align: left;
+
+    }
+    & span.cart_count-total{
+      color: $metal;
+      font-size: .9rem;
+      line-height: 1.4rem;
+      @include respond(phone){
+        font-size: .8rem;
+      }
+    }
+    & fa-icon{
+      position: relative;
+    }
+
+    & fa-icon#close{
+      position: absolute;
+      top: -12px;
+      right: 1%;
+    }
+    & fa-icon#refresh, fa-icon#delete{
+      bottom: 4%;
+      right: unset;
+      top: unset;
+      font-size: 1.4rem;
+      z-index: 1;
+    }
+    & fa-icon#refresh{
+
+      left: 4%;
+    }
+    & fa-icon#delete{
+
+      left: 87%;
+    }
+
+    & h3, fa-icon#cart{
+        font-size: 2rem;
+        padding: 1rem 0;
+        @include respond(phone){
+          font-size: 1.5rem;
+
+        }
+
+    }
+    & .cart_product{
+      margin: .5rem 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      & .cart_product-image{
+        width: 27%;
+        @include respond(phone){
+          width: 46px;
+        }
+        & img{
+          width: 100%;
+        }
+      }
+      & .cart_product-title{
+        width: 70%;
+        position: relative;
+        @include respond(phone){
+          width: 77%;
+        }
+        & h4{
+          font-size: 1.6rem;
+          padding: .5rem;
+          @include respond(phone){
+            font-size: 1.2rem;
+            padding: .5rem;
+
+
+          }
+        }
+        & fa-icon{
+          position: absolute;
+          bottom: 1%;
+          right: 1%;
+          top: unset;
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    // & ul.cart_totals{
+    //   border-top: solid 2px black;
+    //   list-style-type: none;
+    //   width: 100%;
+    //   padding: 0;
+    //   line-height: 2rem;
+    //   padding-top: 1rem;
+    //   & li:last-child{
+    //     font-size: 1.7rem;
+    //   }
+    //   @include respond(phone){
+    //     font-size: 1.1rem;
+    //     line-height: 1.3rem;
+    //     & li:last-child{
+    //       font-size: 1.4rem;
+    //     }
+    //   }
+    // }
+      .cart_confirm{
+        width: 100%;
+        background-color: $metal;
+        font-family: $techLight;
+        margin-bottom: 2rem;
+        & p{
+          text-align: center;
+          font-size: 1.1rem;
+          line-height: 1rem;
+        }
+        & span{
+          font-family: $tech;
+        }
+        @include respond(phone){
+          margin-bottom: 1rem;
+          & p{
+            font-size: .9rem;
+            line-height: .9rem;
+
+          }
+
+        }
+      }
+      .cart_info{
+        font-family: $techLight;
+
+      }
+  }
+
+}

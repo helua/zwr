@@ -1,0 +1,84 @@
+@import '../../sass/styles';
+img
+{
+  width: 100%;
+  vertical-align: bottom;
+}
+h2{
+  margin: 2rem 0 0 0;
+  padding-left: 15%;
+  @include respond(phone){
+    padding-left: 6%;
+
+  }
+
+}
+p{
+  padding: 3rem 15%;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  text-align: justify;
+
+  @include respond(phone){
+    padding: 3rem 6%;
+    font-size: 1.15rem;
+    line-height: 1.5rem;
+    text-align: left;
+  }
+  & span.bold{
+    font-family: $brygBoldItalic;
+  }
+  & span.semibold{
+    font-family: $brygSemiBoldItalic;
+  }
+}
+
+.pic{
+  background-image: unset;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  @include respond(phone){
+    height: 300px;
+  }
+}
+
+.pic-1{
+  background-image: url('../../assets/about/big/2a.jpg');
+}
+.pic-2{
+  background-image: url('../../assets/about/big/3.jpg');
+}
+.pic-3{
+  width: 70%;
+  margin: auto;
+  background-image: url('../../assets/about/big/4.jpg');
+}
+.pic-4{
+  height: 75vh;
+  background-image: url('../../assets/about/big/5.jpg');
+}
+.pic-5{
+  background-image: url('../../assets/about/big/6.jpg');
+}
+@include respond(phone){
+  .pic-1{
+    background-image: url('../../assets/about/small/2a.jpg');
+  }
+  .pic-2{
+    background-image: url('../../assets/about/small/3.jpg');
+  }
+  .pic-3{
+    width: 88%;
+    background-image: url('../../assets/about/small/4.jpg');
+  }
+  .pic-4{
+    height: 50vh;
+    background-image: url('../../assets/about/small/5.jpg');
+  }
+  .pic-5{
+    background-image: url('../../assets/about/small/6.jpg');
+  }
+}
+

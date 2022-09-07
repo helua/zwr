@@ -1,0 +1,23 @@
+@import '../sass/styles';
+
+img{
+  width: 475px;
+  mix-blend-mode: difference;
+
+  &#tablet{
+    left: 5%;
+    top: 0%;
+    margin-top: 28.8835px;
+    position: fixed;
+    z-index: 5;
+
+    @include respond(tab-port){
+      width: 414px;
+      top: 5%;
+      display: none;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
