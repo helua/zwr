@@ -2,7 +2,7 @@
 
 .background{
   background-size: cover;
-  background-image: url('../../assets/TIPI-KNAPA_bg.jpg');
+  background-image: url('../../assets/zwr_bg.jpg');
   background-position: center;
   width: 100%;
   height: calc(100vh  - 13rem);
@@ -16,7 +16,7 @@
 
   }
   @include respond(phone){
-    background-image: url('../../assets/TIPI-KNAPA_bg-mobile.jpg');
+    background-image: url('../../assets/zwr_bg-mobile.jpg');
 
   }
 }

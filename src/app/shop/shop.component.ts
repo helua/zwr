@@ -10,7 +10,7 @@ import { TokenService } from '../token.service';
 })
 export class ShopComponent implements OnInit, OnDestroy {
 
-  title = 'tipiKnapa | Sklep';
+  title = 'ZWR | Sklep';
   description: MetaDefinition = {name: 'description', content: 'Sprawdź, jakie produkty mamy aktualnie w sklepie Tipiknapa i spraw sobie ręcznie wykonywany nóż finka. Wolność i odpowiedzialność w najlepszym wydaniu.'};
   token: any;
 

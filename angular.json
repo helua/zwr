@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tipi-knapa": {
+    "zwr": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tipi-knapa",
+            "outputPath": "dist/zwr",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tipi-knapa:build:production"
+              "browserTarget": "zwr:build:production"
             },
             "development": {
-              "browserTarget": "tipi-knapa:build:development"
+              "browserTarget": "zwr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tipi-knapa:build"
+            "browserTarget": "zwr:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "tipi-knapa"
+  "defaultProject": "zwr"
 }

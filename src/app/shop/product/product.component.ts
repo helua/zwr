@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   @Input() stock: any;
   @Output() updateCart = new EventEmitter<any>();
   @Input() ord: string = '';
-  checkout: string = 'https://checkout.tipiknapa.pl/';
+  checkout: string = 'http://checkout.zwr.waw.pl/';
   // isCheckoutEnabled: boolean = true;
   cartIcon = faCartPlus;
 

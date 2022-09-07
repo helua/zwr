@@ -9,7 +9,7 @@ import { TokenService } from './token.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'TIPI-KNAPA';
+  title = 'zwr';
   norobots: MetaDefinition = {robots: 'description', content: 'noindex, nofollow, noimageindex'};
 
   constructor(private metaService: Meta){};
@@ -18,7 +18,7 @@ export class AppComponent {
     // clear();
     // this.metaService.updateTag(this.norobots);
     this.metaService.addTags([
-      {property: 'og:image', content: 'https://tipiknapa.pl/assets/TIPI-KNAPA_share.jpg'}
+      {property: 'og:image', content: 'http://zwr.waw.pl/assets/zwr_share.jpg'}
     ]);
     if(getCart() === null){
       setCart({

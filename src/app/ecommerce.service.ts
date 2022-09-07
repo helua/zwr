@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EcommerceService {
 
-  url: string = 'https://tipi-knapa-shop.commercelayer.io'
-  //checkoutUrl: string = 'https://checkout.tipiknapa.pl/';
+  url: string = 'https://zwr-event-agency.commercelayer.io'
+  //checkoutUrl: string = 'http://checkout.zwr.waw.pl/';
   orderCreated: string = '';
 
   constructor(private http: HttpClient ) { }

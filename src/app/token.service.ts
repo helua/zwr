@@ -8,7 +8,7 @@ import { clear, getToken, setToken } from './localStorage';
 })
 export class TokenService {
 
-  url: string = 'https://tipi-knapa-shop.commercelayer.io'
+  url: string = 'https://zwr-event-agency.commercelayer.io'
   clientID: string = 'N7V8FFNMG8ylXYju_6RrcH7qRostvS8MY8ahWlulJVE';
   scope: string ="market:7273";
   stock: string = "stock_location:6551";
