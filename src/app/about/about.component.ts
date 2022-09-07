@@ -9,7 +9,7 @@ import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 export class AboutComponent implements OnInit {
 
   title = 'ZWR | O nas';
-  logo = '../../assets/zwr_logo-tringle.jpg'
+  logo = '../../assets/ZWR_logo-tringle.jpg'
   description: MetaDefinition = {name: 'description', content: 'Historia Tipiknapa zdecydowanie nie należy do tych klasycznych. Poznaj historię sklepu Knapa i wartości, za którymi stoimy tworząc kolejne produkty dla Ciebie.'};
   bigPhotoUrl: string = '../../assets/about/big/';
   smallPhotoUrl: string = '../../assets/about/small/';

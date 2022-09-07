@@ -18,7 +18,7 @@ export class AppComponent {
     // clear();
     // this.metaService.updateTag(this.norobots);
     this.metaService.addTags([
-      {property: 'og:image', content: 'http://zwr.waw.pl/assets/zwr_share.jpg'}
+      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ZWR_share.jpg'}
     ]);
     if(getCart() === null){
       setCart({

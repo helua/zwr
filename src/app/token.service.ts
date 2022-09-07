@@ -9,7 +9,7 @@ import { clear, getToken, setToken } from './localStorage';
 export class TokenService {
 
   url: string = 'https://zwr-event-agency.commercelayer.io'
-  clientID: string = 'N7V8FFNMG8ylXYju_6RrcH7qRostvS8MY8ahWlulJVE';
+  clientID: string = '3AzU7uMAQbca9lTovNxv7t4b0FnfvvB11a4dGOzojGs';
   scope: string ="market:7273";
   stock: string = "stock_location:6551";
   token: string = "";
