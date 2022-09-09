@@ -10,7 +10,7 @@ import { getCart, getCheckoutButton, getOrderId, getToken, setCart, setCheckoutB
 
 const sanityClient = require("@sanity/client");
 const sanity = sanityClient({
-  projectId: 'hv4oxj7f',
+  projectId: 'obecw03b',
   dataset: 'production',
   apiVersion: '2021-10-21',
   useCdn: true,
@@ -84,7 +84,7 @@ export class ShoppingComponent implements OnInit {
         if(p){
           //do poprawienia przy >1 produkcie
           this.price = p.included[0].attributes.formatted_amount;
-          // console.log(this.price);
+          console.log(this.price);
         }
       });
       this.ecomm.getStock(this.token.access_token).subscribe(p => {
@@ -133,7 +133,11 @@ export class ShoppingComponent implements OnInit {
     }
     return output;
   }
-
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
 //koszyk
   onUpdatedCart(cart: any){
     this.ord = cart.ord;

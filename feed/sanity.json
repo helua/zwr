@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "tipi-knapa"
-  },
   "api": {
-    "projectId": "hv4oxj7f",
+    "projectId": "obecw03b",
     "dataset": "production"
+  },
+  "project": {
+    "name": "zwr-rental"
   },
   "plugins": [
     "@sanity/base",

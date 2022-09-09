@@ -42,6 +42,8 @@ body{
     font-weight: 599;
     letter-spacing: 0;
     margin: 0px;
+    // background-color: #002527;
+    color: white;
     @include respond(phone){
       letter-spacing: .01rem;
     }
@@ -91,65 +93,65 @@ p, h2, h1, h3, h4, ul {
     padding: 0 5%;
     margin: 0;
 }
-h1{
-  padding: 0rem;
-  font-size: 6rem;
-  letter-spacing: .6rem;
-  line-height: 0rem;
-  position: fixed;
-  top: calc(5% + 3rem);
-  left: 5%;
-  z-index: 2;
-  mix-blend-mode: difference;
-  color: $metal;
-  @include respond(tab-port){
-    font-size: 4.5rem;
-    letter-spacing: .45rem;
-  }
-  @media screen and (max-width: 600px){
-    font-size: 3.5rem;
-    letter-spacing: .45rem;
-  }
-}
-h2{
-  font-size: 3.5rem;
-  line-height: 4rem;
-  letter-spacing: .11rem;
-  padding: 0 7%;
+// h1{
+//   padding: 0rem;
+//   font-size: 6rem;
+//   letter-spacing: .6rem;
+//   line-height: 0rem;
+//   position: fixed;
+//   top: calc(5% + 3rem);
+//   left: 5%;
+//   z-index: 2;
+//   mix-blend-mode: difference;
+//   color: $metal;
+//   @include respond(tab-port){
+//     font-size: 4.5rem;
+//     letter-spacing: .45rem;
+//   }
+//   @media screen and (max-width: 600px){
+//     font-size: 3.5rem;
+//     letter-spacing: .45rem;
+//   }
+// }
+// h2{
+//   font-size: 3.5rem;
+//   line-height: 4rem;
+//   letter-spacing: .11rem;
+//   padding: 0 7%;
 
 
-  @include respond(tab-port){
-      font-size: 3rem;
-      letter-spacing: .3rem;
-  }
-  @include respond(phone){
-    font-size: 2rem;
-    letter-spacing: .1rem;
-    line-height: 2.3rem;
-  }
-}
-p{
-  text-align: left;
-  padding: 1rem 4%;
-  font-size: 1.18rem;
-  line-height: 1.3rem;
-  @include respond(big-desktop){
-    font-size: 1.5vw;
-    line-height: 1.6vw;
-    padding: 1rem 8%;
+//   @include respond(tab-port){
+//       font-size: 3rem;
+//       letter-spacing: .3rem;
+//   }
+//   @include respond(phone){
+//     font-size: 2rem;
+//     letter-spacing: .1rem;
+//     line-height: 2.3rem;
+//   }
+// }
+// p{
+//   text-align: left;
+//   padding: 1rem 4%;
+//   font-size: 1.18rem;
+//   line-height: 1.3rem;
+//   @include respond(big-desktop){
+//     font-size: 1.5vw;
+//     line-height: 1.6vw;
+//     padding: 1rem 8%;
 
-  }
-  @include respond(tab-port){
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    padding: 1rem 5%;
-  }
-  @include respond(phone){
-    font-size: 1rem;
-    line-height: 1.2rem;
-    padding: 1rem 1.5%;
-  }
-}
+//   }
+//   @include respond(tab-port){
+//     font-size: 1.2rem;
+//     line-height: 1.4rem;
+//     padding: 1rem 5%;
+//   }
+//   @include respond(phone){
+//     font-size: 1rem;
+//     line-height: 1.2rem;
+//     padding: 1rem 1.5%;
+//   }
+// }
 
 table{
   width: 100%;
@@ -220,3 +222,24 @@ fa-icon{
   height: auto !important;
 }
 
+div.vertical-line
+
+{
+width: 60%; /* Line width */
+background-image: radial-gradient(rgba(($color-dark), .8), rgba(($color-orange), 1)); /* Line color */
+height: 1px; /* Override in-line if you want specific height. */
+margin: 3rem auto; /* Causes the line to float to left of content. You can instead use position:absolute or display:inline-block if this fits better with your design */
+}
+.margin-bottom-small {
+  margin-bottom: 20px; }
+
+.margin-bottom-big {
+  margin-bottom: 60px; }
+
+.margin-bottom-huge {
+  padding-bottom: 130px; }
+
+.highlight{
+  border-bottom: 0.5px dotted $color-gold;
+  padding:5px;
+}

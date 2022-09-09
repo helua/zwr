@@ -1,4 +1,8 @@
 @import '../../sass/styles';
+.slides{
+  width: 70%;
+  margin: 1% 15%;
+}
 img
 {
   width: 100%;
@@ -33,52 +37,212 @@ p{
   }
 }
 
-.pic{
-  background-image: unset;
-  width: 100%;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  @include respond(phone){
-    height: 300px;
+// .pic{
+//   background-image: unset;
+//   width: 100%;
+//   height: 100vh;
+//   background-position: center;
+//   background-size: cover;
+//   @include respond(phone){
+//     height: 300px;
+//   }
+// }
+
+////////////////////////////NEW
+///
+///
+///
+
+    @keyframes moveInBack {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      80% {
+        transform: scale(120%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(100%);
+      }}
+
+      @keyframes moveInBack {
+        0% {
+          opacity: 0;
+          transform: scale(0);
+        }
+
+        80% {
+          transform: scale(120%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(100%);
+        }}
+      @keyframes moveRightLeft {
+        0% {
+          transform: translateX(0);
+        }
+
+        50% {
+          transform: translateX(25%);
+
+        }
+
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+.fresh{width: $central-grid-width;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:-500px;
+	padding: 20px;
+	padding-top: 520px;
+
+	@include respond(tab-port){
+		width: 100%;
+	}
+
+	}
+
+
+.history {
+	width: $central-grid-width;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+
+	@include respond(tab-port){
+		width: 100%;
+	}
+
+
+	& ul{
+		padding: 20px;
+
+		& > li {
+			margin-bottom: 5px;
+			list-style: none;}
+		}
+
+
+	}
+
+
+	.window {
+			margin: 1.7rem;
+			padding: 13px;
+			width: 22.5rem;
+			vertical-align: middle;
+			border: 4px dotted $color-gold;
+			border-radius: 30px;
+			display: inline-block;
+			background-color: $color-white;
+
+
+
+			@include respond (tab-port){
+				display:block;
+				margin: 20px auto;
+				padding: 13px;
+				width: 60%;
+		}
+			@include respond (phone){
+				width: 90%;
+			}
+			&__image{
+				margin-top: 2rem;
+				margin-left: auto;
+				margin-right: auto;
+				width: 80%;
+			& img{
+				width:100%;
+
+
+			}
+		}
+
+	}
+	.fresh > .window{
+		background-color: darkkhaki;
+		border: 5px dotted $color-dark;
+
+	}
+
+	.video{
+		width: 100%;
+	}
+
+
+
+
+  .contact {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+
+
+
+	@include respond(tab-port){
+		width: 100%;
+	}
+
+  #instafeed {
+    display: table-cell;
+    // flex-wrap: wrap;
+    max-width: 64rem;
+    margin: auto;
+    // justify-content: center;
+    margin-top: 200px;
+
+    @include respond(phone){
+      margin-top: 0px;
+    }
   }
+
 }
 
-.pic-1{
-  background-image: url('../../assets/about/big/2a.jpg');
-}
-.pic-2{
-  background-image: url('../../assets/about/big/3.jpg');
-}
-.pic-3{
-  width: 70%;
-  margin: auto;
-  background-image: url('../../assets/about/big/4.jpg');
-}
-.pic-4{
-  height: 75vh;
-  background-image: url('../../assets/about/big/5.jpg');
-}
-.pic-5{
-  background-image: url('../../assets/about/big/6.jpg');
-}
-@include respond(phone){
-  .pic-1{
-    background-image: url('../../assets/about/small/2a.jpg');
-  }
-  .pic-2{
-    background-image: url('../../assets/about/small/3.jpg');
-  }
-  .pic-3{
-    width: 88%;
-    background-image: url('../../assets/about/small/4.jpg');
-  }
-  .pic-4{
-    height: 50vh;
-    background-image: url('../../assets/about/small/5.jpg');
-  }
-  .pic-5{
-    background-image: url('../../assets/about/small/6.jpg');
-  }
-}
+  .info {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+	color: $color-white;
 
+	&__topcat{
+			background-image: linear-gradient(to right,
+			rgba($color-dark, .85),
+			rgba($color-dark, 1));
+		}
+
+  }
+
+
+   .celebration{
+	height: 398px;
+	width: 99%;
+
+	background-image: url(../../assets/logo-topcat.png);
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: center;
+	background-size: 60%;
+	transition: 2s;
+
+	@include respond(phone){
+		height: 300px;
+		background-size: 100%;
+
+	}
+	& :hover{
+		background-size: 1%;
+	}
+   }

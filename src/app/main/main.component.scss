@@ -19,6 +19,10 @@
     background-image: url('../../assets/ZWR_bg-mobile.jpg');
 
   }
+  & h1{
+    text-align: right;
+    width: 80%;
+  }
 }
 
 .tooltip{
@@ -42,7 +46,7 @@
       }
   100%{
     height: calc(100vh  - 13rem);
-    filter: grayscale(0);
+    filter: grayscale(.6);
   }
 }
 @keyframes enterMobile {

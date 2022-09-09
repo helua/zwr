@@ -1,41 +1,261 @@
-<img src="../../assets/about/big/1.jpg" alt="ZWR w sekcji 'O nas' ilustracja nr 1">
-<h2>O NAS</h2>
-<!-- <div class="test"></div> -->
-  <p>Moja podróż przez życie składa się ze spotkań i jest podróżą przez ludzi. Drugi człowiek, ten przede mną, jest przygodą i sensem mojego świata, i poznanie go sprawia, że rośnie we mnie wdzięczność. Z tej wdzięczności wylewają się ze mnie kolejne teksty na kolejne albumy, jednak wiem, że samym dobrym słowem nie da się uporządkować świata wokół siebie. Wiara w słuszność takiej postawy sprawiła, że długo szukałem produktu, za który dumnie mógłbym wstawić swoje nazwisko — do momentu, w którym życie mi go zaprezentowało.<br>
-    Ten nóż jest tylko efektem ubocznym poszukiwań odpowiedzi na dużo większe pytania: Co jest istotą człowieczeństwa? Czym jest prawdziwe męstwo? Jak budować wolność i na jakim fundamencie ją oprzeć? Dziś mam wspaniałą rodzinę, własny las i gospodarstwo, przyjaciół z pasji, muzykę i słowa, a także mnóstwo dobrych ludzi wokół i pragnę o to wszystko dbać tak, jak potrafię najlepiej. Taką czuję odpowiedzialność, a bez niej wolność nie istnieje.
-  </p>
-  <div class="pic pic-1"></div>
-  <p>Podczas wojażu po Polsce z moim przyjacielem <span class="bold">Łukaszem</span> zatrzymaliśmy się na obiad u jego rodziców. Tak poznałem <span class="bold">Rycha</span>. Jakiś czas potem Łukasz zrobił w domu kilka noży z piły tarczowej, które przywiózł na Grochów razem z pewną historią. Otóż <span class="semibold">Rychu</span> zaskoczony faktem, że da się taki nóż wykonać własnoręcznie (i to w domowych warunkach), zaczął sam bawić się w swoim warsztacie… a reszta to historia. Mniej więcej w tym samym czasie logo ZWR wylądowało na okładce albumu „Knurion”- pierwszym z wielu albumów, do których okładki robiliśmy razem z <span class="semibold">Łukaszem</span>. Od tamtego czasu planowałem wrzucić na rynek własny produkt. Minęły cztery lata zanim połączyłem te kropki.</p>
-  <div class="pic pic-2">
-  </div>
-  <p>Telefon do <span class="semibold">Łukasza</span>, telefon do <span class="semibold">Rycha</span> i już byliśmy w drodze na pierwsze spotkanie. Na pokładzie dodatkowo <span class="bold">dwóch Bartków</span> - speców od obiektywów i internetów, żeby to wszystko elegancko dokumentować. Gościna u <span class="bold">Państwa Wasilewskich</span> tradycyjnie przemiła, warsztat profesjonalny, <span class="semibold">Rychu</span> rzetelny w wykładaniu nam tajników swojego rzemiosła. Temat dogadany, projekt noża ustalony, termin następnego wypadu również.</p>
-  <div class="pic pic-3">
-  </div>
-  <p>Kolejny przyjazd i mamy niespodziankę - wita nas <span class="bold">Miro Bojan</span>, autor projektu naszego noża. Słuchamy zatem jego opowieści o pasji do noży, która jest właściwie niesamowitą historią życia <span class="semibold">Mira</span>. W międzyczasie ustalamy detale techniczne i wszystko co nam się przypomni. Jest z nami również <span class="bold">Konrad</span>, kumpel z Kaszub, który w międzyczasie zmajstrował nierdzewne pudełeczka. Wspólnymi siłami dochodzimy do ostatecznej wizji. <span class="semibold">Bartek</span> zasuwa z aparatem jak poparzony, bo czas nagli. Jakiś czas później podczas spaceru z psami trafiłem przypadkiem na <span class="bold">Helio</span>, który zaoferował uporządkować wszystkie nasze pomysły i zbudować ten sklep, jak łeb.</p>
-  <div class="pic pic-4">
-  </div>
-  <p>Tak wygląda, w dużym skrócie, historia tego noża. Cel przyświeca nam następujący - dać ludziom coś, co jest nie tylko trwałe i potrzebne, ale też piękne, wykonane ręcznie z pasją i prezentowane z dumą. Ja ze swojej strony świadczę o tym własnym nazwiskiem i dopisuję dwa słowa, pojęcia nierozłączne, które przychodzą mi na myśl jako pierwsze, kiedy myślę o takim nożu - wolność i odpowiedzialność.</p>
-  <div class="pic pic-5">
-  </div>
+<div class="container">
+  <div class="container__overlay">
+
+    <div class="slides margin-bottom-huge">
+      <app-slideshow [slidesSet]="images" slidesId="main"></app-slideshow>
+    </div>
+
+    <a name="fresh"></a>
+    <section class="fresh margin-bottom-big">
+      <h1 class="margin-bottom-big">📰Newsy</h1>
+      <div class="window">
+        <h3>Organizujemy HMP i bronimy tytułu!✨</h3>
+          <div class="window__image">
+            <img src="../assets/hmp2022.jpg" alt="open">
+          </div>
+        <p>
+          Po rocznej przerwie w rozgrywkach organizujemy HMP dla wszystkich klas rozgrywkowych w Strefie Sportu Książenice i jeszcze bronimy tytułu Mistrza!
+          <br><a href="#contact" class="text-link text-link--2" target="blank">Dołącz do drużyny!</a>
+        </p>
+      </div>
+      <div class="window">
+        <h3>Mamy Halowe Mistrzostwo Polski! 🏆</h3>
+          <div class="window__image">
+            <img src="../assets/hmp2020rogal.JPG" alt="Rogal">
+          </div>
+        <p>
+          Po zaciętym finale przeciwko RJP Warszawa wygrywamy Halowe Mistrzostwo Polski 2020. Rywale kontrolowali mecz, ale nasz wysiłek obronny opłacił się w końcówce! 🥇
+        </p>
+        <div class="video">
+          <video src="../assets/universe.mp4" width="100%"></video>
+        </div>
+      </div>
 
 
-<!-- BACKGROUNDS NG FOR
-  <div *ngFor="let about of abouts; let i = index">
-  <p [innerHTML]="about"></p>
-  <div class="test">
-  </div>
-</div> -->
-<!-- PICTURES NG FOR
-  <div *ngFor="let about of abouts; let i = index">
-  <p [innerHTML]="about"></p>
-  <picture>
-    <source
-      [srcset]="smallPhotoUrl+(i+2)+'.jpg'"
-      media="(max-width: 600px)">
-    <source
-      [srcset]="bigPhotoUrl+(i+2)+'.jpg'"
-      >
-    <img  alt="TIPI KNAPA w sekcji 'O nas' ilustracja nr {{i+2}}">
-  </picture>
-</div> -->
 
+
+
+    </section>
+    <section class="history margin-bottom-huge" id="history">
+      <a name="history"></a>
+
+      <h1 class="margin-bottom-big">❄Historia</h1>
+
+      <p class="margin-bottom-big"><strong>Nasza drużyna powstała pod koniec 2010 roku w wietrzną, śnieżną noc.</strong> Trójka praojców rzucała w tę noc dyskiem i postanowili, że założą nową ekipę ultimate i będzie ona nosić nazwę owej mroźnej zawieruchy.
+        <br><br>Skład Zawieruchy to wyjadacze i zajawkowicze. Rzucamy dyskiem na zewnątrz i pod dachem, w parkach, na placach, na ulicach i plażach. Zawierucha to stan umysłu.
+        <br><br>Na Twój turniej przyjeżdżamy i tam otwieramy kramik.
+        <br>Organizujemy swoje, gdzie serdecznie zapraszamy.
+        <br><br>W inną, już nie tak śnieżną, noc roku 2021, nasi posłańcy udali się do plemienia AKS Zły Kosmodysk z wnioskiem wykonanie fuzji. Od tego czasu zawieruszone zagrania prezentują się w biało-czarnych barwach, a logo Zawieruchy wylądowało na rękawkach i stronie tej agencji eventowej.
+      </p>
+      <h1 class="margin-bottom-big">🏆Nasze sukcesy</h1>
+
+
+
+
+
+      <div class="window">
+
+
+        <ul class="success"><h3 class="margin-bottom-small">🍀 TRAWIASTE MISTRZOSTWA POLSKI</h3>
+          <li>🥔4. MP 2021 (Brzeg)</li>
+          <li>🥔4. MP 2019 (Opalenica)</li>
+          <li>7. MP 2018 (Opalenica)</li>
+          <li>5. MP 2017 (Wrocław)</li>
+          <li>6. MP 2016 (Poznań)</li>
+          <li>10. MP 2015 (Łany)</li>
+          <li>💀 MP 2014 (Łódź)</li>
+          <li>8. MP 2013 (Opalenica)</li>
+          <li>9. MP 2012 (Wrocław)</li>
+        </ul>
+      </div>
+      <a name="beach"></a>
+
+      <div class="window">
+        <ul class="success">
+        <h3 class="margin-bottom-small">🌅 PLAŻOWE MISTRZOSTWA POLSKI</h3>
+          <li>🥉 3. PMP 2022 (Gdańsk)</li>
+          <li>🥔 4. PMP 2021 (Gdańsk)</li>
+          <li>🥉 PMP 2019 (Gdańsk)</li>
+          <li>7. PMP 2018 (Gdańsk)</li>
+          <li>5. PMP 2017 (Gdańsk)</li>
+          <li>🥇 PMP 2016 (Gdańsk)</li>
+          <li>6. PMP 2015 (Gdańsk)</li>
+        </ul>
+      </div>
+
+      <div class="window">
+      <ul class="success">
+        <h3 class="margin-bottom-small">✨ SPIRIT OF&nbsp;THE&nbsp;GAME</h3>
+          <li>QHMP Centrum 2017</li>
+          <li>Mistrzostwa Polski 2015</li>
+          <li>QMP Centrum 2015</li>
+          <li>Warzka 2015</li>
+          <li>Mogilno Cup 2014</li>
+          <li>Ultimate Spring Break 2013</li>
+
+        </ul>
+      </div>
+      <a name="indoor"></a>
+
+      <div class="window">
+        <ul class="success">
+        <h3 class="margin-bottom-small">👟 HALOWE MISTRZOSTWA POLSKI</h3>
+        <li><span class="highlight">🥇 HMP 2022 (Książenice)</span></li>
+        <li><span class="highlight">🥇 HMP 2020 (Wrocław)</span></li>
+        <li>🥔4. HMP III liga  (Wrocław)</li>
+
+        <li>🥉 HMP 2019 (Warszawa)</li>
+        <li>🥉 HMP 2019 III liga (N. D. Maz.)</li>
+
+        <li>5. HMP 2018 (Zabrze)</li>
+          <li>🥔4. HMP 2017 (Wrocław)</li>
+          <li>5. HMP 2016 (Płock)</li>
+          <li>10. HMP 2015 (Wrocław)</li>
+          <li>8. HMP 2014 (Rzeszów)</li>
+          <li>5. HMP 2013 (Bełchatów)</li>
+          <li>9. HMP 2012 (Kraśnik)</li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="window">
+        <ul class="success">
+          <h3 class="margin-bottom-small">🏅 PUDŁO</h3>
+          <li>🥇 WLU* open 2019/20</li>
+          <li>🥇 WLU* mixed 2018/19</li>
+          <li>🥇 Rondo 2019</li>
+          <li>🥇 Warzka 2018</li>
+          <li>🥇 Mogilno Cup 2014</li>
+          <li>🥈 Mistrzostwa Warszawy 2018</li>
+          <li>🥈 Liga V4+ 2018</li>
+          <li>🥈 Ależ Talerz 2015</li>
+          <li>🥈 WLU 2015</li>
+          <li>🥈 Mistrzostwa Litwy Open 2014</li>
+          <li>🥈 WLU 2014</li>
+          <li>🥈 Boruta Cup 2014</li>
+          <li>🥉 WLU* mixed 2021/22</li>
+          <li>🥉 WLU* mixed 2020/21</li>
+          <li>🥉 WLU* mixed 2019/20</li>
+          <li>🥉 Warzka 2019</li>
+          <li>🥉 Rainbow Winter 2016</li>
+          <li>🥉 Warzka 2015</li>
+          <li>🥉 Sun Beam 2014</li>
+          <li>🥉 WZIU 2012/13</li>
+        </ul>
+      </div>
+      <a name="success"></a>
+
+
+      <div class="window">
+        <ul class="success">
+          <h3 class="margin-bottom-small">💪 INDYWIDUALNE</h3>
+          <li><span class="highlight">Kosmal MVP HMP 2022</span></li>
+          <li><span class="highlight">Zając MVP HMP 2020</span></li>
+          <li><span class="highlight">Tosia - 5MVP WLU* 19/20 women</span></li>
+          <li><span class="highlight">Zając, Rogal - 5MVP WLU* 19/20 mixed</span></li>
+          <li><span class="highlight">Zając, Helio - 5MVP WLU* 19/20 open</span></li>
+          <li><span class="highlight">Kostek - Sztos Roku 2019</span></li>
+          <li><span class="highlight">Tosia - Progres Roku 2019</span></li>
+          <li><span class="highlight">Zając - Zawodnik Roku 2019</span></li>
+          <li>Zając - MVP Dragon Cup 2019</li>
+          <li>Zając - MVP Rondo 2019</li>
+          <li>Rogal - MVP HMP III ligi 2019</li>
+          <li>Kacpi - Debiut Roku 2018</li>
+          <li>Ema - MVP Dragon Cup 2018</li>
+          <li>Helio - MVP MP Open 2018</li>
+          <li>Sarah - WMVP Ależ talerz 2015</li>
+          <li>Zając - MVP Goats Cup 2014</li>
+          <li>Helio - MVP roku 2014</li>
+          <li>Helio - MVP WLU 2014</li>
+          <li>Rogal - MVP Boruta Cup 2014</li>
+          <li>Paula - Debiut Roku 2014</li>
+          <li>Ruda - Debiut Roku 2013</li>
+          <li>Lucy - WMVP HMP 2013</li>
+          <li>Helio - MVP WZIU 2011/12</li>
+          <li>Rogal - MVP BBC 2011</li>
+        </ul>
+      </div>
+
+      <div class="">
+        <h1 class="margin-bottom-big" style="margin-top:45px;">🎈TOP CAT: turniej na 10-lecie</h1>
+
+        <a href="topcat/index.html">
+          <div class="celebration">
+          </div>
+        </a>
+        <p class="margin-bottom-big">Zwiedziliśmy 7 świata stron. Udało się na niejedno drzewo wspiąć i zawsze spaść na 4 łapy. Te wszystkie wspólne chwile wywarły na nas duży wpływ i chcemy wspólnie z Wami świętować tę wspaniałą dekadę.
+          <br>Jesteśmy Wam wdzięczni, bo bez Waszego towarzystwa, nie byłoby naszej historii. Czas na huczne zakończenie pierwszego sezonu serialu "Zawierucha" – zorganizujemy <a href="topcat/index.html" class="text-link">najlepszy turniej ever</a>! Na sztandar rzucamy sławnego Tolka Cacka i ruszamy do przygotowań. W planie high quality ultimate oraz dawka funu jakiej jeszcze nie przyjmowaliście.
+          <br><br><a href="topcat/index.html" class="text-link">Dowiedz się więcej o TOP CAT...</a>
+        </p>
+        </div>
+    </section>
+    <section class="contact margin-bottom-huge">
+      <h1 class="margin-bottom-big">Insta</h1>
+
+      <p class="margin-bottom-big">Wybryki na instaczu</p>
+
+      <!-- The target container for the Insta images -->
+      <div id="instafeed"></div>
+
+    </section>
+
+
+
+  <a name="contact"></a>
+    <section class="contact margin-bottom-huge">
+
+          <h1 class="margin-bottom-big">💌Dołącz do nas!</h1>
+
+          <p class="margin-bottom-big">Nasza drużyna ciągle się rozwija, stawiamy sobie coraz wyższe cele sportowe i szukamy talentów. <strong>Chcesz do nas dołączyć? Napisz!</strong>
+          </p>
+
+      <!--<form action="contact.php" method="post">
+          <label>imię: <input type="text" id="pole" placeholder="Imię lub ksywa"></label><br>
+          <label>wiek: <input type="text" id="pole" placeholder="nick lub e-mal"></label><br>
+          <label>e-mail: <input type="text" id="pole" placeholder="twój e-mail"></label><br>
+
+          </form>-->
+
+      <div class="socialdivs margin-bottom-big">
+
+        <div class="fb-inline">
+
+          <a href="https://www.facebook.com/zawieruchawarszawa/" target="blank">
+            <div class="social fb">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+          </a>
+
+        </div>
+        <div class="ig-inline">
+          <a href="https://www.instagram.com/zawierucha_zwr/" target="blank">
+            <div class="social ig">
+              <i class="fab fa-instagram"></i>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="email-inline">
+          <a href = 'mailto:zawieruchaultimate@gmail.com?body="Droga Zawierucho,"&subject="Jesteście super, mam pytanie..."'>
+            <div class="social email">
+              <i class="far fa-paper-plane"></i>
+            </div>
+          </a>
+        </div>
+
+        <div style="clear:both;"></div>
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+  </div>
+  </div>

@@ -44,5 +44,8 @@ export class ShopComponent implements OnInit, OnDestroy {
       navMain[i].style.position = 'fixed';
     }
   }
+  getToken(){
+    this.tok.getToken();
+  }
 }
 

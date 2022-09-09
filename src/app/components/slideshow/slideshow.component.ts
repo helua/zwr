@@ -21,6 +21,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
   constructor() {}
 
   ngOnInit(): void{
+    console.log(this.slidesSet);
     this.createSlidesSet(this.slidesSet);
     this.slidesIdLocal = this.slidesId;
   }
@@ -31,6 +32,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
     })
     )
     this.slides = newSlides;
+    console.log(this.slides)
   }
 
   ngAfterViewInit(): void {
@@ -59,7 +61,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
     slides[this.slideIndex - 1].style.display = 'block';
     dotsCurrent[this.slideIndex - 1].className += ' active';
   }
-  
+
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     console.log(event);
