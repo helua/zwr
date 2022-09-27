@@ -1,8 +1,9 @@
+
 <div class="slideshow-onclick" *ngIf="slides" (swipe)="onSwipe($event)">
   <div class="mySlides fade"  *ngFor="let slide of slides" [class]="slidesId">
-      <div class="numbertext">{{slide.indexOf}} / {{slides.length}}</div>
+      <!-- <div class="numbertext">{{slide.indexOf}} / {{slides.length}}</div> -->
       <img [src]="slide.source" style="width:100%">
-      <!-- <div class="text">{{slide.name}}</div> -->
+      <caption *ngIf="captions" class="text" >{{ slide.name }}</caption>
 
       <!-- The dots/circles -->
 

@@ -2,6 +2,10 @@
 .slides{
   width: 70%;
   margin: 1% 15%;
+  @include respond(phone){
+    width: 99%;
+    margin: .5%;
+  }
 }
 img
 {
@@ -15,7 +19,6 @@ h2{
     padding-left: 6%;
 
   }
-
 }
 p{
   padding: 3rem 15%;
@@ -28,12 +31,6 @@ p{
     font-size: 1.15rem;
     line-height: 1.5rem;
     text-align: left;
-  }
-  & span.bold{
-    font-family: $brygBoldItalic;
-  }
-  & span.semibold{
-    font-family: $brygSemiBoldItalic;
   }
 }
 
@@ -98,25 +95,11 @@ p{
         }
       }
 
-.fresh{width: $central-grid-width;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top:-500px;
-	padding: 20px;
-	padding-top: 520px;
 
-	@include respond(tab-port){
-		width: 100%;
-	}
-
-	}
-
-
-.history {
+.history, .contact, .fresh, .insta{
 	width: $central-grid-width;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 20px;
 
 	@include respond(tab-port){
 		width: 100%;
@@ -133,7 +116,12 @@ p{
 
 
 	}
-
+  .insta{
+    width: 90% !important;
+    & h1{
+      text-align: center;
+    }
+  }
 
 	.window {
 			margin: 1.7rem;
@@ -154,7 +142,9 @@ p{
 				width: 60%;
 		}
 			@include respond (phone){
-				width: 90%;
+				width: 86%;
+        margin: 5%;
+        padding: 2%;
 			}
 			&__image{
 				margin-top: 2rem;
@@ -181,56 +171,26 @@ p{
 
 
 
-
-  .contact {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 20px;
-
-
-
-	@include respond(tab-port){
-		width: 100%;
-	}
-
-  #instafeed {
-    display: table-cell;
-    // flex-wrap: wrap;
+#instafeed {
+    display: flex;
+    flex-wrap: wrap;
     max-width: 64rem;
     margin: auto;
-    // justify-content: center;
-    margin-top: 200px;
+    justify-content: center;
+    // margin-top: 200px;
 
     @include respond(phone){
       margin-top: 0px;
     }
-  }
-
 }
 
-  .info {
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	text-align: center;
-	color: $color-white;
-
-	&__topcat{
-			background-image: linear-gradient(to right,
-			rgba($color-dark, .85),
-			rgba($color-dark, 1));
-		}
-
-  }
 
 
-   .celebration{
-	height: 398px;
+
+
+.back{
+	height: 488px;
 	width: 99%;
-
-	background-image: url(../../assets/logo-topcat.png);
 	background-repeat: no-repeat;
 	background-position-x: center;
 	background-position-y: center;
@@ -243,6 +203,25 @@ p{
 
 	}
 	& :hover{
-		background-size: 1%;
+		background-size: 78%;
 	}
-   }
+}
+.celebration{
+	background-image: url(../../assets/logo-topcat.png);
+}
+.tornado{
+	background-image: url(../../assets/ZWR_logo.png);
+}
+.socialdivs{
+  display: flex;
+  justify-content: space-between;
+  size: 2rem;
+  margin: 17% 0%;
+  fa-icon{
+    font-size: 10vw;
+  }
+  @include respond(tab-port){
+    margin: 17% 12%;
+
+  }
+}

@@ -15,23 +15,46 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
   slideIndex: number = 1;
   @Input() slidesSet: Image[] = [];
   @Input() slidesId: string = '';
+  @Input() slidesCaptions: string[] = [];
   slidesIdLocal: string = '';
   slides: any[] = [];
+  captions: any[] = [];
 
   constructor() {}
 
   ngOnInit(): void{
     console.log(this.slidesSet);
+    this.createSlidesCaptions(this.slidesCaptions);
     this.createSlidesSet(this.slidesSet);
     this.slidesIdLocal = this.slidesId;
   }
-   createSlidesSet(slides: Image[]){
-    let newSlides = slides.map((slide, index) => ({
-      source: slide,
-      indexOf: index+1
+
+  createSlidesCaptions(captions: string[]){
+    let newCaptions = captions.map((caption) => ({
+      name: caption,
     })
     )
-    this.slides = newSlides;
+    this.captions = newCaptions;
+    console.log(this.captions)
+  }
+  createSlidesSet(slides: Image[]){
+    if(this.captions[0] != undefined){
+      let newSlides = slides.map((slide, index) => ({
+        source: slide,
+        indexOf: index+1,
+        name: this.captions[index].name
+
+      }))
+      this.slides = newSlides;
+    }
+    else{
+      let newSlides = slides.map((slide, index) => ({
+        source: slide,
+        indexOf: index+1,
+      }))
+      this.slides = newSlides;
+    }
+
     console.log(this.slides)
   }
 

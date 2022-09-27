@@ -37,7 +37,7 @@ $zwr-theme: mat.define-light-theme((
 
 
 body{
-    font-family: $bryg;
+    font-family: $f2;
     font-size: 1.3rem;
     font-weight: 599;
     letter-spacing: 0;
@@ -49,7 +49,7 @@ body{
     }
     & ::selection{
         background-color: $selection;
-        color: $contrast;
+        color: gold;
     }
 }
 
@@ -88,31 +88,35 @@ a{
         }
     }
 }
-
+h1, h2, h3{
+  font-family: $bryg;
+}
 p, h2, h1, h3, h4, ul {
     padding: 0 5%;
     margin: 0;
 }
-// h1{
-//   padding: 0rem;
-//   font-size: 6rem;
-//   letter-spacing: .6rem;
-//   line-height: 0rem;
-//   position: fixed;
-//   top: calc(5% + 3rem);
-//   left: 5%;
-//   z-index: 2;
-//   mix-blend-mode: difference;
-//   color: $metal;
-//   @include respond(tab-port){
-//     font-size: 4.5rem;
-//     letter-spacing: .45rem;
-//   }
-//   @media screen and (max-width: 600px){
-//     font-size: 3.5rem;
-//     letter-spacing: .45rem;
-//   }
-// }
+h1{
+  padding: 0rem;
+  font-size: 6rem;
+  letter-spacing: .6rem;
+  // line-height: 0rem;
+  // position: fixed;
+  // top: calc(5% + 3rem);
+  // left: 5%;
+  z-index: 2;
+  mix-blend-mode: difference;
+  color: $metal;
+  @include respond(tab-port){
+    font-size: 4.5rem;
+    letter-spacing: .45rem;
+    padding-left: .5rem;
+
+  }
+  @media screen and (max-width: 600px){
+    font-size: 2.5rem;
+    letter-spacing: .05rem;
+  }
+}
 // h2{
 //   font-size: 3.5rem;
 //   line-height: 4rem;

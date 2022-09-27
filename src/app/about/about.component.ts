@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 import { InstaService } from '../insta.service';
-import { Image } from '../shop/Product';
+import { faFacebookF, faInstagram, faVimeoV } from '@fortawesome/free-brands-svg-icons';
+
 
 @Component({
   selector: 'app-about',
@@ -10,7 +11,7 @@ import { Image } from '../shop/Product';
 })
 export class AboutComponent implements OnInit, AfterViewChecked {
 
-  title = 'ZWR | O nas';
+  title = 'ZWR 🥏 Drużyna';
   logo = '../../assets/ZWR_logo.jpg'
   description: MetaDefinition = {name: 'description', content: 'Historia Tipiknapa zdecydowanie nie należy do tych klasycznych. Poznaj historię sklepu Knapa i wartości, za którymi stoimy tworząc kolejne produkty dla Ciebie.'};
   bigPhotoUrl: string = '../../assets/about/big/';
@@ -27,8 +28,24 @@ export class AboutComponent implements OnInit, AfterViewChecked {
     "../../assets/9.jpg",
     "../../assets/10.jpg"
   ];
+  titles: string[] = [
+    "PMP 2016",
+    "WHOSE BABY 2014",
+    "MOGILNO 2014",
+    "HMP 2019",
+    "HMP 2020",
+    "MPX 2019",
+    "ZWYROLKI",
+    "PMP 2019",
+    "PMP 2019",
+    "WLU 2019/20"
+  ];
   instagramToken: any;
-  instagramString: string ='IGQVJYWUpaRHJvV0VpWEJRRFBGNVlOS0Eycm44SXNuXzRLdGVSN1BqcnQwR3cxVktfS29Ra3RpWWlSWmxLMHJpaFdvZAEZApN3hsV1NnZA1pVeWx3RjU3ZAUhvam52ZAFhCMEJUVDExYjJ3';
+  instagramString: string ='IGQVJWcHZAUMDJwbDdpQVZAwTXN2ZAXdFRklFN01iYlhMVklud05rbzZAwX1dtZAjBOdFZAoQ1NmR0VBWGlkV1BnRXI5MEtmYlRmTWRyUlhrNzVQcGZAybGstTHIyd1VsVU1uNF9EeXExdC1EU24tZAEdOc3VLYwZDZD';
+  // instagramString: string ='IGQVJYWUpaRHJvV0VpWEJRRFBGNVlOS0Eycm44SXNuXzRLdGVSN1BqcnQwR3cxVktfS29Ra3RpWWlSWmxLMHJpaFdvZAEZApN3hsV1NnZA1pVeWx3RjU3ZAUhvam52ZAFhCMEJUVDExYjJ3';
+  vimeoIcon = faVimeoV;
+  instagramIcon = faInstagram;
+  facebookIcon = faFacebookF;
 
   constructor(private titleService: Title, private metaService: Meta, private insta: InstaService){}
 
@@ -61,15 +78,20 @@ export class AboutComponent implements OnInit, AfterViewChecked {
     if(1>0){
       let i;
       for (i = 0; i < a.length; i++) {
-      // a[i].style.width = "300px"
+      a[i].style.width = "300px"
       a[i].style.height = "300px"
-      a[i].style.display = "table-cell"
-      a[i].style.verticalAlign = "middle"
-      a[i].style.margin = "1.5%"
+      a[i].style.display = "flex"
+      // a[i].style.width = "31%"
+      a[i].style.margin = "10px"
       }
       for (i = 0; i < a.length; i++) {
       img[i].style.width = "300px"
-      img[i].style.display = "block"
+      img[i].style.height = "fitContent"
+      img[i].style.display = "flex"
+      img[i].style.flexDirection = "column"
+      img[i].style.justifyContent = "center"
+      img[i].style.margin = "auto"
+
       }
     }else{
       let i;
