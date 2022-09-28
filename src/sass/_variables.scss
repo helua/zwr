@@ -1,6 +1,6 @@
 // $color: #84fb54;
 // $color: #ffa600;
-$color: #bbb7b7;
+$color: #d4af37;
 $contrast: #210d91;
 // $contrast: red;
 $mild: #72727267;
@@ -13,6 +13,9 @@ $selection: #bbb7b7;
 $gap: 0px;
 $f: 'Bahnschrift';
 $f2: 'Lucida Console';
+$f3: 'Trickster';
+$f4: 'Coolvetica';
+$f5: 'Coolvetica Italic';
 $tech: 'Sudo Regular';
 $techLight: 'Sudo Light';
 $bryg: 'Brygada 1918';
@@ -48,6 +51,30 @@ $gutter-vertical: 8rem;
 
 
 
+@font-face {
+  font-family: 'Trickster';
+  src: url('../assets/fonts/Trickster-Reg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Monsterrat';
+  src: url('../assets/fonts/MontserratAlternates-Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../assets/fonts/coolvetica\ rg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Coolvetica Italic';
+  src: url('../assets/fonts/coolvetica\ rg\ it.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 // @font-face {
 //   font-family: 'Lucida Console';
 //   src: url('http://zwr.waw.pl/assets/fonts/Lucon.ttf');
@@ -70,13 +97,13 @@ $gutter-vertical: 8rem;
 //   font-style: normal;
 // }
 
-// @font-face {
-//   font-family: 'Sudo Regular';
-//   src: url('http://zwr.waw.pl/assets/fonts/Sudo-Regular.ttf');
-//   src: url('http://zwr.waw.pl/assets/fonts/Sudo-Regular.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'Sudo Regular';
+  src: url('../assets/fonts/Sudo-Regular.ttf');
+  src: url('../assets/fonts/Sudo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 // @font-face {
 //   font-family: 'Brygada 1918';
 //   src: url('http://zwr.waw.pl/assets/fonts/Brygada\ 1918-Regular.otf');

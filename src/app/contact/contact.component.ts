@@ -8,7 +8,7 @@ import { faCopyright, faCode, faImages } from '@fortawesome/free-solid-svg-icons
 })
 export class ContactComponent implements OnInit {
   title = 'ZWR | Kontakt';
-  description: MetaDefinition = {name: 'description', content: 'Masz pytania dotyczące sklepu Tipiknapa? A może potrzebujesz dopytać się o szczegóły konkretnego produktu? Podbijaj do nas, coś na pewno zaradzimy.'};
+  description: MetaDefinition = {name: 'description', content: 'Masz pomysł na event? Chces wypożyczyć sprzęt? Skontaktuj się z nami'};
 
   copyIcon = faCopyright;
   codeIcon = faCode;

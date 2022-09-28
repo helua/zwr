@@ -10,7 +10,7 @@ export enum KEY_CODE {
   templateUrl: './slideshow.component.html',
   styleUrls: ['./slideshow.component.scss']
 })
-export class SlideshowComponent implements AfterViewInit, OnInit{
+export class SlideshowComponent implements OnInit, AfterViewInit{
 
   slideIndex: number = 1;
   @Input() slidesSet: Image[] = [];
@@ -27,6 +27,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
     this.createSlidesCaptions(this.slidesCaptions);
     this.createSlidesSet(this.slidesSet);
     this.slidesIdLocal = this.slidesId;
+    this.showSlides(this.slideIndex);
   }
 
   createSlidesCaptions(captions: string[]){
@@ -59,6 +60,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
   }
 
   ngAfterViewInit(): void {
+    console.log('AFTER VIEW INIT'+this.slideIndex)
     this.showSlides(this.slideIndex);
   }
 
@@ -71,7 +73,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
   showSlides(n: number): void {
     let i;
     const slides = Array.from(document.getElementsByClassName(this.slidesId) as HTMLCollectionOf<HTMLElement>);
-    const dots = Array.from(document.getElementsByClassName('dot') as HTMLCollectionOf<HTMLElement>);
+    const dots = Array.from(document.getElementsByClassName('dots') as HTMLCollectionOf<HTMLElement>)[0];
     const dotsCurrent = Array.from(document.getElementsByClassName('dot-'+this.slidesId) as HTMLCollectionOf<HTMLElement>);
     if (n > slides.length) {this.slideIndex = 1}
     if (n < 1) {this.slideIndex = slides.length}
@@ -83,6 +85,7 @@ export class SlideshowComponent implements AfterViewInit, OnInit{
     }
     slides[this.slideIndex - 1].style.display = 'block';
     dotsCurrent[this.slideIndex - 1].className += ' active';
+    dots.style.bottom = "4px";
   }
 
   @HostListener('window:keyup', ['$event'])

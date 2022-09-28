@@ -20,7 +20,7 @@ margin: 33px 0;
   position: fixed !important;
   padding-top: 3rem;
   width: 35%;
-  min-width: 200px;
+  min-width: 247px;
 }
 .mat-drawer-container{
   background-color: rgba($white, 0);
@@ -43,7 +43,7 @@ mat-sidenav img{
   font-size: 1.8rem;
   letter-spacing: .05rem;
   margin-top: 1.7vh;
-  font-family: $brygBoldItalic;
+  font-family: $f4;
   @include respond(phone){
     font-size: 1.55rem;
 
@@ -63,4 +63,19 @@ ul.social{
   justify-content: space-around;
   list-style-type: none;
 }
+
+
+
+  #disc{
+    left: 10%;
+    position: absolute;
+    z-index: 1;
+    width: 80%;
+    top: 32px;
+    display: none;
+
+    @include respond(phone){
+      display: none;
+    }
+  }
 

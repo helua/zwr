@@ -1,14 +1,42 @@
 @import '../../sass/styles';
 .contact{
-  height: 66vh;
-  margin-top: 33vh;
+  height: 100vh;
   text-align: center;
+  background-image: url('../../assets/ZWR_avatar-2.jpg');
+  background-size: 98%;
+  background-position: 0 53%;
+  background-repeat: no-repeat;
+  animation: none 2s backwards ease;
+  transition: all;
+  transform: rotate(0) scale(1);
+
+  @include respond(tab-port){
+    margin-top: -20vh;
+    background-size: 180%;
+    background-position: 81% 71%;
+    animation: none;
+  }
   @include respond(phone){
     margin-bottom: 6rem;
+    background-size: 210%;
+    background-position: 51% 41%;
+
+  }
+  & h2{
+    padding-top:33vh;
+    font-size: 5rem;
+    // @include respond(phone){
+    //   padding-top:13vh;
+    //   font-size: 3rem;
+    // }
+  }
+  & h3{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   & img{
     border-radius: 50%;
-    width: 200px;
+    width: 800px;
   }
   & p, fa-icon{
     margin-top: 2rem;
@@ -43,6 +71,13 @@
     @include respond(phone){
       display: none;
       visibility: hidden;
+    }
+  }
+  & p.copyw{
+    @include respond(phone){
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 }

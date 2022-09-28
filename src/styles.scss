@@ -56,19 +56,22 @@ body{
 .router-wrapper{
     margin: 13rem 0 0 0;
     @include respond(tab-port){
-      margin: 40vh 0 0 0;
+      margin: 30vh 0 0 0;
     }
     & img#triangle{
       position: absolute;
       top: calc(2rem + 1vw);
       z-index: 5;
+      display: none;
+
       @media screen and (orientation: portrait) {
-        width: 50%;
-        left: 25%;
+        width: 40%;
+        left: 30%;
       }
       @media screen and (orientation: landscape) {
-        width: 30%;
-        left: 35%;
+        width: 15%;
+        left: 42.5%;
+        top: 1vw;
       }
       @media screen and (min-width: 1119px){
         display: none;
@@ -76,7 +79,10 @@ body{
     }
 }
 nav, .button{
-  font-family: $brygSemiBoldItalic;
+  font-family: $f4;
+  &:hover{
+    font-family: $f5;
+  }
 }
 a{
     text-decoration: none;
@@ -86,9 +92,13 @@ a{
         &:hover{
             background-color: rgba($color, 0.8);
         }
+
     }
 }
-h1, h2, h3{
+h1, h2{
+  font-family: $f4;
+}
+h3{
   font-family: $bryg;
 }
 p, h2, h1, h3, h4, ul {
@@ -246,4 +256,14 @@ margin: 3rem auto; /* Causes the line to float to left of content. You can inste
 .highlight{
   border-bottom: 0.5px dotted $color-gold;
   padding:5px;
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+    transform: rotate(5deg) scale(.8);
+  }
+  100%{
+    opacity: 100%;
+    transform: rotate(0) scale(1);
+  }
 }

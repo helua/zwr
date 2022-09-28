@@ -1,5 +1,5 @@
 
-<div class="slideshow-onclick" *ngIf="slides" (swipe)="onSwipe($event)">
+<div class="slideshow-onclick" *ngIf="slides; else loadingBlock" (swipe)="onSwipe($event)">
   <div class="mySlides fade"  *ngFor="let slide of slides" [class]="slidesId">
       <!-- <div class="numbertext">{{slide.indexOf}} / {{slides.length}}</div> -->
       <img [src]="slide.source" style="width:100%">
@@ -26,6 +26,9 @@
 
 </div>
 
+<ng-template #loadingBlock>
+  <img src="../../../assets/1.jpg" alt="">
+</ng-template>
 
 
 

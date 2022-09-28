@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit, AfterViewChecked {
 
   title = 'ZWR 🥏 Drużyna';
   logo = '../../assets/ZWR_logo.jpg'
-  description: MetaDefinition = {name: 'description', content: 'Historia Tipiknapa zdecydowanie nie należy do tych klasycznych. Poznaj historię sklepu Knapa i wartości, za którymi stoimy tworząc kolejne produkty dla Ciebie.'};
+  description: MetaDefinition = {name: 'description', content: 'Drużyna ultimate frisbee Zawierucha Warszawa'};
   bigPhotoUrl: string = '../../assets/about/big/';
   smallPhotoUrl: string = '../../assets/about/small/';
   images: any[] = [
@@ -41,7 +41,7 @@ export class AboutComponent implements OnInit, AfterViewChecked {
     "WLU 2019/20"
   ];
   instagramToken: any;
-  instagramString: string ='IGQVJWcHZAUMDJwbDdpQVZAwTXN2ZAXdFRklFN01iYlhMVklud05rbzZAwX1dtZAjBOdFZAoQ1NmR0VBWGlkV1BnRXI5MEtmYlRmTWRyUlhrNzVQcGZAybGstTHIyd1VsVU1uNF9EeXExdC1EU24tZAEdOc3VLYwZDZD';
+  instagramString: string ='IGQVJWUkI2SUxOQUxRVk95U1d1WldHQ3pvYlFaaUc4SUR2MjAxRzk3SVR3dk9SUk5SUEdOMnFRWkgtMC1ZAMXdoUnExTU9TMGstWjVnbFZAfekNyZAU9iWGlUYlMyT3lCMl9tWENod3kyNHZArMS11UlJHYgZDZD';
   // instagramString: string ='IGQVJYWUpaRHJvV0VpWEJRRFBGNVlOS0Eycm44SXNuXzRLdGVSN1BqcnQwR3cxVktfS29Ra3RpWWlSWmxLMHJpaFdvZAEZApN3hsV1NnZA1pVeWx3RjU3ZAUhvam52ZAFhCMEJUVDExYjJ3';
   vimeoIcon = faVimeoV;
   instagramIcon = faInstagram;
@@ -52,7 +52,7 @@ export class AboutComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.description);
-    this.getToken();
+    // this.getToken();
     this.getFeed();
   }
 
