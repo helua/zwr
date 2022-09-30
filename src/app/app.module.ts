@@ -19,6 +19,7 @@ import { ProductComponent } from './shop/product/product.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
+import { SlideshowMainComponent } from './components/slideshow-main/slideshow-main.component';
 import { ButtonComponent } from './components/button/button.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -49,6 +50,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     ShoppingComponent,
     ProductComponent,
     SlideshowComponent,
+    SlideshowMainComponent,
     ButtonComponent,
     CartComponent,
     LoadingComponent,

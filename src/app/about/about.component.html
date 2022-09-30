@@ -2,9 +2,9 @@
   <div class="container__overlay">
 
     <div class="slides margin-bottom-huge">
-      <app-slideshow [slidesSet]="images" slidesId="main" [slidesCaptions]="titles"></app-slideshow>
+      <app-slideshow-main [slidesSet]="images" slidesId="main" [slidesCaptions]="titles"></app-slideshow-main>
     </div>
-
+    <!-- [slideIndex]="getIndex();" -->
     <a name="fresh"></a>
     <section class="fresh margin-bottom-big">
       <h1 class="margin-bottom-big">📰Newsy</h1>
@@ -40,18 +40,20 @@
 
       <h1 class="margin-bottom-big">❄Historia</h1>
 
-      <p><strong>Nasza drużyna powstała pod koniec 2010 roku w wietrzną, śnieżną noc.</strong> Trójka praojców rzucała w tę noc dyskiem i postanowili, że założą nową ekipę ultimate i będzie ona nosić nazwę owej mroźnej zawieruchy.
-        <br><br>Skład Zawieruchy to wyjadacze i zajawkowicze. Rzucamy dyskiem na zewnątrz i pod dachem, w parkach, na placach, na ulicach i plażach. Robiliśmy Zawieruchę na wielu turniejach i ligach, ale Zawierucha to też stan umysłu.
+      <p>Nasza drużyna powstała pod koniec 2010 roku w wietrzną, śnieżną noc. Trójka praojców rzucała w tę noc dyskiem i postanowili, że założą nową ekipę ultimate i będzie ona nosić nazwę owej mroźnej zawieruchy.
+        <br><br>Skład Zawieruchy to wyjadacze i zajawkowicze. Rzucamy dyskiem na zewnątrz i pod dachem, w parkach, na placach, na ulicach i plażach. Robiliśmy razem Zawieruchę na wielu turniejach i ligach, ale Zawierucha to też stan umysłu.
         <br>
         <br>Cyrk obwoźny groźny, a cheer nośny.
         <br><br>Zawierucha ludzie koty...
+        <br><br>I tak to lata.
         <br><br>W roku 2021 zima była wiele łagodniejsza niż dawniej. My chcieliśmy coś zmienić i namieszać. Nasi posłańcy udali się do sąsiedniego plemienia AKS Zły Kosmodysk z wnioskiem o wykonanie fuzji. Dawniej już graliśmy razem jako nieopierzona Kosmorucha...
         <br><br>Misja Zawieruchy nie jest jednakże dokonana.
         </p>
         <div class="back tornado">
         </div>
         <p class="margin-bottom-big">
-        <br><br>Tornadko wszyscy noszą głęboko w sercach, a niektórzy nawet na dziarach. Tutaj dostaje ono nowe życie w eventowym spin-offie. Zawsze przecież chodziło o show....
+        <br><br>Tornadko wszyscy zawieruszeni noszą głęboko w sercach, a niektórzy nawet na dziarach. Tutaj dostaje ono nowe życie w eventowym spin-offie.
+        <br><br>Zawsze przecież chodziło o show....
       </p>
 
 
@@ -103,8 +105,8 @@
         <div class="window">
           <ul class="success">
           <h3 class="margin-bottom-small">👟 HALOWE MISTRZOSTWA POLSKI</h3>
-          <li><span class="highlight">🥇 HMP 2022 (Książenice)</span></li>
-          <li><span class="highlight">🥇 HMP 2020 (Wrocław)</span></li>
+          <li>🥇 HMP 2022 (Książenice)</li>
+          <li>🥇 HMP 2020 (Wrocław)</li>
           <li>🥔4. HMP III liga  (Wrocław)</li>
 
           <li>🥉 HMP 2019 (Warszawa)</li>
@@ -153,14 +155,14 @@
         <div class="window">
           <ul class="success">
             <h3 class="margin-bottom-small">💪 INDYWIDUALNE</h3>
-            <li><span class="highlight">Kosmal MVP HMP 2022</span></li>
-            <li><span class="highlight">Zając MVP HMP 2020</span></li>
-            <li><span class="highlight">Tosia - 5MVP WLU* 19/20 women</span></li>
-            <li><span class="highlight">Zając, Rogal - 5MVP WLU* 19/20 mixed</span></li>
-            <li><span class="highlight">Zając, Helio - 5MVP WLU* 19/20 open</span></li>
-            <li><span class="highlight">Kostek - Sztos Roku 2019</span></li>
-            <li><span class="highlight">Tosia - Progres Roku 2019</span></li>
-            <li><span class="highlight">Zając - Zawodnik Roku 2019</span></li>
+            <li>Kosmal MVP HMP 2022</li>
+            <li>Zając MVP HMP 2020</li>
+            <li>Tosia - 5MVP WLU* 19/20 women</li>
+            <li>Zając, Rogal - 5MVP WLU* 19/20 mixed</li>
+            <li>Zając, Helio - 5MVP WLU* 19/20 open</li>
+            <li>Kostek - Sztos Roku 2019</li>
+            <li>Tosia - Progres Roku 2019</li>
+            <li>Zając - Zawodnik Roku 2019</li>
             <li>Zając - MVP Dragon Cup 2019</li>
             <li>Zając - MVP Rondo 2019</li>
             <li>Rogal - MVP HMP III ligi 2019</li>
@@ -187,13 +189,14 @@
           </div>
         </a>
         <p class="margin-bottom-big">Zwiedziliśmy 7 świata stron. Udało się na niejedno drzewo wspiąć i zawsze spaść na 4 łapy. Te wszystkie wspólne chwile wywarły na nas duży wpływ i chcemy wspólnie z Wami świętować tę wspaniałą dekadę.
-          <br>Jesteśmy Wam wdzięczni, bo bez Waszego towarzystwa, nie byłoby naszej historii. Czas na huczne zakończenie pierwszego sezonu serialu "Zawierucha" – zorganizujemy <a href="topcat/index.html" class="text-link">najlepszy turniej ever</a>! Na sztandar rzucamy sławnego Tolka Cacka i ruszamy do przygotowań. W planie high quality ultimate oraz dawka funu jakiej jeszcze nie przyjmowaliście.
-          <br><br><a href="topcat/index.html" class="text-link">Dowiedz się więcej o TOP CAT...</a>
+          <br><br>Jesteśmy Wam wdzięczni, bo bez Waszego towarzystwa, nie byłoby naszej historii. Czas na huczne zakończenie pierwszego sezonu serialu "Zawierucha" – zorganizujemy <a href="topcat/index.html" class="text-link">najlepszy turniej ever</a>! Na sztandar rzucamy sławnego Tolka Cacka i ruszamy do przygotowań. W planie high quality ultimate oraz dawka funu jakiej jeszcze nie przyjmowaliście.
+          <br><br>Ani się obejrzeliśmy, a wszyscy pokochali TOP CATa, podczas gdy Pułtusk na stałe zagościł na mapie europejskiego ultimate. Przed nami 4 edycja naszego festiwalu!
+          <br><br><a routerLink="/topcat" class="text-link">Dowiedz się więcej o TOP CAT...</a>
         </p>
   </section>
   <section class="insta margin-bottom-huge" id="insta">
     <h1 class="margin-bottom-big">Insta </h1>
-    <a href="instagram.com/zawierucha_zwr">@zawierucha_zwr</a>
+    <a href="https://instagram.com/zawierucha_zwr">@zawierucha_zwr</a>
       <!-- The target container for the Insta images -->
     <div id="instafeed">
     </div>

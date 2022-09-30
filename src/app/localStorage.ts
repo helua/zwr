@@ -38,7 +38,13 @@ export function setShipment(shipment: string){
 export function getShipment(): any {
   return localStorage.getItem('shipment');
 }
-
+//SLIDE INDEX
+export function setIndex(index: string){
+  localStorage.setItem('index', index);
+}
+export function getIndex(): any {
+  return localStorage.getItem('index');
+}
 export function clear() {
   return localStorage.clear();
 }

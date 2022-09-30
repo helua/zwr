@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit, HostListener } from '@angular/core';
+import { getIndex, setIndex } from 'src/app/localStorage';
 import { Image } from 'src/app/shop/Product';
 
 export enum KEY_CODE {
@@ -12,7 +13,7 @@ export enum KEY_CODE {
 })
 export class SlideshowComponent implements OnInit, AfterViewInit{
 
-  slideIndex: number = 1;
+  @Input() slideIndex: any;
   @Input() slidesSet: Image[] = [];
   @Input() slidesId: string = '';
   @Input() slidesCaptions: string[] = [];
@@ -23,11 +24,15 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
   constructor() {}
 
   ngOnInit(): void{
-    console.log(this.slidesSet);
     this.createSlidesCaptions(this.slidesCaptions);
     this.createSlidesSet(this.slidesSet);
     this.slidesIdLocal = this.slidesId;
-    this.showSlides(this.slideIndex);
+    if(this.slidesId != 'main'){
+      this.slideIndex = 0;
+    }
+    console.log(this.slides)
+    console.log(this.slideIndex);
+    console.log(this.slides.length);
   }
 
   createSlidesCaptions(captions: string[]){
@@ -36,7 +41,6 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
     })
     )
     this.captions = newCaptions;
-    console.log(this.captions)
   }
   createSlidesSet(slides: Image[]){
     if(this.captions[0] != undefined){
@@ -55,61 +59,81 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
       }))
       this.slides = newSlides;
     }
-
-    console.log(this.slides)
   }
 
   ngAfterViewInit(): void {
-    console.log('AFTER VIEW INIT'+this.slideIndex)
     this.showSlides(this.slideIndex);
   }
 
-  plusSlides(n: number): void {
-    this.showSlides(this.slideIndex += n);
-  }
   currentSlide(n: number): void {
-    this.showSlides(this.slideIndex = n);
+      this.slideIndex = n;
+      this.showSlides(this.slideIndex);
+
   }
   showSlides(n: number): void {
     let i;
     const slides = Array.from(document.getElementsByClassName(this.slidesId) as HTMLCollectionOf<HTMLElement>);
     const dots = Array.from(document.getElementsByClassName('dots') as HTMLCollectionOf<HTMLElement>)[0];
     const dotsCurrent = Array.from(document.getElementsByClassName('dot-'+this.slidesId) as HTMLCollectionOf<HTMLElement>);
-    if (n > slides.length) {this.slideIndex = 1}
-    if (n < 1) {this.slideIndex = slides.length}
+
+    //all slides hide
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
     }
+    //all dots inactive
     for (i = 0; i < dotsCurrent.length; i++) {
       dotsCurrent[i].className = dotsCurrent[i].className.replace(' active', '');
     }
-    slides[this.slideIndex - 1].style.display = 'block';
-    dotsCurrent[this.slideIndex - 1].className += ' active';
+    //activate current slide
+    //going out of the gallery left and right
+    console.log(n, slides)
+    if (n > slides.length - 1) {
+      this.slideIndex = 0;
+      slides[0].style.display = 'block';
+      dotsCurrent[0].className += ' active';
+
+    }
+    if (n < 0) {
+      this.slideIndex = slides.length;
+      slides[slides.length - 1].style.display = 'block';
+      dotsCurrent[slides.length - 1].className += ' active';
+
+    }
+    else{
+      slides[n].style.display = 'block';
+      dotsCurrent[n].className += ' active';
+    }
+
+    //save current slide if main slideshow
+    if(this.slidesId === 'main'){
+      setIndex(n.toString());
+    }
     dots.style.bottom = "4px";
   }
 
+  //navigaye on let / right arrow keys
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     console.log(event);
     if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
-      this.plusSlides(1);
+      this.currentSlide(this.slideIndex + 1);
     }
     if (event.keyCode === KEY_CODE.LEFT_ARROW) {
-      this.plusSlides(-1);
+      this.currentSlide(this.slideIndex - 1);
     }
   }
 
   //navigate on swipe right / left event
   onSwipe(evt: any) {
-  const x = Math.abs(evt.deltaX) > 40 ? (evt.deltaX > 0 ? 'right' : 'left'):'';
-  // posible usage of up / down swipe event
-  // const y = Math.abs(evt.deltaY) > 40 ? (evt.deltaY > 0 ? 'down' : 'up') : '';
-  console.log(x);
-  if(x === 'right'){
-    this.plusSlides(-1);
-  }
-  if(x === 'left'){
-    this.plusSlides(1);
-  }
+    const x = Math.abs(evt.deltaX) > 40 ? (evt.deltaX > 0 ? 'right' : 'left'):'';
+    // posible usage of up / down swipe event
+    // const y = Math.abs(evt.deltaY) > 40 ? (evt.deltaY > 0 ? 'down' : 'up') : '';
+    console.log(x);
+    if(x === 'right'){
+      this.currentSlide(this.slideIndex - 1);
+    }
+    if(x === 'left'){
+      this.currentSlide(this.slideIndex + 1);
+    }
   }
 }

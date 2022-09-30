@@ -1,0 +1,34 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Image } from 'src/app/shop/Product';
+import { SlideshowComponent } from '../slideshow/slideshow.component';
+import { getIndex, setIndex } from 'src/app/localStorage';
+
+export enum KEY_CODE {
+  RIGHT_ARROW = 39,
+  LEFT_ARROW = 37
+}
+@Component({
+  selector: 'app-slideshow-main',
+  templateUrl: './slideshow-main.component.html',
+  styleUrls: ['./slideshow-main.component.scss']
+})
+export class SlideshowMainComponent extends SlideshowComponent implements OnInit {
+
+  slideIndex: number = 0;
+  @Input() slidesSet: Image[] = [];
+  @Input() slidesId: string = '';
+  @Input() slidesCaptions: string[] = [];
+
+  constructor() {
+    super();
+  }
+
+  ngOnInit(): void{
+      console.log('test', getIndex())
+      getIndex();
+      console.log(parseInt(getIndex()))
+      this.slideIndex = parseInt(getIndex());
+      // this.showSlides(parseInt('getIndex()'))
+  }
+
+}

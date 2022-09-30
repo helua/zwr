@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 import { InstaService } from '../insta.service';
 import { faFacebookF, faInstagram, faVimeoV } from '@fortawesome/free-brands-svg-icons';
+import { getIndex, setIndex } from 'src/app/localStorage';
 
 
 @Component({
@@ -52,8 +53,8 @@ export class AboutComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.description);
-    // this.getToken();
-    this.getFeed();
+      // this.getToken();
+      // this.getFeed();
   }
 
   getToken(){

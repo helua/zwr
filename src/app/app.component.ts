@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta, MetaDefinition } from '@angular/platform-browser';
-import { getToken, clear, setCart, setOrderId, setCheckoutButton, getCart, getOrderId, getCheckoutButton } from '../app/localStorage'
+import { getToken, clear, setCart, setOrderId, setCheckoutButton, getCart, getOrderId, getCheckoutButton, getIndex, setIndex } from '../app/localStorage'
 import { TokenService } from './token.service';
 
 @Component({
@@ -34,6 +34,9 @@ export class AppComponent {
     }
     if(getCheckoutButton() === null){
       setCheckoutButton('false');
+    }
+    if(getIndex() === null){
+      setIndex('0');
     }
   }
 }
