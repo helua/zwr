@@ -30,9 +30,6 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
     if(this.slidesId != 'main'){
       this.slideIndex = 0;
     }
-    console.log(this.slides)
-    console.log(this.slideIndex);
-    console.log(this.slides.length);
   }
 
   createSlidesCaptions(captions: string[]){
@@ -67,7 +64,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
 
   currentSlide(n: number): void {
       this.slideIndex = n;
-      this.showSlides(this.slideIndex);
+      this.showSlides(n);
 
   }
   showSlides(n: number): void {
@@ -86,7 +83,6 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
     }
     //activate current slide
     //going out of the gallery left and right
-    console.log(n, slides)
     if (n > slides.length - 1) {
       this.slideIndex = 0;
       slides[0].style.display = 'block';
@@ -100,6 +96,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
 
     }
     else{
+      // this.slideIndex = n;
       slides[n].style.display = 'block';
       dotsCurrent[n].className += ' active';
     }

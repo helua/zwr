@@ -105,6 +105,12 @@ p, h2, h1, h3, h4, ul {
     padding: 0 5%;
     margin: 0;
 }
+ul li{
+  font-size: 1.2rem;
+  @include respond(phone){
+    font-size: 1rem;
+  }
+}
 h1{
   padding: 0rem;
   font-size: 6rem;
@@ -236,14 +242,6 @@ fa-icon{
   height: auto !important;
 }
 
-div.vertical-line
-
-{
-width: 60%; /* Line width */
-background-image: radial-gradient(rgba(($color-dark), .8), rgba(($color-orange), 1)); /* Line color */
-height: 1px; /* Override in-line if you want specific height. */
-margin: 3rem auto; /* Causes the line to float to left of content. You can instead use position:absolute or display:inline-block if this fits better with your design */
-}
 .margin-bottom-small {
   margin-bottom: 20px; }
 

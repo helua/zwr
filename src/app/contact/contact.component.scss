@@ -22,21 +22,27 @@
     background-position: 51% 41%;
 
   }
+  & img{
+    padding-top: calc(33vh - 200px);
+    height: 70px;
+    width: 70px;
+    @include respond(phone){
+      padding-top: 27vh;
+
+    }
+  }
   & h2{
-    padding-top:33vh;
     font-size: 5rem;
-    // @include respond(phone){
-    //   padding-top:13vh;
-    //   font-size: 3rem;
-    // }
+    @include respond(phone){
+      font-size: 3.6rem;
+    }
   }
   & h3{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  & img{
-    border-radius: 50%;
-    width: 800px;
+    margin: 1rem 0;
+    @include respond(phone){
+      margin: .5rem 0;
+      font-size: 1rem;
+    }
   }
   & p, fa-icon{
     margin-top: 2rem;
@@ -76,7 +82,7 @@
   & p.copyw{
     @include respond(phone){
       position: absolute;
-      bottom: 0;
+      bottom: -5rem;
       right: 0;
     }
   }
