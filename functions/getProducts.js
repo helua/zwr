@@ -18,7 +18,7 @@ exports.handler = async () => {
         images: [],
         sku: product.defaultProductVariant.sku,
         weight: product.defaultProductVariant.grams,
-        length: product.defaultProductVariant.length,
+        // length: product.defaultProductVariant.length,
         bladeLength: product.defaultProductVariant.bladeLength,
         bladeWidth: product.defaultProductVariant.bladeWidth,
         steelThickness: product.defaultProductVariant.steelThickness

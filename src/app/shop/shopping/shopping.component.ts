@@ -108,14 +108,13 @@ export class ShoppingComponent implements OnInit {
       vendor: p.vendor,
       body: blocksToHtml({ blocks: p.body }),
       sku: p.defaultProductVariant.sku,
-      weight: p.defaultProductVariant.grams,
       length: p.defaultProductVariant.length,
-      bladeLength: p.defaultProductVariant.bladeLength,
-      bladeWidth: p.defaultProductVariant.bladeWidth,
-      steelThickness: p.defaultProductVariant.steelThickness,
-      handle: p.defaultProductVariant.handle,
-      blade: p.defaultProductVariant.blade,
-      sheath: p.defaultProductVariant.sheath,
+      width: p.defaultProductVariant.width,
+      height: p.defaultProductVariant.height,
+      lengthUnfold: p.defaultProductVariant.lengthUnfold,
+      widthUnfold: p.defaultProductVariant.widthUnfold,
+      heightUnfold: p.defaultProductVariant.heightUnfold,
+      color: p.defaultProductVariant.color,
       images: []
 
     }

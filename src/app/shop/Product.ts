@@ -12,14 +12,13 @@ export interface Product {
   body?: string;
   images?: string[];
   sku?: string;
-  weight?: number;
+  width?: number;
   length?: number;
-  bladeLength?: number;
-  bladeWidth?: number;
-  steelThickness?: string
-  handle?: string;
-  blade?: string;
-  sheath?: string;
+  height?: number;
+  widthUnfold?: number;
+  lengthUnfold?: number;
+  heightUnfold?: number;
+  color?: string;
 }
 
 export interface CartData {

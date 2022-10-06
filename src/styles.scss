@@ -133,45 +133,43 @@ h1{
     letter-spacing: .05rem;
   }
 }
-// h2{
-//   font-size: 3.5rem;
-//   line-height: 4rem;
-//   letter-spacing: .11rem;
-//   padding: 0 7%;
+h2{
+  font-size: 3.5rem;
+  line-height: 4rem;
+  letter-spacing: .11rem;
+  padding: 0 7%;
+  @include respond(tab-port){
+      font-size: 3rem;
+      letter-spacing: .3rem;
+  }
+  @include respond(phone){
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    line-height: 2.3rem;
+  }
+}
+p{
+  text-align: left;
+  padding: 1rem 4%;
+  font-size: 1.18rem;
+  line-height: 1.3rem;
+  @include respond(big-desktop){
+    font-size: 1.5vw;
+    line-height: 1.6vw;
+    padding: 1rem 8%;
 
-
-//   @include respond(tab-port){
-//       font-size: 3rem;
-//       letter-spacing: .3rem;
-//   }
-//   @include respond(phone){
-//     font-size: 2rem;
-//     letter-spacing: .1rem;
-//     line-height: 2.3rem;
-//   }
-// }
-// p{
-//   text-align: left;
-//   padding: 1rem 4%;
-//   font-size: 1.18rem;
-//   line-height: 1.3rem;
-//   @include respond(big-desktop){
-//     font-size: 1.5vw;
-//     line-height: 1.6vw;
-//     padding: 1rem 8%;
-
-//   }
-//   @include respond(tab-port){
-//     font-size: 1.2rem;
-//     line-height: 1.4rem;
-//     padding: 1rem 5%;
-//   }
-//   @include respond(phone){
-//     font-size: 1rem;
-//     line-height: 1.2rem;
-//     padding: 1rem 1.5%;
-//   }
-// }
+  }
+  @include respond(tab-port){
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    padding: 1rem 5%;
+  }
+  @include respond(phone){
+    font-size: 1rem;
+    line-height: 1.2rem;
+    padding: 1rem 1.5%;
+  }
+}
 
 table{
   width: 100%;

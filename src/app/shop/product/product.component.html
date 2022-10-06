@@ -18,13 +18,15 @@
     <div class="holder-info">
       <div class="body-wrapper" [innerHTML]="product.body"></div>
         <table class="tech">
-          <!-- <tr><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></td></tr> -->
-          <tr><td>waga noża:</td><td>{{product.weight}} g</td></tr>
-          <tr><td>długość całkowita:</td> <td>{{product.length}} mm</td></tr>
-          <tr><td>długość ostrza:</td> <td>{{product.bladeLength}} mm</td></tr>
-          <tr><td>szerokość ostrza:</td> <td>{{product.bladeWidth}} mm</td></tr>
-          <tr><td>grubość stali:</td> <td>{{product.steelThickness}} mm</td></tr>
-          <tr><td>rękojeść:</td>
+          <tr *ngIf="product.categories"><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></td></tr>
+          <tr *ngIf="product.length"><td>długość:</td> <td>{{product.length}} cm</td></tr>
+          <tr *ngIf="product.width"><td>szerokość:</td> <td>{{product.width}} cm</td></tr>
+          <tr *ngIf="product.height"><td>wysokość:</td><td>{{product.height}} cm</td></tr>
+          <tr *ngIf="product.lengthUnfold"><td>długość przed rozłożeniem:</td> <td>{{product.lengthUnfold}} cm</td></tr>
+          <tr *ngIf="product.widthUnfold"><td>szerokość przed rozłożeniem:</td> <td>{{product.widthUnfold}} cm</td></tr>
+          <tr *ngIf="product.heightUnfold"><td>wysokość przed rozłożeniem:</td><td>{{product.heightUnfold}} cm</td></tr>
+          <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr>
+          <!-- <tr><td>rękojeść:</td>
             <td
               class="info-holder"
               matTooltipClass="info"
@@ -32,19 +34,9 @@
               matTooltip="Przyleciało z Ameryki Południowej, jest to drewno ciężkie, o małej wilgotności włókien i małymi wartościami skurczów, za to sporą wytrzymałością na zgniatanie statyczne i ściskanie wzdłuż włókien - dla Was ważne, że bardzo ciężko je wypaczyć, a łączenia są bardzo trwałe.">
               {{product.handle}}
             </td>
-          </tr>
-          <tr><td>ostrze:</td>
-            <td
-              class="info-holder"
-              matTooltipClass="info"
-              matTooltipPosition="right"
-              matTooltip="Jest bardzo odporna na zużycie ścierne i cechuje ją wysoka hartowność, z kolei słonność do odkształceń jest mała - to sprawia, że ostrze jest trwałe i stępia się powoli. Polecamy ostrzałki diamentowe lub z węglika krzemu.">
-              {{product.blade}}
-            </td>
-          </tr>
-          <tr><td>pochwa:</td> <td>{{product.sheath}}</td></tr>
-          <tr><td>stan magazynu:</td><td>{{this.stock}}/20 sztuk</td></tr>
-          <tr><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
+          </tr> -->
+          <tr><td>stan magazynu:</td><td>{{this.stock}} sztuk</td></tr>
+          <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
       <p class="price" *ngIf="this.stock !== 0">
         cena: <b>{{productPrice()}} </b>
