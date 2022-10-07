@@ -1,4 +1,9 @@
 @import '../../sass/styles';
+h1{
+  font-size: 6rem;
+  padding: 1% 14%;
+  margin-bottom: 100px;
+}
 .slides{
   width: 60%;
   margin: 1% 20%;
@@ -13,14 +18,14 @@ img
   width: 100%;
   vertical-align: bottom;
 }
-h2{
-  margin: 2rem 0 0 0;
-  padding-left: 15%;
-  @include respond(phone){
-    padding-left: 6%;
+// h2{
+//   margin: 2rem 0 0 0;
+//   padding-left: 15%;
+//   @include respond(phone){
+//     padding-left: 6%;
 
-  }
-}
+//   }
+// }
 p{
   padding: 3rem 10%;
   font-size: 1.2rem;
@@ -97,7 +102,7 @@ p{
       }
 
 
-.history, .contact, .fresh, .insta{
+.history, .contact, .fresh, .insta, .trophies{
 	width: $central-grid-width;
 	margin-left: auto;
 	margin-right: auto;
@@ -116,7 +121,70 @@ p{
 		}
 
 
-	}
+}
+.window {
+  margin: 1.7rem;
+  padding: 13px;
+  width: 22.5rem;
+  vertical-align: middle;
+  border: 4px dotted $color-gold;
+  border-radius: 30px;
+  display: inline-block;
+  background-color: $color-white;
+
+
+
+  @include respond (tab-port){
+    display: block;
+    margin: 20px auto;
+    padding: 13px;
+    width: 60%;
+}
+  @include respond (phone){
+    width: 86%;
+    margin: 5%;
+    padding: 2%;
+  }
+  &__image{
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  & img{
+    width:100%;
+
+
+  }
+}
+
+}
+.trophies{
+  width: 70rem;
+	@include respond(tab-land){
+    width: 58rem;
+  }
+	@include respond(tab-port){
+    width: 52rem;
+  }
+  @include respond(phone){
+    width: 100%;
+  }
+
+  & > .window{
+    width: 29rem;
+    @include respond(tab-land){
+      width: 22.5rem;
+      margin: 2rem;
+      display: inline-block;
+    }
+    @include respond(tab-port){
+      width: 19.5rem;
+    }
+    @include respond(phone){
+      width: 77%;
+    }
+  }
+}
   // .insta{
   //   width: 90% !important;
   //   & h1{
@@ -124,42 +192,7 @@ p{
   //   }
   // }
 
-	.window {
-			margin: 1.7rem;
-			padding: 13px;
-			width: 22.5rem;
-			vertical-align: middle;
-			border: 4px dotted $color-gold;
-			border-radius: 30px;
-			display: inline-block;
-			background-color: $color-white;
 
-
-
-			@include respond (tab-port){
-				display:block;
-				margin: 20px auto;
-				padding: 13px;
-				width: 60%;
-		}
-			@include respond (phone){
-				width: 86%;
-        margin: 5%;
-        padding: 2%;
-			}
-			&__image{
-				margin-top: 2rem;
-				margin-left: auto;
-				margin-right: auto;
-				width: 80%;
-			& img{
-				width:100%;
-
-
-			}
-		}
-
-	}
 	.fresh > .window{
 		background-color: darkkhaki;
 		border: 5px dotted $color-dark;

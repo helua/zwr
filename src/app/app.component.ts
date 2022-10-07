@@ -15,8 +15,8 @@ export class AppComponent {
   constructor(private metaService: Meta){};
 
   ngOnInit(){
-    // clear();
-    // this.metaService.updateTag(this.norobots);
+    clear();
+    this.metaService.updateTag(this.norobots);
     this.metaService.addTags([
       {property: 'og:image', content: 'http://zwr.waw.pl/assets/ZWR_share.jpg'}
     ]);

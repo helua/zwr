@@ -95,15 +95,22 @@ a{
 
     }
 }
-h1, h2{
-  font-family: $f4;
-}
 h3{
   font-family: $bryg;
 }
 p, h2, h1, h3, h4, ul {
     padding: 0 5%;
     margin: 0;
+
+}
+h1, h2{
+  font-family: $f4;
+  mix-blend-mode: difference;
+  color: $metal;
+  font-size: 5rem;
+  letter-spacing: .3rem;
+  padding: 1% 7%;
+
 }
 ul li{
   font-size: 1.2rem;
@@ -112,21 +119,12 @@ ul li{
   }
 }
 h1{
-  padding: 0rem;
-  font-size: 6rem;
-  letter-spacing: .6rem;
-  // line-height: 0rem;
-  // position: fixed;
-  // top: calc(5% + 3rem);
-  // left: 5%;
-  z-index: 2;
-  mix-blend-mode: difference;
-  color: $metal;
+  font-size:6rem;
+  // padding: 1% 7%;
   @include respond(tab-port){
     font-size: 4.5rem;
     letter-spacing: .45rem;
     padding-left: .5rem;
-
   }
   @media screen and (max-width: 600px){
     font-size: 2.5rem;
@@ -134,12 +132,9 @@ h1{
   }
 }
 h2{
-  font-size: 3.5rem;
-  line-height: 4rem;
-  letter-spacing: .11rem;
-  padding: 0 7%;
+  line-height: 4.5rem;
   @include respond(tab-port){
-      font-size: 3rem;
+      font-size: 3.5rem;
       letter-spacing: .3rem;
   }
   @include respond(phone){
@@ -247,7 +242,7 @@ fa-icon{
   margin-bottom: 60px; }
 
 .margin-bottom-huge {
-  padding-bottom: 130px; }
+  padding-bottom: 100px; }
 
 .highlight{
   border-bottom: 0.5px dotted $color-gold;
@@ -256,10 +251,8 @@ fa-icon{
 @keyframes fadeIn {
   0%{
     opacity: 0;
-    transform: rotate(5deg) scale(.8);
   }
   100%{
     opacity: 100%;
-    transform: rotate(0) scale(1);
   }
 }

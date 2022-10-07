@@ -5,6 +5,8 @@
 //   z-index: 50;
 // }
 h2{
+  color: black;
+  font-size: 3.5rem;
   @include respond(tab-port){
     padding: 0rem 5%;
   }

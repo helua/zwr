@@ -6,12 +6,13 @@
       <caption *ngIf="captions" class="text" >{{ slide.name }}</caption>
 
   <!-- Next and previous buttons -->
-  <a class="prev" (click)="currentSlide(slide.indexOf - 2)">&#10094;</a>
-  <a class="next" (click)="currentSlide(slide.indexOf)">&#10095;</a>
+
+  <a *ngIf="slides.length > 1" class="prev" (click)="currentSlide(slide.indexOf - 2)">&#10094;</a>
+  <a *ngIf="slides.length > 1" class="next" (click)="currentSlide(slide.indexOf)">&#10095;</a>
 </div>
 
   <!-- The dots/circles -->
-  <div class="dots">
+  <div *ngIf="slides.length > 1" class="dots">
     <span
       *ngFor="let slide of slides"
       class="dot"

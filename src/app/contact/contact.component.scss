@@ -2,11 +2,11 @@
 .contact{
   height: 100vh;
   text-align: center;
-  background-image: url('../../assets/ZWR_avatar-2.jpg');
+  background-image: url('../../assets/ZWR_background.jpg');
   background-size: 98%;
   background-position: 0 53%;
   background-repeat: no-repeat;
-  animation: none 2s backwards ease;
+  animation: fadeIn 2s backwards ease;
   transition: all;
   transform: rotate(0) scale(1);
 

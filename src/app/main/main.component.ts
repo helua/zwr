@@ -5,7 +5,7 @@ import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class MainComponent implements OnInit {
 
