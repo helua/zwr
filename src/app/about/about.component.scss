@@ -18,14 +18,11 @@ img
   width: 100%;
   vertical-align: bottom;
 }
-// h2{
-//   margin: 2rem 0 0 0;
-//   padding-left: 15%;
-//   @include respond(phone){
-//     padding-left: 6%;
-
-//   }
-// }
+h2{
+  @include respond(phoneUp){
+    font-size: 5rem;
+  }
+}
 p{
   padding: 3rem 10%;
   font-size: 1.2rem;

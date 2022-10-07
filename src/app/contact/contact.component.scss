@@ -33,7 +33,8 @@
   }
   & h2{
     font-size: 5rem;
-    mix-blend-mode: none;
+    color: black;
+    mix-blend-mode: normal;
     @include respond(phone){
       font-size: 3.6rem;
     }

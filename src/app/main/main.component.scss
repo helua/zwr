@@ -27,8 +27,8 @@
 .title{
   position: absolute;
   top: 65vh;
-  right: 10vw;
-  width: 100%;
+  width: 84%;
+  margin: 0 8%;
   @include respond(tab-land){
     right: 0;
   }
@@ -50,6 +50,13 @@
     }
 
   }
+  & h2{
+    font-size: 3rem;
+    @include respond(phone){
+      font-size: 1.4rem;
+    }
+  }
+
 }
 
 

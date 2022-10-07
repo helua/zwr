@@ -107,7 +107,6 @@ h1, h2{
   font-family: $f4;
   mix-blend-mode: difference;
   color: $metal;
-  font-size: 5rem;
   letter-spacing: .3rem;
   padding: 1% 7%;
 
@@ -132,6 +131,7 @@ h1{
   }
 }
 h2{
+  font-size: 3.5rem;
   line-height: 4.5rem;
   @include respond(tab-port){
       font-size: 3.5rem;
