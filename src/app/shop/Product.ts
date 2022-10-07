@@ -19,6 +19,8 @@ export interface Product {
   lengthUnfold?: number;
   heightUnfold?: number;
   color?: string;
+  price?: string;
+  stock?: number;
 }
 
 export interface CartData {

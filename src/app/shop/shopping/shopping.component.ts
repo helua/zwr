@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ɵɵi18nAttributes } from '@angular/core';
 import { FeedService } from 'src/app/feed.service';
 import { Product } from '../Product'
 import { EcommerceService } from 'src/app/ecommerce.service';
@@ -42,7 +42,7 @@ export class ShoppingComponent implements OnInit {
   ];
 
   price: any ='';
-  stock: any = '';
+  prices: any = [];
   cart: any = '';
   ord: string = '';
 // cart = {
@@ -71,30 +71,51 @@ export class ShoppingComponent implements OnInit {
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
     // console.log(getCheckoutButton());
+
+    //Commerce Layer Token
+    this.token = JSON.parse(getToken());
+
     //Sanity
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
-      //do poprawienia przy >1 produkcie
-      this.products.push(this.workResult(this.productsRaw.result[0]));
+      // GOOD PRODUKTY
+      for (let i = 0; i < this.productsRaw.result.length; i++){
+        this.products.push(this.workResult(this.productsRaw.result[i]));
+      }
+      if(this.token){
+        this.ecomm.getPrices(this.token.access_token).subscribe(p => {
+          if(p){
+            console.log(p.included)
+            //GOOD CENA SYNCHRO
+            for (let i = 0; i < p.included.length; i++){
+              this.products.map((sku) => {
+                if(sku.sku === p.included[i].attributes.sku_code){
+                  this.products.filter(a => sku.sku === a.sku)[0].price = p.included[i].attributes.formatted_amount;
+                }
+              })
+            }
+
+            this.price = p.included[1].attributes.formatted_amount;//nie będzie tego
+          }
+        });
+        this.ecomm.getStock(this.token.access_token).subscribe(p => {
+          if(p){
+            //do poprawienia przy >1 produkcie
+            // this.stock = p.data[1].attributes.quantity;
+
+            //GOOD STOCK SYNCHRO
+            for (let i = 0; i < p.data.length; i++){
+              this.products.map((sku) => {
+                if(sku.sku === p.data[i].attributes.sku_code){
+                  this.products.filter(a => sku.sku === a.sku)[0].stock = p.data[i].attributes.quantity;
+                }
+              })
+            }
+          }
+        });
+      }
+      console.log(this.products);
     });
-    //Commerce Layer
-    this.token = JSON.parse(getToken());
-    if(this.token){
-      this.ecomm.getPrices(this.token.access_token).subscribe(p => {
-        if(p){
-          //do poprawienia przy >1 produkcie
-          this.price = p.included[0].attributes.formatted_amount;
-          console.log(this.price);
-        }
-      });
-      this.ecomm.getStock(this.token.access_token).subscribe(p => {
-        if(p){
-          //do poprawienia przy >1 produkcie
-          this.stock = p.data[0].attributes.quantity;
-          // console.log(this.stock);
-        }
-      });
-    }
   }
 
   workResult(p: any): Product{

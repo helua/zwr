@@ -8,9 +8,7 @@
   <main *ngFor="let product of products">
     <app-product
       [product]="product"
-      [price]="price"
       [token]="token"
-      [stock]="stock"
       [ord]="ord"
       (updateCart)="onUpdatedCart($event)">
     </app-product>

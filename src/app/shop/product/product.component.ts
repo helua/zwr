@@ -14,7 +14,6 @@ import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton }
 export class ProductComponent implements OnInit {
 
   @Input() product: any;
-  @Input() price: any ='';
   @Input() token: any;
   @Input() stock: any;
   @Output() updateCart = new EventEmitter<any>();
@@ -59,9 +58,6 @@ export class ProductComponent implements OnInit {
       });
 
     }
-  }
-  productPrice(){
-    return this.price;
   }
 }
 

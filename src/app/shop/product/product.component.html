@@ -26,7 +26,7 @@
           <tr *ngIf="product.widthUnfold"><td>szerokość przed rozłożeniem:</td> <td>{{product.widthUnfold}} cm</td></tr>
           <tr *ngIf="product.heightUnfold"><td>wysokość przed rozłożeniem:</td><td>{{product.heightUnfold}} cm</td></tr>
           <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr>
-          <!-- <tr><td>rękojeść:</td>
+          <!-- <tr><td>przykładowy tooltip:</td>
             <td
               class="info-holder"
               matTooltipClass="info"
@@ -35,11 +35,11 @@
               {{product.handle}}
             </td>
           </tr> -->
-          <tr><td>stan magazynu:</td><td>{{this.stock}} sztuk</td></tr>
+          <tr><td>stan magazynu:</td><td>{{ product.stock }} sztuk</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
-      <p class="price" *ngIf="this.stock !== 0">
-        cena: <b>{{productPrice()}} </b>
+      <p class="price" *ngIf="this.product.price">
+        cena: <b>{{ product.price }}</b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"
         matTooltipShowDelay="200"
