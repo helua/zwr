@@ -1,4 +1,6 @@
-<h1 class="margin-bottom-huge">Wypożyczalnia sprzętu turniejowego</h1>
+
+<h1 class="margin-bottom-big">Wypożyczalnia sprzętu turniejowego</h1>
+<div class="stripe"></div>
 <main *ngIf="token | async ; else loadingBlock">
   <app-shopping [token]="token"></app-shopping>
 </main>

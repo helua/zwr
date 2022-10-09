@@ -1,6 +1,6 @@
 @import '../../sass/styles';
 h1{
-  font-size: 6rem;
+  text-align: center;
   padding: 1% 14%;
   margin-bottom: 100px;
 }
@@ -13,16 +13,15 @@ h1{
     margin: .5%;
   }
 }
-img
-{
+img{
   width: 100%;
   vertical-align: bottom;
 }
-h2{
-  @include respond(phoneUp){
-    font-size: 5rem;
-  }
-}
+// h2{
+//   @include respond(phoneUp){
+//     font-size: 5rem;
+//   }
+// }
 p{
   padding: 3rem 10%;
   font-size: 1.2rem;

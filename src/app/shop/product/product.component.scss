@@ -1,12 +1,7 @@
 @import '../../../sass/styles';
-// main{
-//   background: wheat;
-//   position: relative;
-//   z-index: 50;
-// }
+
 h2{
   color: black;
-  font-size: 3.5rem;
   @include respond(tab-port){
     padding: 0rem 5%;
   }
@@ -63,7 +58,7 @@ a.add-to-cart{
 .holder-slides{
   width: 500px;
   @include respond(tab-port){
-    height: 625px;
+    // height: 625px;
     margin: 0 auto;
   }
   @include respond(phone){

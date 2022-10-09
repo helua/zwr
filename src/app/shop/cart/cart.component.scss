@@ -1,6 +1,5 @@
 @import '../../../sass/styles';
 :host{
-  & main{
     width: 100%;
     position: relative;
     display: block;
@@ -137,6 +136,5 @@
         font-family: $techLight;
 
       }
-  }
 
 }

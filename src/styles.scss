@@ -43,7 +43,7 @@ body{
     letter-spacing: 0;
     margin: 0px;
     // background-color: #002527;
-    color: white;
+    // color: white;
     @include respond(phone){
       letter-spacing: .01rem;
     }
@@ -109,38 +109,45 @@ h1, h2{
   color: $metal;
   letter-spacing: .3rem;
   padding: 1% 7%;
-
 }
-ul li{
-  font-size: 1.2rem;
-  @include respond(phone){
-    font-size: 1rem;
-  }
-}
+// ul li{
+//   font-size: 1.2rem;
+//   @include respond(phone){
+//     font-size: 1rem;
+//   }
+// }
 h1{
-  font-size:6rem;
-  // padding: 1% 7%;
+  font-size: 6rem;
+  animation: fadeIn 1s .4s backwards ease;
+
+
   @include respond(tab-port){
     font-size: 4.5rem;
     letter-spacing: .45rem;
-    padding-left: .5rem;
   }
-  @media screen and (max-width: 600px){
-    font-size: 2.5rem;
-    letter-spacing: .05rem;
+  @include respond(phone){
+    font-size: 2.7rem !important;
+    line-height: 2.8rem !important;
+    letter-spacing: .05rem !important;
   }
 }
 h2{
   font-size: 3.5rem;
   line-height: 4.5rem;
   @include respond(tab-port){
-      font-size: 3.5rem;
+      font-size: 3rem;
+      line-height: 3rem;
       letter-spacing: .3rem;
   }
   @include respond(phone){
-    font-size: 2rem;
     letter-spacing: .1rem;
-    line-height: 2.3rem;
+  }
+}
+h3{
+  font-size: 1.3rem;
+  padding: 1% 5%;
+  @include respond(phone){
+    font-size: 1.2rem;
   }
 }
 p{
@@ -254,5 +261,69 @@ fa-icon{
   }
   100%{
     opacity: 100%;
+  }
+}
+.stripe, .background{
+  background-image: url(assets/ZWR_bg.jpg);
+  background-size: cover;
+  filter: grayscale(90%) hue-rotate(30deg) contrast(2) brightness(.6);
+  width: 100%;
+
+
+}
+
+.stripe{
+  margin-top: 40px;
+  height: 40px;
+  background-position: 20%;
+  margin-bottom: 70px;
+
+}
+
+.background{
+  height: calc(100vh  - 26rem);
+  transition: 2s;
+  position: relative;
+  animation: enter 1.66s ease .01s forwards;
+  width: 74%;
+  margin: 0 auto;
+  border-radius: 30px;
+  margin-bottom: 13rem;
+  @include respond(tab-land){
+
+
+  }
+  @include respond(tab-port){
+    background-image: url(assets/ZWR_bg-mobile.jpg);
+    margin-bottom: 43vh;
+    height: 100vh;
+    animation: enterMobile 1.66s ease .01s forwards;
+  }
+
+}
+@keyframes enter {
+  0%{
+    height: calc(0vh);
+    filter: grayscale(1);
+    }
+  60%{
+      filter: grayscale(.8);
+      }
+  100%{
+    height: calc(100vh  - 26rem);
+    filter: grayscale(90%) hue-rotate(30deg) contrast(2) brightness(.6);
+  }
+}
+@keyframes enterMobile {
+  0%{
+    height: calc(0vh);
+    filter: grayscale(.9);
+    }
+  60%{
+      filter: grayscale(.8);
+      }
+  100%{
+    height: 60vh;
+    filter: grayscale(90%) hue-rotate(30deg) contrast(2) brightness(.6);
   }
 }

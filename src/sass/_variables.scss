@@ -11,16 +11,16 @@ $metal: #bbb7b7;
 $selection: #bbb7b7;
 
 $gap: 0px;
-$f: 'Bahnschrift';
+// $f: 'Bahnschrift';
 $f2: 'Lucida Console';
-$f3: 'Trickster';
+// $f3: 'Trickster';
 $f4: 'Coolvetica';
 $f5: 'Coolvetica Italic';
 $tech: 'Sudo Regular';
 $techLight: 'Sudo Light';
 $bryg: 'Brygada 1918';
-$brygSemiBoldItalic: 'Brygada 1918 Semi Bold Italic';
-$brygBoldItalic: 'Brygada 1918 Bold Italic';
+// $brygSemiBoldItalic: 'Brygada 1918 Semi Bold Italic';
+// $brygBoldItalic: 'Brygada 1918 Bold Italic';
 $router: calc(100vh - 13rem);
 
 //NEW
@@ -51,18 +51,18 @@ $gutter-vertical: 8rem;
 
 
 
-@font-face {
-  font-family: 'Trickster';
-  src: url('../assets/fonts/Trickster-Reg.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Monsterrat';
-  src: url('../assets/fonts/MontserratAlternates-Black.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'Trickster';
+//   src: url('../assets/fonts/Trickster-Reg.otf') format('opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'Monsterrat';
+//   src: url('../assets/fonts/MontserratAlternates-Black.otf') format('opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 @font-face {
   font-family: 'Coolvetica';
   src: url('../assets/fonts/coolvetica\ rg.otf') format('opentype');
@@ -75,13 +75,13 @@ $gutter-vertical: 8rem;
   font-weight: normal;
   font-style: normal;
 }
-// @font-face {
-//   font-family: 'Lucida Console';
-//   src: url('http://zwr.waw.pl/assets/fonts/Lucon.ttf');
-//   src: url('http://zwr.waw.pl/assets/fonts/Lucon.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'Lucida Console';
+  src: url('../assets/fonts/LUCON.ttf');
+  src: url('../assets/fonts/LUCON.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 // @font-face {
 //   font-family: 'Bahnschrift';
 //   src: url('http://zwr.waw.pl/assets/fonts/Bahnschrift.ttf');

@@ -10,7 +10,7 @@ import { TokenService } from '../token.service';
 })
 export class ShopComponent implements OnInit, OnDestroy {
 
-  title = 'ZWR | Wypożyczanlmia';
+  title = 'ZWR | Wypożyczalnia';
   description: MetaDefinition = {name: 'description', content: 'Najlepszy sprzęt turniejowy do wypożyczenia tu i teraz.'};
   token: any;
 

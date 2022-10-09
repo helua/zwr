@@ -8,7 +8,7 @@ import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton }
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 
 })
 export class ProductComponent implements OnInit {
