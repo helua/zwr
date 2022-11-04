@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { getOrderId, setOrderId } from 'src/app/localStorage';
-import { EventEmitter } from 'stream';
+import { getOrderId, getToken, setOrderId } from 'src/app/localStorage';
 
 @Component({
   selector: 'app-product-list-item',
@@ -10,21 +9,23 @@ import { EventEmitter } from 'stream';
   styleUrls: ['./product-list-item.component.scss']
 })
 export class ProductListItemComponent implements OnInit {
+
+  token: any;
+  @Output() updateCart = new EventEmitter<any>();
+  ord: string = '';
   @Input() product: any;
-  @Input() token: any;
-  @Input() stock: any;
-  // @Output() updateCart = new EventEmitter<any>();
-  @Input() ord: string = '';
-  checkout: string = 'http://checkout.zwr.waw.pl/';
   cartIcon = faCartPlus;
 
   constructor(private ecomm: EcommerceService) { }
 
   ngOnInit() {
+
+    //Commerce Layer Token
+    this.token = JSON.parse(getToken());
+
     if(getOrderId() !== undefined){
       this.ord = getOrderId();
     }
-    console.log(this.stock);
   }
 
   createOrder(){
@@ -35,7 +36,7 @@ export class ProductListItemComponent implements OnInit {
         setOrderId(this.ord);
         this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
           this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-            // this.updateCart.emit({cart: c, ord: this.ord});
+            this.updateCart.emit({cart: c, ord: this.ord});
           });
         });
       });
@@ -43,7 +44,7 @@ export class ProductListItemComponent implements OnInit {
     if(this.ord){
       this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
         this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-          // this.updateCart.emit({cart: c, ord: this.ord});
+          this.updateCart.emit({cart: c, ord: this.ord});
         });
       });
 

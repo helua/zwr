@@ -1,0 +1,12 @@
+<app-cart-icon
+  [cart]="cart"
+  [badgeHidden]="badgeHidden"
+></app-cart-icon>
+<p>shopping-new works!</p>
+<main *ngFor="let product of products">
+  <app-product-list-item
+    [product]="product"
+    (updateCart)="onUpdatedCart($event)"
+    >
+  </app-product-list-item>
+</main>

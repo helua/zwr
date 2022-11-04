@@ -16,7 +16,7 @@ import { ShopComponent } from './shop/shop.component';
 import { MainComponent } from './main/main.component';
 import { ShoppingComponent } from './shop/shopping/shopping.component';
 import { ProductComponent } from './shop/shopping/product/product.component';
-import { ProductListItemComponent } from './shop/shopping/product-list-item/product-list-item.component';
+import { ProductListItemComponent } from './shop-new/product-list-item/product-list-item.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
@@ -34,6 +34,9 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { ShopNewComponent } from './shop-new/shop-new.component';
+import { ShoppingNewComponent } from './shop-new/shopping-new/shopping-new.component';
+import { CartIconComponent } from './shop-new/cart-icon/cart-icon.component';
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
     swipe: { direction: Hammer.DIRECTION_HORIZONTAL },
@@ -57,6 +60,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     LoadingComponent,
     ContactComponent,
     ProductListItemComponent,
+    ShopNewComponent,
+    ShoppingNewComponent,
+    CartIconComponent,
   ],
   imports: [
     BrowserModule,

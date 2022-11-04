@@ -54,13 +54,14 @@ export class ShoppingComponent implements OnInit {
 //     }
 //   }
 // };
-  @Input() token: any;
+  token: any;
   constructor(private feed: FeedService, private ecomm: EcommerceService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.cart = JSON.parse(getCart());
+    // console.log(getCart());
     this.ord = getOrderId();
-        // console.log(getOrderId());
+    // console.log(getOrderId());
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
     // console.log(getCheckoutButton());
@@ -121,11 +122,8 @@ export class ShoppingComponent implements OnInit {
   onUpdatedCart(cart: any){
     this.ord = cart.ord;
     setOrderId(cart.ord);
-    // console.log(getOrderId());
     this.cart = cart.cart;
     setCart(cart.cart);
-    // console.log('dodano do koszyka');
-    // console.log(getCart());
     setCheckoutButton(true.toString());
     this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
     var isTrueSet = (getCheckoutButton() === 'false');

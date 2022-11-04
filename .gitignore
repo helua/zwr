@@ -70,3 +70,4 @@ src/app/models/Secret.ts
 # Sass dist
 src/sass/dist/
 
+dist

@@ -78,8 +78,6 @@ export class ProductComponent implements OnInit {
         this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
           this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
             this.updateCart.emit({cart: c, ord: this.ord});
-            // this.isCheckoutEnabled = true;
-            // setCheckoutButton(this.isCheckoutEnabled.toString());
           });
         });
       });
