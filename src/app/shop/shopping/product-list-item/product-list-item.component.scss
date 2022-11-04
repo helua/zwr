@@ -1,0 +1,16 @@
+.mini{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  & img, h2{
+    height: 100px;
+    display: inline-block;
+  }
+  & img{
+    width: 200px;
+    padding-top: 50px;
+  }
+}
+// h2{
+
+// }

@@ -53,8 +53,16 @@ export class CartComponent implements OnInit {
 
     if(this.cart.data.attributes.skus_count != 0){
       this.line_items = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'skus');
-      // console.log(this.line_items);
+      // this.line_items = this.cart.included;
+      let i;
+      for(i = 0; i > this.line_items.length; i++ ){
+        // this.line
+      }
+      console.log(this.line_items);
+      console.log(this.cart.included);
+
     }
+    console.log(this.cart.data.attributes);
 
   }
 

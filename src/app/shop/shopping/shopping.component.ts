@@ -8,13 +8,6 @@ import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { getCart, getCheckoutButton, getOrderId, getToken, setCart, setCheckoutButton, setOrderId } from 'src/app/localStorage';
 
-const sanityClient = require("@sanity/client");
-const sanity = sanityClient({
-  projectId: 'obecw03b',
-  dataset: 'production',
-  apiVersion: '2021-10-21',
-  useCdn: true,
-});
 @Component({
   selector: 'app-shopping',
   templateUrl: './shopping.component.html',
@@ -80,7 +73,7 @@ export class ShoppingComponent implements OnInit {
       this.productsRaw = products;
       // GOOD PRODUKTY
       for (let i = 0; i < this.productsRaw.result.length; i++){
-        this.products.push(this.workResult(this.productsRaw.result[i]));
+        this.products.push(this.feed.workResult(this.productsRaw.result[i]));
       }
       if(this.token){
         this.ecomm.getPrices(this.token.access_token).subscribe(p => {
@@ -118,41 +111,7 @@ export class ShoppingComponent implements OnInit {
     });
   }
 
-  workResult(p: any): Product{
-    const blocksToHtml = require("@sanity/block-content-to-html");
-    const imageUrlBuilder = require("@sanity/image-url");
-    const output: Product = {
-      title: p.title,
-      slug: p.slug.current,
-      categories: p.categoryTitles,
-      statuses: p.statusTitles,
-      vendor: p.vendor,
-      body: blocksToHtml({ blocks: p.body }),
-      sku: p.defaultProductVariant.sku,
-      length: p.defaultProductVariant.length,
-      width: p.defaultProductVariant.width,
-      height: p.defaultProductVariant.height,
-      lengthUnfold: p.defaultProductVariant.lengthUnfold,
-      widthUnfold: p.defaultProductVariant.widthUnfold,
-      heightUnfold: p.defaultProductVariant.heightUnfold,
-      color: p.defaultProductVariant.color,
-      images: []
 
-    }
-    for (let i = 0; i < p.defaultProductVariant.images.length; i++){
-
-      const image =
-      p.defaultProductVariant.images &&
-      p.defaultProductVariant.images.length > 0
-        ? p.defaultProductVariant.images[i].asset._ref
-        : null;
-
-      if (image) {
-        output.images?.push(imageUrlBuilder(sanity).image(image).url())
-      }
-    }
-    return output;
-  }
 ///////////////////////////////////////////////
 ///////////////////////////////////////////////
 ///////////////////////////////////////////////

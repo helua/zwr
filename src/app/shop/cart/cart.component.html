@@ -2,10 +2,12 @@
     <fa-icon id="cart" [icon]="cartIcon" (click)="onClose()"></fa-icon>
     Koszyk
   </h3>
+
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
     <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}}<br>
       <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
     </p>
+    
     <div class="cart_product">
       <div class="cart_product-image">
         <img [src]="line_items.attributes.image_url" alt="">

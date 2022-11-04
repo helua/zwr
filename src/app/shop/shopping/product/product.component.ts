@@ -2,6 +2,12 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } fro
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton } from 'src/app/localStorage';
+import { FeedService } from 'src/app/feed.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
+import { switchMap } from 'rxjs/operators';
+import { Product } from '../../Product';
+
 
 
 @Component({
@@ -13,27 +19,55 @@ import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton }
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product: any;
+  @Input() product?: any;
   @Input() token: any;
   @Input() stock: any;
-  @Output() updateCart = new EventEmitter<any>();
   @Input() ord: string = '';
+
+  @Output() updateCart = new EventEmitter<any>();
   checkout: string = 'http://checkout.zwr.waw.pl/';
-  // isCheckoutEnabled: boolean = true;
   cartIcon = faCartPlus;
+  title: string ='';
+  productRaw: any = {};
+  productID: string = '';
+  description: MetaDefinition = {};
 
-  constructor(private ecomm: EcommerceService) { }
+  constructor(
+    private ecomm: EcommerceService,
+    private http: FeedService,
+    private route: ActivatedRoute,
+    private titleService: Title,
+    private metaService: Meta,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(){
     if(getOrderId() !== undefined){
       this.ord = getOrderId();
     }
-    console.log(this.stock);
+    // console.log(this.stock);
     // console.log(getCheckoutButton())
     // console.log('pobieram daną o Checkout Button z localStorage');
     //   var isTrueSet = (getCheckoutButton() === 'true');
     //   this.isCheckoutEnabled = isTrueSet;
     //   console.log(this.isCheckoutEnabled);
+    console.log('PRODUCT')
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.http.getProduct(
+          params.get('id'))
+        )
+      ).subscribe( product => {
+        this.productRaw = product;
+        console.log(product)
+        this.product = this.http.workResult(this.productRaw.result[0]);
+        this.productID = this.product.sku;
+        console.log(this.productID)
+
+        this.title = this.product.title;
+        // this.titleService.setTitle(this.title);
+        // this.description = {name: 'description', content: this.post.meta};
+        // this.metaService.updateTag(this.description);
+      })
   }
 
   createOrder(){

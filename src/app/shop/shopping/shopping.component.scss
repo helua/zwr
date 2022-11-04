@@ -1,6 +1,7 @@
 @import '../../../sass/styles';
   main{
-    margin-bottom: 6rem;
+    margin: 0 auto 6rem;
+    // width: 60%;
     @include respond(tab-land){
 
     margin-bottom: 12rem;

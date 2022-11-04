@@ -80,7 +80,7 @@ body{
 }
 nav, .button{
   font-family: $f4;
-  &:hover{
+  & a:hover{
     font-family: $f5;
   }
 }
