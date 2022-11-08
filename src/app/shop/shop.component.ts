@@ -20,6 +20,7 @@ export class ShopComponent implements OnInit, OnDestroy {
 
     this.token = this.tok.getToken();
     // console.log('Token pobrany = sklep otwarty')
+    // console.log(this.token);
 
 
 
@@ -43,9 +44,6 @@ export class ShopComponent implements OnInit, OnDestroy {
     for (let i = 0; i < navMain.length; i++) {
       navMain[i].style.position = 'fixed';
     }
-  }
-  getToken(){
-    this.tok.getToken();
   }
 }
 

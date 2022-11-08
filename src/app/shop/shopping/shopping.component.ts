@@ -68,6 +68,7 @@ export class ShoppingComponent implements OnInit {
 
     //Commerce Layer Token
     this.token = JSON.parse(getToken());
+    console.log(this.token);
 
     //Sanity
     this.feed.getProducts().subscribe( products => {

@@ -5,7 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
 import { ShopNewComponent } from './shop-new/shop-new.component';
 import { ShopComponent } from './shop/shop.component';
-import { ProductComponent } from './shop/shopping/product/product.component';
+import { ProductComponent } from './shop-new/product/product.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/info', pathMatch: 'full' },
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'o-nas', component: AboutComponent },
   { path: 'sklep', component: ShopComponent },
   { path: 'sklep2', component: ShopNewComponent },
-  { path: 'produkt/:id', component: ProductComponent },
+  { path: 'sklep2/:id', component: ProductComponent },
   { path: 'kontakt', component: ContactComponent },
   { path: '**', component: MainComponent },
 

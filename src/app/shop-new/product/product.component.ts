@@ -1,12 +1,13 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton } from 'src/app/localStorage';
+import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton, getToken } from 'src/app/localStorage';
 import { FeedService } from 'src/app/feed.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 import { switchMap } from 'rxjs/operators';
-import { Product } from '../../Product';
+import { Product } from '../../shop/Product';
+import { TokenService } from 'src/app/token.service';
 
 
 
@@ -20,9 +21,10 @@ import { Product } from '../../Product';
 export class ProductComponent implements OnInit {
 
   @Input() product?: any;
-  @Input() token: any;
+  token: any;
   @Input() stock: any;
   @Input() ord: string = '';
+  id: any;
 
   @Output() updateCart = new EventEmitter<any>();
   checkout: string = 'http://checkout.zwr.waw.pl/';
@@ -36,6 +38,8 @@ export class ProductComponent implements OnInit {
     private ecomm: EcommerceService,
     private http: FeedService,
     private route: ActivatedRoute,
+    private feed: FeedService,
+    private tok: TokenService,
     private titleService: Title,
     private metaService: Meta,
   ) {}
@@ -44,7 +48,17 @@ export class ProductComponent implements OnInit {
     if(getOrderId() !== undefined){
       this.ord = getOrderId();
     }
-    // console.log(this.stock);
+    // console.log(JSON.parse(getToken()))
+
+    if(!JSON.parse(getToken())){
+      this.tok.getToken();
+      this.token = JSON.parse(getToken())
+
+    }
+    else{
+      this.token = JSON.parse(getToken())
+    };
+
     // console.log(getCheckoutButton())
     // console.log('pobieram daną o Checkout Button z localStorage');
     //   var isTrueSet = (getCheckoutButton() === 'true');
@@ -55,10 +69,34 @@ export class ProductComponent implements OnInit {
       switchMap((params: ParamMap) =>
         this.http.getProduct(
           params.get('id'))
-        )
-      ).subscribe( product => {
-        this.productRaw = product;
-        console.log(product)
+        )).subscribe( product => {
+          this.productRaw = product;
+          if(product){
+            console.log(this.productRaw.result[0]);
+            this.product = this.feed.workResult(this.productRaw.result[0]);
+            console.log(this.product)
+          }
+          this.ecomm.getPrices(this.token.access_token).subscribe(pr => {
+            if(pr){
+              for (let i = 0; i < pr.included.length; i++){
+                if(this.product.sku === pr.included[i].attributes.sku_code){
+                  this.product.price = pr.included[i].attributes.formatted_amount;
+                  console.log(this.product.sku === pr.included[i].attributes.sku_code, this.product)
+                }
+              }
+            }
+          })
+          this.ecomm.getStock(this.token.access_token).subscribe(pr => {
+            if(pr){
+              for (let i = 0; i < pr.data.length; i++){
+                if(this.product.sku === pr.data[i].attributes.sku_code){
+                  this.product.stock = pr.data[i].attributes.quantity;
+                  console.log(this.product.sku === pr.data[i].attributes.sku_code, this.product)
+                }
+              }
+            }
+          })
+
         this.product = this.http.workResult(this.productRaw.result[0]);
         this.productID = this.product.sku;
         console.log(this.productID)

@@ -15,7 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { ShopComponent } from './shop/shop.component';
 import { MainComponent } from './main/main.component';
 import { ShoppingComponent } from './shop/shopping/shopping.component';
-import { ProductComponent } from './shop/shopping/product/product.component';
+import { ProductComponent } from './shop-new/product/product.component';
 import { ProductListItemComponent } from './shop-new/product-list-item/product-list-item.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { LoadingComponent } from './components/loading/loading.component';

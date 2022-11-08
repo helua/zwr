@@ -1,10 +1,9 @@
 
 <h1 class="margin-bottom-big">Wypożyczalnia sprzętu turniejowego</h1>
 <div class="stripe"></div>
-<main *ngIf="token | async ; else loadingBlock">
+<main *ngIf="token ; else loadingBlock">
   <app-shopping></app-shopping>
 </main>
 <ng-template #loadingBlock>
   <app-loading></app-loading>
-  <button (click)="getToken();">tu</button>
 </ng-template>

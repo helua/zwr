@@ -28,7 +28,7 @@ export class ShoppingNewComponent implements OnInit {
 
     //Commerce Layer Token
     this.token = JSON.parse(getToken());
-
+    console.log(this.token)
     //Sanity
     this.feed.getProducts().subscribe( products => {
       this.productsRaw = products;
@@ -39,6 +39,7 @@ export class ShoppingNewComponent implements OnInit {
       if(this.token){
         this.ecomm.getPrices(this.token.access_token).subscribe(p => {
           if(p){
+            console.log(p);
             for (let i = 0; i < p.included.length; i++){
               this.products.map((sku) => {
                 if(sku.sku === p.included[i].attributes.sku_code){

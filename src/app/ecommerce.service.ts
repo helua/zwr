@@ -21,6 +21,14 @@ export class EcommerceService {
       },
     });
   }
+  getPrice(token: string, id: string){
+    return  this.http.get<any>(this.url+`/api/skus/${id}?include=prices`, {
+      headers: {
+        'Accept': 'application/vnd.api+json',
+        'Authorization': 'Bearer '+token
+      },
+    });
+  }
   getStock(token: string){
     return  this.http.get<any>(this.url+'/api/stock_items', {
       headers: {
