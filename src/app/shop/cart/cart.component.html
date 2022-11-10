@@ -7,30 +7,32 @@
     <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}}<br>
       <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
     </p>
-    
-    <div class="cart_product">
-      <div class="cart_product-image">
-        <img [src]="line_items.attributes.image_url" alt="">
+
+    <main *ngFor="let line_item of cart.included">
+      <div class="cart_product">
+        <div class="cart_product-image">
+          <img [src]="line_item.attributes.image_url" alt="">
+        </div>
+        <div class="cart_product-title">
+          <h4>{{line_item.attributes.name}}<br>
+            <span class="cart_count-total">{{line_item.attributes.sku_code}}</span></h4>
+
+
+          <fa-icon
+            *ngIf="isCheckoutEnabled"
+            [icon]="trashIcon"
+            (click)="trashItem(line_item.id)"
+            matTooltip="Opróżnij koszyk"
+            matTooltipShowDelay="200"
+            matTooltipHideDelay="100">
+          </fa-icon>
+
+          <!-- <p class="cart_product-price">{{cart.data.attributes.quantity}}{{cart.data.attributes.formatted_unit_amount}}
+          </p> -->
+        </div>
       </div>
-      <div class="cart_product-title">
-        <h4>{{line_items.attributes.name}}<br>
-          <span class="cart_count-total">{{line_items.attributes.sku_code}}</span></h4>
+    </main>
 
-
-        <fa-icon
-          *ngIf="isCheckoutEnabled"
-          [icon]="trashIcon"
-          (click)="trashItem(line_items.id)"
-          matTooltip="Opróżnij koszyk"
-          matTooltipShowDelay="200"
-          matTooltipHideDelay="100">
-        </fa-icon>
-
-        <!-- <p class="cart_product-price">{{cart.data.attributes.quantity}}{{cart.data.attributes.formatted_unit_amount}}
-        </p> -->
-      </div>
-
-    </div>
 
     <!-- <ul class="cart_totals">
       <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>

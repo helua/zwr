@@ -1,12 +1,13 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CartData } from '../Product';
+import { CartData } from '../../shop/Product';
 import { faTimes, faSync, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { clear, getCart, getCheckoutButton, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
+import { ShoppingService } from '../shopping.service';
 
 @Component({
   selector: 'app-cart',
@@ -19,9 +20,9 @@ export class CartComponent implements OnInit {
   trashIcon = faTrashAlt;
   cartIcon = faShoppingCart;
   syncIcon = faSync;
-  @Input() cart: any;
-  @Input() ord: any;
-  @Input() token: any;
+  cart: any;
+  ord: any;
+  token: any;
   line_items: any;
   shipment: any;
   checkout: string = 'http://checkout.zwr.waw.pl/';
@@ -33,9 +34,10 @@ export class CartComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CartComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CartData,
-    private _snackBar: MatSnackBar,
+    // private _snackBar: MatSnackBar,
     public router: Router,
-    private ecomm: EcommerceService) {}
+    private ecomm: EcommerceService,
+    private shop: ShoppingService) {}
 
   ngOnInit(): void {
     this.ord = this.data.ord;
@@ -84,7 +86,7 @@ export class CartComponent implements OnInit {
       });
     });
     // this.onClose();
-    // this.openSnackBar('Koszyk jest pusty', 'Fajnie!');
+    // this.shop.openSnackBar('Koszyk jest pusty', 'Fajnie!');
   }
   // openSnackBar(message: string, action: string) {
   //   let ref = this._snackBar.open(message, action, {
@@ -121,20 +123,7 @@ export class CartComponent implements OnInit {
     });
   }
   clearLocalStorage(){
-    clear();
-    this.onClose();
-    setOrderId('');
-    setCart({
-      data: {
-        attributes: {
-          skus_count: 0,
-        }
-      }
-    });
-    setCheckoutButton('true');
-    this.router.navigate(['/']);
-
-
+    this.shop.clearLocalStorage;
   }
 
 }

@@ -12,18 +12,19 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
 import { AboutComponent } from './about/about.component';
-import { ShopComponent } from './shop/shop.component';
 import { MainComponent } from './main/main.component';
-import { ShoppingComponent } from './shop/shopping/shopping.component';
-import { ProductComponent } from './shop-new/product/product.component';
-import { ProductListItemComponent } from './shop-new/product-list-item/product-list-item.component';
-import { CartComponent } from './shop/cart/cart.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { SlideshowMainComponent } from './components/slideshow-main/slideshow-main.component';
 import { ButtonComponent } from './components/button/button.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { ShopComponent } from './shop/shop.component';
+import { ShoppingNewComponent } from './shop/shopping-new/shopping-new.component';
+import { CartIconComponent } from './shop/cart-icon/cart-icon.component';
+import { ProductComponent } from './shop/product/product.component';
+import { ProductListItemComponent } from './shop/product-list-item/product-list-item.component';
+import { CartComponent } from './shop/cart/cart.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatMenuModule } from '@angular/material/menu';
@@ -34,9 +35,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-import { ShopNewComponent } from './shop-new/shop-new.component';
-import { ShoppingNewComponent } from './shop-new/shopping-new/shopping-new.component';
-import { CartIconComponent } from './shop-new/cart-icon/cart-icon.component';
+
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
     swipe: { direction: Hammer.DIRECTION_HORIZONTAL },
@@ -49,20 +48,18 @@ export class MyHammerConfig extends HammerGestureConfig {
     NavComponent,
     NavMobileComponent,
     AboutComponent,
-    ShopComponent,
     MainComponent,
-    ShoppingComponent,
-    ProductComponent,
     SlideshowComponent,
     SlideshowMainComponent,
     ButtonComponent,
-    CartComponent,
     LoadingComponent,
     ContactComponent,
     ProductListItemComponent,
-    ShopNewComponent,
+    ShopComponent,
     ShoppingNewComponent,
     CartIconComponent,
+    ProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

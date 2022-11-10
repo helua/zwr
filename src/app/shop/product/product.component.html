@@ -47,7 +47,7 @@
         matTooltipHideDelay="100"
         ></fa-icon>
       </p>
-        <div *ngIf="ord">
+        <div *ngIf="ord !== ''">
           <app-button
             text="idź do checkoutu"
             [link]="checkout"

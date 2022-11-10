@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   @Input() product?: any;
   token: any;
   @Input() stock: any;
-  @Input() ord: string = '';
+  ord: string = '';
   id: any;
 
   @Output() updateCart = new EventEmitter<any>();
@@ -48,12 +48,11 @@ export class ProductComponent implements OnInit {
     if(getOrderId() !== undefined){
       this.ord = getOrderId();
     }
-    // console.log(JSON.parse(getToken()))
+    console.log(this.ord);
 
     if(!JSON.parse(getToken())){
       this.tok.getToken();
       this.token = JSON.parse(getToken())
-
     }
     else{
       this.token = JSON.parse(getToken())
@@ -64,13 +63,10 @@ export class ProductComponent implements OnInit {
     //   var isTrueSet = (getCheckoutButton() === 'true');
     //   this.isCheckoutEnabled = isTrueSet;
     //   console.log(this.isCheckoutEnabled);
-    console.log('PRODUCT')
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.http.getProduct(
-          params.get('id'))
-        )).subscribe( product => {
-          this.productRaw = product;
+
+    this.route.paramMap.pipe(switchMap((params: ParamMap) =>
+      this.http.getProduct(params.get('id')))).subscribe( product => {
+        this.productRaw = product;
           if(product){
             console.log(this.productRaw.result[0]);
             this.product = this.feed.workResult(this.productRaw.result[0]);
@@ -97,9 +93,9 @@ export class ProductComponent implements OnInit {
             }
           })
 
-        this.product = this.http.workResult(this.productRaw.result[0]);
-        this.productID = this.product.sku;
-        console.log(this.productID)
+        // this.product = this.http.workResult(this.productRaw.result[0]);
+        // this.productID = this.product.sku;
+        // console.log(this.productID)
 
         this.title = this.product.title;
         // this.titleService.setTitle(this.title);
@@ -107,11 +103,11 @@ export class ProductComponent implements OnInit {
         // this.metaService.updateTag(this.description);
       })
   }
-
   createOrder(){
     if(!this.ord){
       this.ecomm.createEmptyOrder(this.token.access_token).subscribe(o => {
         this.ord = o.data.id;
+        console.log(this.ord)
         setOrderId(this.ord);
         this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
           this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
@@ -129,5 +125,7 @@ export class ProductComponent implements OnInit {
 
     }
   }
+
+
 }
 

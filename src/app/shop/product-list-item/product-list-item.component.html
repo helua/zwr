@@ -1,11 +1,12 @@
   <div class="mini">
-    <a [routerLink]="['/sklep2', product.sku]">
+    <a [routerLink]="['/sklep', product.sku]">
 
       <img [src]="product.images[0]" alt="">
       <h2>{{ product.title }}</h2>
     </a>
+    <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
     <a class="add-to-cart" (click)="createOrder()" >
-      Dodaj do koszyka
+      Dodaj do koszykaaa
       <fa-icon  [icon]="cartIcon" ></fa-icon>
 </a>
 </div>

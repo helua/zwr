@@ -6,7 +6,9 @@
 <main *ngFor="let product of products">
   <app-product-list-item
     [product]="product"
+    [ord]="ord"
     (updateCart)="onUpdatedCart($event)"
     >
   </app-product-list-item>
+  
 </main>
