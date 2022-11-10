@@ -1,6 +1,7 @@
 <app-cart-icon
   [cart]="cart"
   [badgeHidden]="badgeHidden"
+  (updateCart)="onUpdatedCart($event)"
 ></app-cart-icon>
 <p>shopping-new works!</p>
 <main *ngFor="let product of products">
@@ -10,5 +11,5 @@
     (updateCart)="onUpdatedCart($event)"
     >
   </app-product-list-item>
-  
+
 </main>

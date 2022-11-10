@@ -83,6 +83,7 @@ export class ShoppingNewComponent implements OnInit {
     this.shop.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
+    
 
 
   }

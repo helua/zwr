@@ -1,6 +1,6 @@
 
 <main *ngIf="product; else loadingBlock">
-  <app-cart-icon></app-cart-icon>
+  <app-cart-icon  [cart]="cart" [badgeHidden]="badgeHidden"></app-cart-icon>
   <h2>{{ product.title }}</h2>
   <p class="code">{{product.vendor}} / {{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()" >
@@ -47,7 +47,7 @@
         matTooltipHideDelay="100"
         ></fa-icon>
       </p>
-        <div *ngIf="ord !== ''">
+        <div *ngIf="!badgeHidden">
           <app-button
             text="idź do checkoutu"
             [link]="checkout"

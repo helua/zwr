@@ -49,14 +49,15 @@ export class ProductListItemComponent implements OnInit {
 
     }
   }
-  createOrder3(token: any, ord: string, product: any){
-    this.cart = this.shop.createOrder(token, ord, product)
-    console.log(this.cart)
-    this.emitOrder(this.cart);
-  }
-  emitOrder(cart: any){
-    this.updateCart.emit(cart)
-  }
+  //use of Shopping Service not working
+  // createOrder3(token: any, ord: string, product: any){
+  //   this.cart = this.shop.createOrder(token, ord, product)
+  //   console.log(this.cart)
+  //   this.emitOrder(this.cart);
+  // }
+  // emitOrder(cart: any){
+  //   this.updateCart.emit(cart)
+  // }
 
 
 }

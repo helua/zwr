@@ -100,7 +100,7 @@ export class EcommerceService {
   deleteLineItem(token: string, lineItemId: string){
     const headersData = {
       'Accept': 'application/vnd.api+json',
-      'Content-Type': 'application/vnd.api+json',
+      // 'Content-Type': 'application/vnd.api+json',
       'Authorization': 'Bearer '+token,
     }
     const headers = { headers: new HttpHeaders(headersData)};

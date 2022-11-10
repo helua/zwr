@@ -6,7 +6,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { clear, getCart, getCheckoutButton, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
+import { clear, getCart, getCheckoutButton, getOrderId, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
 import { ShoppingService } from '../shopping.service';
 
 @Component({
@@ -34,17 +34,21 @@ export class CartComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CartComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CartData,
-    // private _snackBar: MatSnackBar,
     public router: Router,
     private ecomm: EcommerceService,
     private shop: ShoppingService) {}
 
   ngOnInit(): void {
-    this.ord = this.data.ord;
+    this.token = JSON.parse(getToken());
+
+    // this.ord = this.data.ord;
+    // console.log(this.data);
+    this.ord =  getOrderId();
+
     // console.log(this.ord);
     // console.log('pobieram koszyk z localStorage');
     this.cart = JSON.parse(getCart());
-    // console.log(this.cart);
+    console.log(this.cart);
     // console.log('pobieram dane o wysyłce z localStorage');
     this.shipment = JSON.parse(getShipment());
     // console.log(this.shipment);
@@ -60,50 +64,35 @@ export class CartComponent implements OnInit {
       for(i = 0; i > this.line_items.length; i++ ){
         // this.line
       }
-      console.log(this.line_items);
-      console.log(this.cart.included);
+      // console.log(this.line_items);
+      // console.log(this.cart.included);
 
     }
-    console.log(this.cart.data.attributes);
+    // console.log(this.cart.data.attributes);
 
   }
 
   onClose(): void {
-    this.dialogRef.close();
+    this.dialogRef.close()
   }
   trashItem(id: string){
-    this.token = JSON.parse(getToken());
     // console.log('usuwam line item');
-    // console.log(id);
+    console.log(id);
     this.ecomm.deleteLineItem(this.token.access_token, id).toPromise().then(result => {
-      this.ecomm.getCart(this.token.access_token, this.data.ord).subscribe(o =>{
+      console.log(result)
+      this.ecomm.getCart(this.token.access_token, this.ord).subscribe(o =>{
         // console.log('koszyk po usunięciu');
         // console.log(o);
         setCart(o);
         this.cart = JSON.parse(getCart());
-        setOrderId('');
         setCheckoutButton('false');
       });
     });
     // this.onClose();
     // this.shop.openSnackBar('Koszyk jest pusty', 'Fajnie!');
   }
-  // openSnackBar(message: string, action: string) {
-  //   let ref = this._snackBar.open(message, action, {
-  //     horizontalPosition: "center",
-  //     verticalPosition: "top",
-  //   });
-  //   ref.onAction().subscribe(() => {
-  //     // this.router.navigate(['o-nas']);
-  //   });
-  // }
-  // enableRefreshOrder(){
-  //   if(this.isRefreshEnabled === false){
-  //     this.isRefreshEnabled = true;
-  //   }
-  // }
+
   getCurrentOrder(){
-    this.token = JSON.parse(getToken());
     this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
       // console.log('pobieram koszyk z CL');
       // console.log(c);

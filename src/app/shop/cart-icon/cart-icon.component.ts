@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { getCart, getCheckoutButton, getOrderId } from 'src/app/localStorage';
@@ -12,11 +12,13 @@ import { ShoppingService } from '../shopping.service';
 })
 export class CartIconComponent implements OnInit {
 
-  constructor(private shop: ShoppingService) { }
+  constructor(private shop: ShoppingService, public dialog: MatDialog) { }
 
   cartIcon = faShoppingCart;
   @Input() badgeHidden: boolean = true;
   @Input() cart: any;
+  @Output() updateCart = new EventEmitter<any>();
+
 
   ngOnInit(): void {
     this.cart = JSON.parse(getCart());
@@ -28,19 +30,29 @@ export class CartIconComponent implements OnInit {
 
   openDialog() {
     this.shop.openDialog()
-    //przeniesione do SHOPPING SERVICE
-    // const dialogRef = this.dialog.open(CartComponent, {
-    //   width: '466px',
-    //   maxWidth: '97vw',
-    //   data: { ord: this.ord },
-    // });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   // console.log(`Dialog result: ${result}`);
-    //   this.cart = JSON.parse(getCart());
-    //   this.ord = getOrderId();
-    //   // console.log(this.ord);
-    // });
   }
+  //   //przeniesione do SHOPPING SERVICE
+  //   // const dialogRef = this.dialog.open(CartComponent, {
+  //   //   width: '466px',
+  //   //   maxWidth: '97vw',
+  //   //   data: { ord: this.ord },
+  //   // });
+
+  //   // dialogRef.afterClosed().subscribe(result => {
+  //   //   // console.log(`Dialog result: ${result}`);
+  //   //   this.cart = JSON.parse(getCart());
+  //   //   this.ord = getOrderId();
+  //   //   // console.log(this.ord);
+  //   // });
+  // }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(CartComponent, {
+  //     width: '466px',
+  //     maxWidth: '97vw',
+  //     // data: { ord: this.ord },
+  //   });
+
+
+  // }
 
 }

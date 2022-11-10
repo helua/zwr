@@ -68,7 +68,7 @@ export class ShoppingService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(`Dialog result: ${result}`);
+      console.log(`Dialog result: ${result}`);
       this.cart = JSON.parse(getCart());
       this.ord = getOrderId();
       // console.log(this.ord);
@@ -88,6 +88,6 @@ export class ShoppingService {
     console.log(getOrderId(), getCart())
   }
   getLocalStorage(){
-    console.log(getOrderId(), getCart())
+    console.log(getCart())
   }
 }
