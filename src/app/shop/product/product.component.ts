@@ -61,11 +61,12 @@ export class ProductComponent implements OnInit {
       this.token = JSON.parse(getToken())
     };
 
-    // console.log(getCheckoutButton())
+
+    console.log(getCheckoutButton())
     // console.log('pobieram daną o Checkout Button z localStorage');
-    //   var isTrueSet = (getCheckoutButton() === 'true');
-    //   this.isCheckoutEnabled = isTrueSet;
-    //   console.log(this.isCheckoutEnabled);
+      var isTrueSet = (getCheckoutButton() === 'true');
+      this.badgeHidden = !isTrueSet;
+      console.log(this.badgeHidden);
 
     this.route.paramMap.pipe(switchMap((params: ParamMap) =>
       this.http.getProduct(params.get('id')))).subscribe( product => {

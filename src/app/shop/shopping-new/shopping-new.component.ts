@@ -21,6 +21,8 @@ export class ShoppingNewComponent implements OnInit {
   ord: string = '';
   cart: any;
   badgeHidden: boolean = true;
+  checkout: string = 'http://checkout.zwr.waw.pl/';
+
 
   constructor(private feed: FeedService, private ecomm: EcommerceService, private shop: ShoppingService) { }
 
@@ -83,7 +85,7 @@ export class ShoppingNewComponent implements OnInit {
     this.shop.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
-    
+
 
 
   }

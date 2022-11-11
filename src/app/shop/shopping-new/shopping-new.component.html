@@ -14,4 +14,12 @@
   </app-product-list-item>
 </table>
 
+
 </div>
+<app-button
+  *ngIf="ord"
+  text="idź do checkoutu"
+  [link]="checkout"
+  [orderId]="ord"
+>
+</app-button>
