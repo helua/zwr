@@ -1,23 +1,40 @@
 @import '../../sass/styles';
+.shop-header{
+  position: fixed;
+  left: 250px;
+  top: 0%;
+  width: 40%;
+  height: 13rem;
+  @include respond(small-desktop){
+    width: 30%;
+  }
+  @include respond(tab-port){
+      position: absolute;
+      width: 50%;
+      height: 30vh;
+      left: 50%;
+      transform: translateX(-50%);
 
+  }
+}
 h1{
-  position: absolute;
-  top: 4.3%;
-  font-size: 2.1rem;
+  padding: 0;
+  font-size: 2rem;
   letter-spacing: 0;
-  left: 200px;
-  @include respond(tab-land){
-    top: 1%
+  font-family: $tech;
+  padding-top: calc(5.85rem - 2.5px);
+  @include respond(small-desktop){
+    font-size: 1.6rem;
   }
   @include respond(tab-port){
     text-align: center;
-    left: 0;
-    font-size: 4rem;
-    top: 3%;
+    font-size: 3rem;
   }
   @include respond(phone){
     position: relative;
-
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    padding-top: 5vh;
   }
 
 }

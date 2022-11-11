@@ -32,11 +32,11 @@ header{
     mix-blend-mode: difference;
 
     &#tablet{
-      left: 5%;
+      left: 3%;
       top: 0%;
       position: fixed;
       z-index: 5;
-      
+
       @include respond(tab-port){
         width: 414px;
         top: 5%;
