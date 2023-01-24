@@ -35,6 +35,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { TopcatComponent } from './topcat/topcat.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
@@ -60,6 +61,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     CartIconComponent,
     ProductComponent,
     CartComponent,
+    TopcatComponent,
   ],
   imports: [
     BrowserModule,

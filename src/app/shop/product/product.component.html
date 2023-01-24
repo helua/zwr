@@ -39,7 +39,7 @@
           <tr><td>stan magazynu:</td><td>{{ product.stock }} sztuk</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
-      <p class="price" *ngIf="this.product.price">
+      <p class="price" *ngIf="product.price">
         cena: <b>{{ product.price }}</b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"

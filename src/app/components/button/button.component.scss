@@ -11,10 +11,14 @@
 }
 
 .button{
+  font-family: $f4;
   position: absolute;
-  right: 5%;
-  bottom: 5px;
-  padding: 10px 15px;
+  // right: 5%;
+  // bottom: 5px;
+  // padding: 10px 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
   border-radius: 0;
   background-color: $color;
   color: black;
@@ -36,9 +40,8 @@
   }
   &:hover{
     cursor: pointer;
-    background-color: $selection;
-    color: $contrast;
-    transform: scale(1.1);
-    box-shadow: $contrast -5px -5px;
+    background-color: black;
+    color: $matrix;
+    box-shadow: $matrix -5px -5px;
   }
 }
