@@ -13,7 +13,12 @@ a.topcat-link{
 
     @include respond(phone){
       font-size: 36px;
-    }}
+    }
+    & fa-icon{
+      padding-bottom: 7px;
+      font-size: inherit;
+      cursor: unset;    }
+  }
 	& h3{
 		text-align: center;
 		color: $color-dark;
@@ -25,14 +30,14 @@ a.topcat-link{
 	}
 
   &__logo{
-      animation: backIn 1s ease;
-      animation-delay: .4s;
+      animation: slide 8s infinite ease-out;
       animation-fill-mode: backwards;
       background-image: url(../../assets/logo-topcat.png);
       background-repeat: repeat;
       background-position: center;
       background-size: 450px;
-      height: 400px;
+      height: 200px;
+      margin: 30px 0;
       position: relative;
 
       @include respond(phone){
@@ -40,6 +45,20 @@ a.topcat-link{
           height: 300px;
           margin-bottom: 2rem;
       }
+  }
+  @keyframes slide {
+    0%{
+      background-position: 0%;
+    }
+    50%{
+      background-position: 100%;
+
+    }
+    100%{
+      background-position: 1%;
+
+    }
+
   }
   @keyframes backIn {
     0%{
