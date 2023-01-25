@@ -17,6 +17,7 @@
     animation: none;
   }
   @include respond(phone){
+    margin-top: 0;
     margin-bottom: 6rem;
     background-size: 210%;
     background-position: 51% 41%;
