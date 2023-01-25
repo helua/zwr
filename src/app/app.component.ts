@@ -16,9 +16,9 @@ export class AppComponent {
 
   ngOnInit(){
     // clear();
-    this.metaService.updateTag(this.norobots);
+    // this.metaService.updateTag(this.norobots);
     this.metaService.addTags([
-      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ZWR_share.jpg'}
+      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ZWR_bg.jpg'}
     ]);
     if(getCart() === null){
       setCart({
