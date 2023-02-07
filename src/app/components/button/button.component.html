@@ -1,4 +1,4 @@
-<div class="button-holder">
+<!-- <div class="button-holder"> -->
   <div *ngIf="link; else noLink">
     <a [href]="link + orderId" target="_blank">
       <div class="button">{{text}}</div>
@@ -7,5 +7,5 @@
   <ng-template #noLink>
     <div class="button">{{text}}</div>
   </ng-template>
-</div>
+<!-- </div> -->
 

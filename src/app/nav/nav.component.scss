@@ -63,7 +63,7 @@ nav .nav-main{
 
 
 nav .nav-sec{
-    font-size: .8rem;
+    font-size: 1rem;
     position: fixed;
     bottom: 2%;
     right: 2%;
@@ -78,7 +78,8 @@ nav .nav-tri{
 }
 
 nav .nav-qua{
-  font-size: .8rem;
+  font-family: $tech;
+  font-size: 1.2rem;
   position: fixed;
   right: 2%;
   top: 50%;

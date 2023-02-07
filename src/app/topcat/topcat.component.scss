@@ -112,7 +112,7 @@ a.topcat-link{
   margin: auto;
   background-color: black;
   padding-top: 100px;
-  padding-bottom: 1000px;
+  padding-bottom: 200px;
   & p, h1{
     text-align: center;
     color: $matrix;
@@ -126,7 +126,7 @@ a.topcat-link{
 .signup-form{
   background-color: black;
   height: 1100px;
-  padding-top:10px;
+  padding-top: 72px;
   margin: auto;
   width: 720px;
   @include respond(phone){
