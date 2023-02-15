@@ -1,5 +1,10 @@
 @import '../../sass/styles';
+.main-container{
+  @include respond(phoneUp){
+    height: $router;
 
+  }
+}
 .title{
   position: absolute;
   top: 65vh;

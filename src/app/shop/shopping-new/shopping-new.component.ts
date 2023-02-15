@@ -50,19 +50,16 @@ export class ShoppingNewComponent implements OnInit {
             for (let i = 0; i < p.included.length; i++){
               this.products.map((sku) => {
                 if(sku.sku === p.included[i].attributes.sku_code){
-                  //GOOD CENA SYNCHRO
                   this.products.filter(a => sku.sku === a.sku)[0].price = p.included[i].attributes.formatted_amount;
                 }
               })
             }
           }
         });
-
         this.ecomm.getStock(this.token.access_token).subscribe(p => {
           if(p){
             for (let i = 0; i < p.data.length; i++){
               this.products.map((sku) => {
-                //GOOD STOCK SYNCHRO
                 if(sku.sku === p.data[i].attributes.sku_code){
                   this.products.filter(a => sku.sku === a.sku)[0].stock = p.data[i].attributes.quantity;
                 }
