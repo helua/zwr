@@ -118,8 +118,6 @@ h1, h2{
 h1{
   font-size: 6rem;
   animation: fadeIn 1s .4s backwards ease;
-
-
   @include respond(tab-port){
     font-size: 4.5rem;
     letter-spacing: .45rem;
@@ -161,7 +159,6 @@ p{
     font-size: 1.5vw;
     line-height: 1.6vw;
     padding: 1rem 8%;
-
   }
   @include respond(tab-port){
     font-size: 1.2rem;

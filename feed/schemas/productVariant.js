@@ -49,6 +49,16 @@ export default {
       type: 'number',
     },
     {
+      title: 'Price',
+      name: 'price',
+      type: 'string',
+    },
+    {
+      title: 'Stock',
+      name: 'stock',
+      type: 'number',
+    },
+    {
       title: 'Taxable',
       name: 'taxable',
       type: 'boolean',
