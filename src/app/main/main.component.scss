@@ -4,6 +4,12 @@
     height: $router;
 
   }
+  & .background caption{
+    color: white;
+    font-size: 12px;
+    width: 149px;
+    padding: 15px;
+  }
 }
 .title{
   position: absolute;
