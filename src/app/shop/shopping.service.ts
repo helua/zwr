@@ -1,9 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { EcommerceService } from '../ecommerce.service';
-import { clear, getCart, getOrderId, setCart, setCheckoutButton, setOrderId } from '../localStorage';
-import { CartComponent } from './cart/cart.component';
+import { clear, getCart, getCheckoutButton, getOrderId, setCart, setCheckoutButton, setOrderId } from '../localStorage';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +10,11 @@ export class ShoppingService {
 
   ord: string = '';
   cart: any;
+  badgeHidden: boolean = false;
   @Output() updateCart = new EventEmitter<any>();
 
 
-  constructor(private ecomm: EcommerceService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private ecomm: EcommerceService, public dialog: MatDialog) { }
 
   createOrder(token: any, ord: string, product: any){
     console.log(token, ord, product)
@@ -34,7 +33,6 @@ export class ShoppingService {
         });
       });
       return {cart: this.cart, ord: this.ord};
-
     }
     else{
       this.ecomm.addLineItems(token.access_token, ord, product.sku, product.title, product.images[0]).subscribe(r => {
@@ -45,35 +43,7 @@ export class ShoppingService {
       return {cart: this.cart, ord: this.ord};
     }
   }
-  openSnackBar(message: string, action: string) {
-    let ref = this._snackBar.open(message, action, {
-      horizontalPosition: "center",
-      verticalPosition: "top",
-    });
-    ref.onAction().subscribe(() => {
-      this.openDialog();
-    });
-  }
-  // enableRefreshOrder(){
-  //   if(this.isRefreshEnabled === false){
-  //     this.isRefreshEnabled = true;
-  //   }
-  // }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(CartComponent, {
-      width: '466px',
-      maxWidth: '97vw',
-      data: { ord: this.ord },
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.cart = JSON.parse(getCart());
-      this.ord = getOrderId();
-      // console.log(this.ord);
-    });
-  }
   clearLocalStorage(){
     clear();
     setOrderId('');

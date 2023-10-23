@@ -3,7 +3,7 @@
 h2{
   color: black;
   @include respond(tab-port){
-    padding: 0rem 5%;
+    padding: 1rem 5%;
   }
 }
 
@@ -138,5 +138,16 @@ table.tech{
   }
   @media screen and (min-width: 1370px){
     width: 176px;
+  }
+}
+fa-icon#back{
+  position: relative;
+  left: 7%;
+  @include respond(tab-port){
+    left: 5%;
+    margin-bottom: 1rem;
+  }
+  @include respond(phone){
+    left: 4%;
   }
 }

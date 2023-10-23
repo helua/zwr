@@ -46,8 +46,10 @@ testem.log
 Thumbs.db
 
 # Sanity files
-/feed/node_modules
-/feed/dist
+/feed-rental/node_modules
+/feed-rental/dist
+/feed-shop/node_modules
+/feed-shop/dist
 
 # Other files
 src/assets/originals

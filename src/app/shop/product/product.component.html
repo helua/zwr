@@ -1,8 +1,15 @@
 
+
 <main *ngIf="product; else loadingBlock">
-  <app-cart-icon  [cart]="cart" [badgeHidden]="badgeHidden"></app-cart-icon>
+  <app-cart-icon
+    [cart]="cart"
+    [badgeHidden]="badgeHidden"
+    (click)="openDialog();">
+  </app-cart-icon>
+  <fa-icon id="back" (click)="goBack();" [icon]="arrowIcon" ></fa-icon>
+
   <h2>{{ product.title }}</h2>
-  <p class="code">{{product.vendor}} / {{ product.sku }}</p>
+  <p class="code">ZWR / {{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()" >
     Dodaj do koszyka
     <fa-icon  [icon]="cartIcon" ></fa-icon>
@@ -47,11 +54,13 @@
         matTooltipHideDelay="100"
         ></fa-icon>
       </p>
-        <div *ngIf="!badgeHidden">
+        <div *ngIf="ord">
           <app-button
             text="idź do checkoutu"
             [link]="checkout"
-            [orderId]="ord">
+            [orderId]="ord"
+            [token]="token.access_token"
+            >
           </app-button>
         </div>
     </div>

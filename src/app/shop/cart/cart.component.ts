@@ -3,10 +3,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartData } from '../../shop/Product';
 import { faTimes, faSync, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { clear, getCart, getCheckoutButton, getOrderId, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
+import { getCart, getCheckoutButton, getShipment, getToken, setCart, setCheckoutButton, setOrderId, setShipment } from 'src/app/localStorage';
 import { ShoppingService } from '../shopping.service';
 
 @Component({
@@ -23,9 +22,9 @@ export class CartComponent implements OnInit {
   cart: any;
   ord: any;
   token: any;
-  line_items: any;
+  lineItems: any = [];
   shipment: any;
-  checkout: string = 'http://checkout.zwr.waw.pl/';
+  checkout: string = 'https://zwr-event-agency.commercelayer.app/checkout/';
   isRefreshEnabled: boolean = true;
   isCheckoutEnabled: boolean = true;
   isCheckoutUnfinished: boolean = false;
@@ -40,62 +39,75 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = JSON.parse(getToken());
-
-    // this.ord = this.data.ord;
-    // console.log(this.data);
-    this.ord =  getOrderId();
-
-    // console.log(this.ord);
-    // console.log('pobieram koszyk z localStorage');
+    this.ord =  this.data.ord;
     this.cart = JSON.parse(getCart());
-    console.log(this.cart);
-    // console.log('pobieram dane o wysyłce z localStorage');
     this.shipment = JSON.parse(getShipment());
-    // console.log(this.shipment);
-    // console.log('pobieram daną o Checkout Button z localStorage');
-      var isTrueSet = (getCheckoutButton() === 'true');
-      this.isCheckoutEnabled = isTrueSet;
-      // console.log(this.isCheckoutEnabled);
-
+    var isTrueSet = (getCheckoutButton() === 'true');
+    this.isCheckoutEnabled = isTrueSet;
     if(this.cart.data.attributes.skus_count != 0){
-      this.line_items = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'skus');
-      // this.line_items = this.cart.included;
-      let i;
-      for(i = 0; i > this.line_items.length; i++ ){
-        // this.line
+      console.log('LINE ITEMY');
+      console.log(this.cart.included);
+      for(let i = 0; i < this.cart.included.length; i++){
+        this.ecomm.getLineItemsOptions(this.token.access_token, this.cart.included[i].id).subscribe(o => {
+          console.log('OPCJE JEDNEGO Z ITEMÓW');
+          console.log(o);
+          this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url})
+          console.log('FRONTOWE ITEM OPRACOWANY');
+          console.log(this.lineItems);
+            // jeśli ma sku_options
+            // if(o.included){
+            //   console.log('OPCJE Z CL');
+            //   console.log(o.included);
+            //   console.log('ZNALEZIONY PRODUKT POWINIEN POSIADAĆ OPCJE');
+            //   let item = this.lineItems.find((a: { id: string; }) => a.id === this.cart.included[i].id)
+            //   console.log(item);
+            //   let options: any = [];
+            //   for(let i = 0; i < o.included.length; i++){
+            //     console.log('PĘTLA DLA KAŻDEJ OPCJI LINE ITEMS')
+            //     console.log(o.included[i].attributes.name)
+            //     options.push(o.included[i].attributes.name);
+            //   }
+            //   console.log('TABELKA Z OPCJAMI DLA PRODUKTU');
+            //   console.log(options);
+            //   item.options = options;
+            //   console.log('PIERWSZY FRONT ITEMY PO DODANIU OPCJI');
+            //   console.log(this.lineItems[0].options);
+            // }
+          });
+        }
       }
-      // console.log(this.line_items);
-      // console.log(this.cart.included);
-
-    }
-    // console.log(this.cart.data.attributes);
-
   }
 
   onClose(): void {
     this.dialogRef.close()
   }
+
+  //usuń item z koszyka, i cały pusty koszyk
   trashItem(id: string){
-    // console.log('usuwam line item');
-    console.log(id);
-    this.ecomm.deleteLineItem(this.token.access_token, id).toPromise().then(result => {
-      console.log(result)
-      this.ecomm.getCart(this.token.access_token, this.ord).subscribe(o =>{
-        // console.log('koszyk po usunięciu');
-        // console.log(o);
+    this.ecomm.deleteLineItem(this.token.access_token, id).subscribe(result => {
+      this.ecomm.getCart(this.token.access_token, this.data.ord).subscribe(o =>{
         setCart(o);
         this.cart = JSON.parse(getCart());
-        setCheckoutButton('false');
+        this.lineItems.splice(this.lineItems.findIndex((e: { id: string; }) => e.id === id),1);
+        if(this.lineItems.length < 1){
+          setOrderId('');
+          this.ord = '';
+          setCart({
+            data: {
+              attributes: {
+                skus_count: 0,
+              }
+            }
+          });
+          setCheckoutButton('false');
+        }
       });
     });
-    // this.onClose();
-    // this.shop.openSnackBar('Koszyk jest pusty', 'Fajnie!');
   }
 
+  //Odśwież status zamówienia
   getCurrentOrder(){
     this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-      // console.log('pobieram koszyk z CL');
-      // console.log(c);
       setCart(c);
       this.cart = c;
       if(c.included.length === 3){
@@ -111,6 +123,8 @@ export class CartComponent implements OnInit {
       }
     });
   }
+
+  //Usuń potwierdzenie i zamów jeszcze raz
   clearLocalStorage(){
     this.shop.clearLocalStorage;
   }

@@ -8,7 +8,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class EcommerceService {
 
   url: string = 'https://zwr-event-agency.commercelayer.io'
-  //checkoutUrl: string = 'http://checkout.zwr.waw.pl/';
   orderCreated: string = '';
 
   constructor(private http: HttpClient ) { }
@@ -108,5 +107,13 @@ export class EcommerceService {
     return this.http.delete(this.url+'/api/line_items/'+lineItemId,
       headers);
   }
-
+  getLineItemsOptions(token: string, lineItemId: string){
+    const headersData = {
+      'Accept': 'application/vnd.api+json',
+      'Authorization': 'Bearer '+token,
+    }
+    const headers = { headers: new HttpHeaders(headersData)};
+    return this.http.get<any>(this.url+'/api/line_items/'+lineItemId+'?include=line_item_options'
+    ,headers);
+  }
 }

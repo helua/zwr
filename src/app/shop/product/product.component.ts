@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { getCart, getOrderId, setOrderId, getCheckoutButton, setCheckoutButton, getToken, setCart } from 'src/app/localStorage';
 import { FeedService } from 'src/app/feed.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -9,6 +9,10 @@ import { switchMap } from 'rxjs/operators';
 import { Product } from '../../shop/Product';
 import { TokenService } from 'src/app/token.service';
 import { ShoppingService } from '../shopping.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CartComponent } from '../cart/cart.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Location } from '@angular/common';
 
 
 
@@ -25,49 +29,42 @@ export class ProductComponent implements OnInit {
   token: any;
   ord: string = '';
   cart: any;
+  // @Output() updateCart = new EventEmitter<any>();
 
-  @Output() updateCart = new EventEmitter<any>();
-
-  checkout: string = 'http://checkout.zwr.waw.pl/';
+  checkout: string = 'https://zwr-event-agency.commercelayer.app/checkout/';
   cartIcon = faCartPlus;
+  arrowIcon = faArrowLeft;
   title: string ='';
   productRaw: any = {};
   badgeHidden: boolean = true;
-
   // description: MetaDefinition = {};
 
   constructor(
+    private tok: TokenService,
     private ecomm: EcommerceService,
     private http: FeedService,
     private route: ActivatedRoute,
+    private location: Location,
     private feed: FeedService,
-    private tok: TokenService,
-    private shop: ShoppingService
-    // private titleService: Title,
-    // private metaService: Meta,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(){
-    if(getOrderId() !== undefined){
-      this.ord = getOrderId();
-    }
+
+    this.ord = getOrderId();
     console.log(this.ord);
-
-    if(!JSON.parse(getToken())){
-      this.tok.getToken();
-      this.token = JSON.parse(getToken())
+    this.cart = JSON.parse(getCart());
+    var isTrueSet = (getCheckoutButton() === 'false');
+    this.badgeHidden = isTrueSet;
+    this.token = JSON.parse(getToken());
+    if(this.token == null){
+      this.tok.getToken()
+      this.token = JSON.parse(getToken());
     }
-    else{
-      this.token = JSON.parse(getToken())
-    };
-
-
-    console.log(getCheckoutButton())
-    // console.log('pobieram daną o Checkout Button z localStorage');
-      var isTrueSet = (getCheckoutButton() === 'true');
-      this.badgeHidden = !isTrueSet;
-      console.log(this.badgeHidden);
-
+    this.sanityAndCommerceLayer();
+  }
+  sanityAndCommerceLayer(){
     this.route.paramMap.pipe(switchMap((params: ParamMap) =>
       this.http.getProduct(params.get('id')))).subscribe( product => {
         this.productRaw = product;
@@ -96,7 +93,6 @@ export class ProductComponent implements OnInit {
               }
             }
           })
-
         // this.title = this.product.title;
         // this.titleService.setTitle(this.title);
         // this.description = {name: 'description', content: this.post.meta};
@@ -109,29 +105,33 @@ export class ProductComponent implements OnInit {
         this.ord = o.data.id;
         console.log(this.ord)
         setOrderId(this.ord);
+        console.log('nowe zamówienie')
+
         this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
           this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
             // this.updateCart.emit({cart: c, ord: this.ord});
-            // console.log({cart: c, ord: this.ord})
+            console.log({cart: c, ord: this.ord})
             this.cart = c;
             setCart(c);
             setCheckoutButton(true.toString());
-            this.shop.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+            this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
             var isTrueSet = (getCheckoutButton() === 'false');
             this.badgeHidden = isTrueSet;
-
           });
         });
       });
     }
     if(this.ord){
       this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+        console.log(r)
         this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+          console.log(c)
+          console.log('intnieje zamówienie')
           // this.updateCart.emit({cart: c, ord: this.ord});
           this.cart = c;
           setCart(c);
           setCheckoutButton(true.toString());
-          this.shop.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+          this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
           var isTrueSet = (getCheckoutButton() === 'false');
           this.badgeHidden = isTrueSet;
         });
@@ -139,7 +139,29 @@ export class ProductComponent implements OnInit {
 
     }
   }
-
-
+  openDialog() {
+    const dialogRef = this.dialog.open(CartComponent, {
+      width: '466px',
+      maxWidth: '97vw',
+      data: { ord: this.ord },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.cart = JSON.parse(getCart());
+      this.ord = getOrderId();
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    let ref = this._snackBar.open(message, action, {
+      horizontalPosition: "center",
+      verticalPosition: "top",
+    });
+    ref.onAction().subscribe(() => {
+      this.openDialog();
+    });
+  }
+  goBack(){
+    this.location.back();
+  }
 }
 

@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
   @Input() text: string = "";
   @Input() orderId: string = '';
   @Input() link : string = '';
+  @Input() token : string = '';
 
   constructor() { }
 

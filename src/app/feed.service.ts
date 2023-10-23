@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from './shop/Product';
 const sanityClient = require("@sanity/client");
 const sanity = sanityClient({
-  projectId: 'obecw03b',
+  projectId: '887dorwc',
   dataset: 'production',
   apiVersion: '2021-10-21',
   useCdn: true,
@@ -16,22 +16,15 @@ export class FeedService {
 
   constructor( private http: HttpClient ) {}
 
-  // getProducts(): Observable<Product[]> {
-  //   return this.http.get<Product[]>('/.netlify/functions/getProducts', {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  // }
   getProducts(){
-    return this.http.get(`https://obecw03b.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"]{title, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title,  "statusTitles": statuses[]->title, "vendor": vendor->title, body}`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"]{title, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title,  "statusTitles": statuses[]->title, "vendor": vendor->title, body}`, {
       headers: {
         'Content-Type': 'application/json',
       },
     })
   }
   getProduct(id: any){
-    return this.http.get(`https://obecw03b.api.sanity.io/v2021-10-21/data/query/production?query=*[defaultProductVariant.sku=="${id}"]`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[defaultProductVariant.sku=="${id}"]`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -48,13 +41,6 @@ export class FeedService {
       vendor: p.vendor,
       body: blocksToHtml({ blocks: p.body }),
       sku: p.defaultProductVariant.sku,
-      length: p.defaultProductVariant.length,
-      width: p.defaultProductVariant.width,
-      height: p.defaultProductVariant.height,
-      lengthUnfold: p.defaultProductVariant.lengthUnfold,
-      widthUnfold: p.defaultProductVariant.widthUnfold,
-      heightUnfold: p.defaultProductVariant.heightUnfold,
-      color: p.defaultProductVariant.color,
       images: []
 
     }
@@ -70,6 +56,7 @@ export class FeedService {
         output.images?.push(imageUrlBuilder(sanity).image(image).url())
       }
     }
+    console.log(output);
     return output;
   }
 }

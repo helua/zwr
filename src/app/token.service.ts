@@ -9,10 +9,10 @@ import { clear, getToken, setToken } from './localStorage';
 export class TokenService {
 
   url: string = 'https://zwr-event-agency.commercelayer.io'
-  clientID: string = 'PChWHv_H6o7aa8WiZMT3-txRHhSk_O-6xwWOG5rLRA8';
+  clientID: string = 'b_zewR-RmgaoNMr3kHw-1nJ-1nusN-MmCpFHWUPaZtM';
   // secretKey: string = 'X-wSS3WdQ_et1IPTcqa930Yjg1Sr15ObG3HeWioIBjE';
-  scope: string ="market:11166";
-  stock: string = "stock_location:9436";
+  scope: string ="market:15032";
+  stock: string = "stock_location:12586";
   // token: string = "eyJhbGciOiJIUzUxMiJ9.eyJvcmdhbml6YXRpb24iOnsiaWQiOiJBeUx2eEZHWmtuIiwic2x1ZyI6Inp3ci1ldmVudC1hZ2VuY3kiLCJlbnRlcnByaXNlIjpmYWxzZX0sImFwcGxpY2F0aW9uIjp7ImlkIjoiWk1YQVppUWtacCIsImtpbmQiOiJpbnRlZ3JhdGlvbiIsInB1YmxpYyI6ZmFsc2V9LCJ0ZXN0Ijp0cnVlLCJleHAiOjE2NjI1OTE1OTksIm1hcmtldCI6eyJpZCI6WyJwb012ZWhRektqIl0sInByaWNlX2xpc3RfaWQiOiJ3QlpydkNRUEFCIiwic3RvY2tfbG9jYXRpb25faWRzIjpbImdrV29tdVhEamsiXSwiZ2VvY29kZXJfaWQiOm51bGwsImFsbG93c19leHRlcm5hbF9wcmljZXMiOmZhbHNlfSwicmFuZCI6MC4wODQ0MDM4NTcxNzMzNTQ1Mn0.38uQXvyja5hmeKU8tUnMcDfWtx7aAn9lCgRLD2Zm92qDeIkpO9mgr9Hz35b90FhaXUGeH3L7m-IxOFsEENE9jQ";
   constructor() { }
 
@@ -25,25 +25,25 @@ export class TokenService {
         scope: this.scope,
       })
       if(tokenAPI){
-        // console.log('nowy token utworzony');
-        // console.log(tokenAPI);
+        console.log('nowy token utworzony');
+        console.log(tokenAPI);
         setToken(tokenAPI);
-        // console.log('nowy token w localStorage');
-        // console.log(getToken());
+        console.log('nowy token w localStorage');
+        console.log(getToken());
         return getToken();
       }
 
     }
     else{
-      // console.log('token istnieje w LS');
+      console.log('token istnieje w LS');
       return getToken();
     }
 
   }
   checkIfTokenValid(): boolean{
     const tokObject = JSON.parse(getToken());
-    // console.log('token zastały');
-    // console.log(tokObject);
+    console.log('token zastały');
+    console.log(tokObject);
     if(tokObject === null){
       return false;
     }
@@ -52,7 +52,7 @@ export class TokenService {
     const tokenValidTimeRemaing =  tokObject.expires_in;
     // const tokenValidTimeRemaing =  tokObject.expires_in - ( currentDate - tokObject.created_at ) ;
     // console.log(tokenValidTimeRemaing);
-    // console.log(currentDate - tokObject.created_at)
+    // console.log(currentDate - tokObject.created_
     if(tokenValidTimeRemaing > 0 && currentDate - tokObject.created_at < 14400){
       return true;
     }

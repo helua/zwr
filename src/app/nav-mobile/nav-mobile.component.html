@@ -1,16 +1,14 @@
 <div class="mobile">
-
       <fa-icon [icon]="menuIcon" (click)="sidenav.toggle()"></fa-icon>
-
   </div>
   <mat-sidenav-container>
       <mat-sidenav #sidenav>
         <img src="../../assets/ZWR_logo.png" alt="zwr" (click)="sidenav.toggle()" routerLink="/">
         <mat-nav-list>
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/o-nas" routerLinkActive="active">DRUŻYNA</a>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="/topcat" routerLinkActive="active">TOP CAT</a>
-          <!-- <a (click)="sidenav.toggle()" mat-list-item routerLink="/sklep" routerLinkActive="active">WYPOŻYCZALNIA</a> -->
+          <!-- <a (click)="sidenav.toggle()" mat-list-item routerLink="/topcat" routerLinkActive="active">TOP CAT</a> -->
           <a (click)="sidenav.toggle()" mat-list-item routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/sklep" routerLinkActive="active">SKLEP</a>
         </mat-nav-list>
         <div class="social-holder">
           <ul class="social">
@@ -35,7 +33,8 @@
       </mat-sidenav>
     <mat-sidenav-content>
         <div class="router-wrapper">
-          <router-outlet></router-outlet>
+          <router-outlet
+          ></router-outlet>
         </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

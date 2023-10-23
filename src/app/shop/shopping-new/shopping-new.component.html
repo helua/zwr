@@ -1,25 +1,24 @@
 <app-cart-icon
   [cart]="cart"
   [badgeHidden]="badgeHidden"
-  (updateCart)="onUpdatedCart($event)"
-></app-cart-icon>
+  (click)="openDialog();">
+</app-cart-icon>
+
 <div *ngFor="let product of products" >
   <table>
-
-  <app-product-list-item
-    [product]="product"
-    [ord]="ord"
-    (updateCart)="onUpdatedCart($event)"
-    >
-  </app-product-list-item>
-</table>
-
-
+    <app-product-list-item
+      [product]="product"
+      [ord]="ord"
+      (updateCart)="onUpdatedCart($event)"
+      >
+    </app-product-list-item>
+  </table>
 </div>
+
 <app-button
   *ngIf="ord"
   text="idź do checkoutu"
   [link]="checkout"
   [orderId]="ord"
->
+  [token]="token.access_token">
 </app-button>

@@ -27,22 +27,31 @@ export class ProductListItemComponent implements OnInit {
 
     //Commerce Layer Token
     this.token = JSON.parse(getToken());
+
   }
   createOrder(){
     if(!this.ord){
+      console.log('nowe zamówienie')
       this.ecomm.createEmptyOrder(this.token.access_token).subscribe(o => {
         this.ord = o.data.id;
         setOrderId(this.ord);
-        this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-          this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-            this.updateCart.emit({cart: c, ord: this.ord});
+        this.ecomm.addLineItems(this.token.access_token, o.data.id, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+          console.log(r)
+          this.ecomm.getCart(this.token.access_token, o.data.id).subscribe(c => {
+                    console.log(c)
+
+            this.updateCart.emit({cart: c, ord: o.data.id});
           });
         });
       });
     }
     if(this.ord){
+      console.log('istnieje zamówienie ')
       this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
+        console.log(r)
+
         this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+          console.log(c)
           this.updateCart.emit({cart: c, ord: this.ord});
         });
       });
