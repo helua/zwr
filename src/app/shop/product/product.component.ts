@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
   cart: any;
   // @Output() updateCart = new EventEmitter<any>();
 
-  checkout: string = 'https://zwr-event-agency.commercelayer.app/checkout/';
+  checkout: string = 'https://checkout.zwr.waw.pl/';
   cartIcon = faCartPlus;
   arrowIcon = faArrowLeft;
   title: string ='';

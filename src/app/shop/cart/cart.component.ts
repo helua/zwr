@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   token: any;
   lineItems: any = [];
   shipment: any;
-  checkout: string = 'https://zwr-event-agency.commercelayer.app/checkout/';
+  checkout: string = 'https://checkout.zwr.waw.pl/';
   isRefreshEnabled: boolean = true;
   isCheckoutEnabled: boolean = true;
   isCheckoutUnfinished: boolean = false;

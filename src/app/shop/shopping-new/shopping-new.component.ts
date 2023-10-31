@@ -23,7 +23,7 @@ export class ShoppingNewComponent implements OnInit {
   ord: string = '';
   cart: any;
   badgeHidden: boolean = true;
-  checkout: string = 'https://zwr-event-agency.commercelayer.app/checkout/';
+  checkout: string = 'https://checkout.zwr.waw.pl/';
 
   constructor(
     private feed: FeedService,
