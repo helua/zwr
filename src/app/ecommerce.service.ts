@@ -48,7 +48,10 @@ export class EcommerceService {
         "data": {
             "type": "orders",
             "attributes": {
-              "language_code": "pl"
+              "language_code": "pl",
+              "metadata": {
+                "paczkomat_id": "unset"
+              },
             }
           }
         },
@@ -106,6 +109,51 @@ export class EcommerceService {
 
     return this.http.delete(this.url+'/api/line_items/'+lineItemId,
       headers);
+  }
+  // getLineItemsOptions(token: string, lineItemId: string){
+  //   const headersData = {
+  //     'Accept': 'application/vnd.api+json',
+  //     'Authorization': 'Bearer '+token,
+  //   }
+  //   const headers = { headers: new HttpHeaders(headersData)};
+  //   return this.http.get<any>(this.url+'/api/line_items/'+lineItemId+'?include=line_item_options'
+  //   ,headers);
+  // }
+  addLineItemOptions(token: string, lineItem: string, skuOption: any, optionName: string){
+    const headersData = {
+      'Accept': 'application/vnd.api+json',
+      'Content-Type': 'application/vnd.api+json',
+      'Authorization': 'Bearer '+token,
+    }
+    const headers = { headers: new HttpHeaders(headersData)};
+    return this.http.post<any>(this.url+'/api/line_item_options', {
+      "data": {
+        "type": "line_item_options",
+        "attributes": {
+          "quantity": 1,
+          "options": {
+            "size": optionName
+          },
+          "metadata": {
+            "foo": "bar"
+          },
+        },
+        "relationships": {
+          "line_item": {
+            "data": {
+              "type": "line_items",
+              "id": lineItem
+            }
+          },
+          "sku_option": {
+            "data": {
+              "type": "sku_options",
+              "id": skuOption
+            }
+          }
+        }
+      }
+    },headers);
   }
   getLineItemsOptions(token: string, lineItemId: string){
     const headersData = {
