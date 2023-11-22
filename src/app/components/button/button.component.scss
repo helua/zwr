@@ -37,8 +37,8 @@
   &:hover{
     cursor: pointer;
     background-color: $mild;
-    color: $color-red;
+    color: $contrast;
     transform: scale(1.1);
-    box-shadow: $contrast -5px -5px;
+    box-shadow: $color -5px -5px;
   }
 }

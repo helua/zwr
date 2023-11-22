@@ -16,7 +16,8 @@ $zwr-primary: mat.define-palette(mat.$indigo-palette);
 $zwr-accent: mat.define-palette(mat.$amber-palette, A400);
 
 // The warn palette is optional (defaults to red).
-$zwr-warn: mat.define-palette(mat.$red-palette);
+$zwr-warn: #D1551A;
+// $zwr-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
