@@ -35,7 +35,7 @@
   }
   & h2{
     font-size: 5rem;
-    color: black;
+    color: $black;
     mix-blend-mode: normal;
     @include respond(phone){
       font-size: 3.6rem;

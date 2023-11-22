@@ -248,6 +248,9 @@ p{
 .tornado{
 	background-image: url(../../assets/ZWR_logo.png);
 }
+.tornado-old{
+	background-image: url(../../assets/ZWR_logo-old.png);
+}
 .socialdivs{
   display: flex;
   justify-content: space-between;
@@ -261,7 +264,9 @@ p{
   fa-icon{
     font-size: 10vw;
     color: $color;
-
+    &:hover{
+      color: $contrast;
+    }
 
   }
   @include respond(tab-port){

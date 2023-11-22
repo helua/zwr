@@ -110,7 +110,7 @@ a.topcat-link{
 .signup{
   position: relative;
   margin: auto;
-  background-color: black;
+  background-color: $black;
   padding-top: 100px;
   padding-bottom: 200px;
   & p, h1{
@@ -124,7 +124,7 @@ a.topcat-link{
   }
 }
 .signup-form{
-  background-color: black;
+  background-color: $black;
   height: 1100px;
   padding-top: 72px;
   margin: auto;
