@@ -48,8 +48,8 @@ body{
       letter-spacing: .01rem;
     }
     & ::selection{
-        background-color: $selection;
-        color: gold;
+        background-color: $mild;
+        color: $contrast;
     }
 }
 
@@ -105,7 +105,7 @@ h1, h2{
   font-family: $nav;
   text-transform: uppercase;
   mix-blend-mode: difference;
-  color: $metal;
+  color: $mild;
   letter-spacing: .3rem;
   padding: 1% 7%;
 }
@@ -180,7 +180,7 @@ table{
 
   & td {
       padding-bottom: .2rem;
-      border-bottom: .5px dotted $metal;
+      border-bottom: .5px dotted $mild;
   }
   & tr td:first-child{
     font-family: $tech;
@@ -201,7 +201,7 @@ table{
 }
 
 blockquote{
-  color: $metal;
+  color: $mild;
   font-family: $tech;
   font-size: 1.2rem;
   margin: 2% 12%;
@@ -251,7 +251,7 @@ fa-icon{
   padding-bottom: 100px; }
 
 .highlight{
-  border-bottom: 0.5px dotted $color-gold;
+  border-bottom: 0.5px dotted $color;
   padding:5px;
 }
 @keyframes fadeIn {

@@ -36,9 +36,9 @@
   }
   &:hover{
     cursor: pointer;
-    background-color: $selection;
+    background-color: $mild;
     color: $color-red;
     transform: scale(1.1);
-    box-shadow: $color-blue -5px -5px;
+    box-shadow: $contrast -5px -5px;
   }
 }
