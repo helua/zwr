@@ -1,4 +1,3 @@
-@import '/src/sass/styles';
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -16,6 +15,7 @@
 $zwr-primary: mat.define-palette(mat.$indigo-palette);
 $zwr-accent: mat.define-palette(mat.$amber-palette, A400);
 
+@import '/src/sass/styles';
 // The warn palette is optional (defaults to red).
 // $zwr-warn: #D1551A;
 $zwr-warn: mat.define-palette(mat.$red-palette);
