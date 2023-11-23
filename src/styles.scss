@@ -1,3 +1,4 @@
+@import '/src/sass/styles';
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -18,14 +19,46 @@ $zwr-accent: mat.define-palette(mat.$amber-palette, A400);
 // The warn palette is optional (defaults to red).
 // $zwr-warn: #D1551A;
 $zwr-warn: mat.define-palette(mat.$red-palette);
-
+$zwr-warn-2: (
+  50 : $error,
+  100 : $error,
+  200 : $error,
+  300 : $error,
+  400 : $error,
+  500 : $error,
+  600 : $error,
+  700 : $error,
+  800 : $error,
+  900 : $error,
+  A100 : $error-l,
+  A200 : $error-l,
+  A400 : $error-l,
+  A700 : $error-l,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+$zwr-warn-2-palette: mat.define-palette($zwr-warn-2, 900);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $zwr-theme: mat.define-light-theme((
   color: (
     primary: $zwr-primary,
     accent: $zwr-accent,
-    warn: $zwr-warn,
+    warn: $zwr-warn-2-palette,
   )
 ));
 
@@ -34,7 +67,6 @@ $zwr-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($zwr-theme);
 
-@import '/src/sass/styles';
 
 
 body{
