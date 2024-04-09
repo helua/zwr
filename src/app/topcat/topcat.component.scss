@@ -8,7 +8,7 @@ a.topcat-link{
 .title{
   & h1{
     padding-top: 7px;
-    color: $black;
+    color: $pink;
     text-align: center;
 
     @include respond(phone){
@@ -21,7 +21,7 @@ a.topcat-link{
   }
 	& h3{
 		text-align: center;
-		color: $pink;
+		color: $black;
 		font-family: $f2;
 		margin: 30px;
 		@include respond(phone){
