@@ -3,12 +3,12 @@
 
 
 a.topcat-link{
-  color: $matrix;
+  color: $color-black;
 }
 .title{
   & h1{
     padding-top: 7px;
-    color: $color-dark;
+    color: $pink;
     text-align: center;
 
     @include respond(phone){
@@ -21,7 +21,7 @@ a.topcat-link{
   }
 	& h3{
 		text-align: center;
-		color: $color-dark;
+		color: $pink;
 		font-family: $f2;
 		margin: 30px;
 		@include respond(phone){
@@ -110,12 +110,12 @@ a.topcat-link{
 .signup{
   position: relative;
   margin: auto;
-  background-color: $black;
+  background-color: $pink;
   padding-top: 100px;
   padding-bottom: 200px;
   & p, h1{
     text-align: center;
-    color: $matrix;
+    color: $black;
   }
   & img{
     margin: 50px auto;
@@ -124,7 +124,7 @@ a.topcat-link{
   }
 }
 .signup-form{
-  background-color: $black;
+  background-color: $pink;
   height: 1100px;
   padding-top: 72px;
   margin: auto;
