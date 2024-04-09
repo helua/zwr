@@ -8,7 +8,7 @@ a.topcat-link{
 .title{
   & h1{
     padding-top: 7px;
-    color: $pink;
+    color: $black;
     text-align: center;
 
     @include respond(phone){
@@ -21,7 +21,7 @@ a.topcat-link{
   }
 	& h3{
 		text-align: center;
-		color: $black;
+		color: $pink;
 		font-family: $f2;
 		margin: 30px;
 		@include respond(phone){
@@ -125,10 +125,9 @@ a.topcat-link{
 }
 .signup-form{
   background-color: $pink;
-  height: 1100px;
   padding-top: 72px;
   margin: auto;
-  width: 720px;
+  width: 1000px;
   @include respond(phone){
       display: none;
       visibility: hidden;
