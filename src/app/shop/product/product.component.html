@@ -43,7 +43,7 @@
               {{product.handle}}
             </td>
           </tr> -->
-          <tr><td>stan magazynu:</td><td>{{ product.stock }} sztuk</td></tr>
+          <tr *ngIf="product.stock"><td>stan magazynu:</td><td>{{ product.stock }} sztuk</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
       <p class="price" *ngIf="product.price">
