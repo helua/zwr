@@ -17,7 +17,7 @@ export class FeedService {
   constructor( private http: HttpClient ) {}
 
   getProducts(){
-    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"]{title, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->title, body,} | order(createdAt desc)`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->title, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->title} | order(_createdAt desc)`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -35,7 +35,13 @@ export class FeedService {
     const imageUrlBuilder = require("@sanity/image-url");
     const output: Product = {
       title: p.title,
+      priority: p.priority,
       slug: p.slug.current,
+      capacity: p.capacity,
+      bedTypes: p.bedTypes,
+      privateBathroom: p.privateBathroom,
+      standard: p.standard,
+      address: p.address,
       categories: p.categoryTitles,
       statuses: p.statusTitles,
       vendor: p.vendor,

@@ -9,7 +9,7 @@
   <fa-icon id="back" (click)="goBack();" [icon]="arrowIcon" ></fa-icon>
 
   <h2>{{ product.title }}</h2>
-  <p class="code">ZWR / {{ product.sku }}</p>
+  <p class="code">{{ product.vendor }} / {{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()" >
     Dodaj do koszyka
     <fa-icon  [icon]="cartIcon" ></fa-icon>
@@ -34,6 +34,12 @@
           <tr *ngIf="product.widthUnfold"><td>szerokość przed rozłożeniem:</td> <td>{{product.widthUnfold}} cm</td></tr>
           <tr *ngIf="product.heightUnfold"><td>wysokość przed rozłożeniem:</td><td>{{product.heightUnfold}} cm</td></tr>
           <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr>
+          <tr *ngIf="product.standard"><td>standard:</td> <td>{{product.standard}}</td></tr>
+          <tr *ngIf="product.capacity"><td>capacity:</td> <td>{{product.capacity}}</td></tr>
+          <tr *ngIf="product.privateBathroom"><td>private bathroom:</td> <td>{{product.privateBathroom}}</td></tr>
+          <tr *ngIf="product.bedTypes"><td>bed types:</td> <td><span *ngFor="let bedType of product.bedTypes" class="label category-label">{{ bedType }}</span></td></tr>
+          <tr *ngIf="product.address"><td>address:</td> <td>{{product.address}}</td></tr>
+
           <!-- <tr><td>przykładowy tooltip:</td>
             <td
               class="info-holder"
@@ -43,7 +49,7 @@
               {{product.handle}}
             </td>
           </tr> -->
-          <tr *ngIf="product.stock"><td>stan magazynu:</td><td>{{ product.stock }} sztuk</td></tr>
+          <tr *ngIf="product.stock"><td>stock:</td><td>{{ product.stock }} sztuk</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
       <p class="price" *ngIf="product.price">

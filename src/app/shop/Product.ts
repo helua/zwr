@@ -21,6 +21,12 @@ export interface Product {
   color?: string;
   price?: string;
   stock?: number;
+  capacity?: number;
+  priority?: number;
+  bedTypes?: string[];
+  standard?: string;
+  privateBathroom?: string;
+  address?: string;
 }
 
 export interface CartData {
