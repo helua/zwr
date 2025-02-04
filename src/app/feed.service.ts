@@ -17,7 +17,14 @@ export class FeedService {
   constructor( private http: HttpClient ) {}
 
   getProducts(){
-    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->title, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->title}`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"][privateBathroom == null]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->title, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->title} | order(priority asc)`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  }
+  getAcco(){
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"][privateBathroom == "yes"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->title, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->title}`, {
       headers: {
         'Content-Type': 'application/json',
       },

@@ -9,11 +9,11 @@ import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-shopping-new',
-  templateUrl: './shopping-new.component.html',
-  styleUrls: ['./shopping-new.component.scss']
+  selector: 'app-ebucc-2025',
+  templateUrl: './ebucc2025.component.html',
+  styleUrls: ['./ebucc2025.component.scss']
 })
-export class ShoppingNewComponent implements OnInit {
+export class Ebucc2025Component implements OnInit {
   cartIcon = faShoppingCart;
   productsRaw: any;
   products: Product[] = [];
@@ -41,7 +41,7 @@ export class ShoppingNewComponent implements OnInit {
   }
   sanityAndCommerceLayer(){
    //Sanity
-   this.feed.getProducts().subscribe( products => {
+   this.feed.getAcco().subscribe( products => {
     this.productsRaw = products;
     for (let i = 0; i < this.productsRaw.result.length; i++){
       this.products.push(this.feed.workResult(this.productsRaw.result[i]));
@@ -72,7 +72,7 @@ export class ShoppingNewComponent implements OnInit {
       });
     }
   });
-  } 
+  }
   //z komponentu product list
   onUpdatedCart(cart: any){
     this.ord = cart.ord;

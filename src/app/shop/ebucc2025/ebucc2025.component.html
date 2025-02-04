@@ -1,0 +1,29 @@
+<app-cart-icon
+  [cart]="cart"
+  [badgeHidden]="badgeHidden"
+  (click)="openDialog();">
+</app-cart-icon>
+<h1>EBUCC 2025 Accomodation options</h1>
+<p>Book smth from the list or dm us if you have any questions</p>
+<ng-container *ngFor="let product of products" >
+  <div>
+  <!-- <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'"> -->
+    <table>
+      <app-product-list-item
+        [product]="product"
+        [ord]="ord"
+        (updateCart)="onUpdatedCart($event)"
+        >
+      </app-product-list-item>
+    </table>
+  </div>
+</ng-container>
+
+
+<app-button
+  *ngIf="ord"
+  text="idź do checkoutu"
+  [link]="checkout"
+  [orderId]="ord"
+  [token]="token.access_token">
+</app-button>
