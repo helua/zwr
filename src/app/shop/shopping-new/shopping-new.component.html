@@ -4,7 +4,8 @@
   (click)="openDialog();">
 </app-cart-icon>
 <ng-container *ngFor="let product of products" >
-  <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'">
+  <div>
+  <!-- <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'"> -->
     <table>
       <app-product-list-item
         [product]="product"
