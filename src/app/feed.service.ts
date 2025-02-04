@@ -24,7 +24,7 @@ export class FeedService {
     })
   }
   getProduct(id: any){
-    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[defaultProductVariant.sku=="${id}"]`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[defaultProductVariant.sku=="${id}"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->title, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->title}`, {
       headers: {
         'Content-Type': 'application/json',
       },
