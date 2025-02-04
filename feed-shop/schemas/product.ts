@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'priority',
+      title: 'Priority',
+      type: 'number',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -23,6 +28,38 @@ export default defineType({
       title: 'Default variant',
       name: 'defaultProductVariant',
       type: 'productVariant',
+    }),
+    defineField({
+      name: 'capacity',
+      title: 'Capacity',
+      type: 'number',
+    }),
+    defineField({
+      name: 'bedTypes',
+      title: 'Bed types',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'bedType'},
+        },
+      ],
+    }),
+    defineField({
+      name: 'privateBathroom',
+      title: 'Private bathroom',
+      type: 'string',
+    }),
+    defineField({
+      name: 'address',
+      title: 'Address',
+      type: 'string',
+    }),
+    defineField({
+      name: 'standard',
+      title: 'Standard',
+      type: 'reference',
+      to: {type: 'standard'},
     }),
     defineField({
       title: 'Variants',
@@ -54,17 +91,17 @@ export default defineType({
       type: 'reference',
       to: {type: 'vendor'},
     }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: {type: 'category'},
-        },
-      ],
-    }),
+      defineField({
+        name: 'categories',
+        title: 'Categories',
+        type: 'array',
+        of: [
+          {
+            type: 'reference',
+            to: {type: 'category'},
+          },
+        ],
+      }),
     defineField({
       name: 'statuses',
       title: 'Statuses',
