@@ -1,7 +1,7 @@
 @import '../../sass/styles';
 .main-container{
   @include respond(phoneUp){
-    height: $router;
+    // height: $router;
   }
   & .background caption{
     color: white;

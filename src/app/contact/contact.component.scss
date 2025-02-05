@@ -28,9 +28,11 @@
     padding-top: calc(33vh - 200px);
     height: 70px;
     width: 70px;
+    @include respond(tab-port){
+      padding-top: 34vh;
+    }
     @include respond(phone){
       padding-top: 27vh;
-
     }
   }
   & h1{

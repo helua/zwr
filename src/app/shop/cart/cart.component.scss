@@ -44,7 +44,7 @@
 
     & h3, fa-icon#cart{
         font-size: 2rem;
-        padding: 1rem 0;
+        padding: 1rem 0 3rem;
         font-family: $f4;
         @include respond(phone){
           font-size: 1.5rem;

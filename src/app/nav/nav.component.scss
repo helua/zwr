@@ -9,7 +9,7 @@
 }
 
 .active{
-    background-color: $color;
+    background-color: $color !important;
     // border-style: solid;
     // box-shadow: black 5px 5px;
     // font-family: $f5;
@@ -62,7 +62,11 @@ nav .nav-main{
         }
     }
     & a{
+        background-color: white;
         transition: .2s ease-out;
+        &:hover{
+            background-color: $color;
+        }
     }
 }
 

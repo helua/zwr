@@ -1,5 +1,7 @@
 @import '../../../sass/styles';
-
+main{
+  margin-bottom: 100px;
+}
 h2{
   color: $black;
   @include respond(tab-port){
