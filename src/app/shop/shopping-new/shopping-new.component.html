@@ -3,25 +3,25 @@
   [badgeHidden]="badgeHidden"
   (click)="openDialog();">
 </app-cart-icon>
-<ng-container *ngFor="let product of products" >
-  <div>
-  <!-- <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'"> -->
-    <table>
-      <app-product-list-item
-        [product]="product"
-        [ord]="ord"
-        (updateCart)="onUpdatedCart($event)"
-        >
-      </app-product-list-item>
-    </table>
-  </div>
-</ng-container>
-
-
-<app-button
+<div class="container">
+  <ng-container *ngFor="let product of products" >
+    <!-- <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'"> -->
+      <table>
+        <app-product-list-item
+          [product]="product"
+          [ord]="ord"
+          (updateCart)="onUpdatedCart($event)"
+          >
+        </app-product-list-item>
+      </table>
+  </ng-container>
+  <app-button
   *ngIf="ord"
   text="idź do checkoutu"
   [link]="checkout"
   [orderId]="ord"
   [token]="token.access_token">
 </app-button>
+</div>
+
+

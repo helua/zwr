@@ -14,8 +14,13 @@
     // box-shadow: black 5px 5px;
     // font-family: $f5;
 }
-
-nav{
+// .nav-container{
+//     height: 200px;
+//     background-color: red;
+//     position: fixed;
+//     top: 0;
+// }
+nav{    
     & *{
         z-index: 10;
     }

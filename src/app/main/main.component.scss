@@ -2,7 +2,6 @@
 .main-container{
   @include respond(phoneUp){
     height: $router;
-
   }
   & .background caption{
     color: white;
@@ -13,7 +12,7 @@
 }
 .title{
   position: absolute;
-  top: 65vh;
+  top: calc(65vh - 12rem);
   width: 84%;
   margin: 0 8%;
   @include respond(phone){

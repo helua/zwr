@@ -10,7 +10,7 @@
                 {{ product.title }}
               </a>
             </h2>
-            <p>cena: {{ product.price }} | stan magazynu: {{ product.stock }}</p>
+            <p>cena: {{ product.price }} <span *ngIf="product.stock">| stan magazynu: {{ product.stock }}</span></p>
         </td>
         <td style="font-size: 1rem;">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
