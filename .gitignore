@@ -76,3 +76,5 @@ dist
 archiwum
 assets/archiwum
 .angular/cache
+
+src/app/token.service copy.ts

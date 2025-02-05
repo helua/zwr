@@ -4,7 +4,8 @@
 </div>
 <!-- <h1 class="margin-bottom-big">Wypożyczalnia sprzętu turniejowego</h1> -->
 <div class="stripe"></div>
-<main *ngIf="token | async ; else loadingBlock">
+<!-- <main *ngIf="token | async ; else loadingBlock"> TEMP STAIC TOKEN -->
+<main *ngIf="token ; else loadingBlock">
   <app-shopping-new *ngIf="route.snapshot.url.join('/') == 'sklep'"></app-shopping-new>
   <app-ebucc-2025 *ngIf="route.snapshot.url.join('/') == 'ebucc2025'"></app-ebucc-2025>
 </main>
