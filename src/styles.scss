@@ -235,10 +235,12 @@ table{
 }
 
 blockquote{
-  color: $mild;
+  background-color: $mild;
+  color: $contrast;
   font-family: $tech;
   font-size: 1.2rem;
   margin: 2% 12%;
+  padding: 10px;
   @include respond(tab-land){
     margin: 1% 13%;
   }

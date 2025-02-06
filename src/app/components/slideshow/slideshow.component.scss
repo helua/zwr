@@ -102,8 +102,8 @@ caption.text {
 .dots{
   position: absolute;
   bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 40%;
+  transform: translateX(-40%);
   @include respond(phone){
     display: none;
   }
