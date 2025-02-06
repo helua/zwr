@@ -61,7 +61,7 @@
         matTooltipHideDelay="100"
         ></fa-icon>
       </p>
-        <div *ngIf="product.price">
+        <div *ngIf="!badgeHidden">
           <app-button
             text="idź do checkoutu"
             [link]="checkout"
