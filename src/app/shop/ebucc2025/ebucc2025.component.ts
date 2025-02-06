@@ -44,6 +44,7 @@ export class Ebucc2025Component implements OnInit {
    //Sanity
    this.feed.getAcco().subscribe( products => {
     this.productsRaw = products;
+    // console.log(this.productsRaw)
     for (let i = 0; i < this.productsRaw.result.length; i++){
       this.products.push(this.feed.workResult(this.productsRaw.result[i]));
     }
@@ -51,6 +52,7 @@ export class Ebucc2025Component implements OnInit {
     if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
         if(p){
+          console.log('Pobieram ceny')
           for (let i = 0; i < p.included.length; i++){
             this.products.map((sku) => {
               if(sku.sku === p.included[i].attributes.sku_code){

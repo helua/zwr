@@ -46,8 +46,8 @@ export class CartComponent implements OnInit {
     var isTrueSet = (getCheckoutButton() === 'true');
     this.isCheckoutEnabled = isTrueSet;
     if(this.cart.data.attributes.skus_count != 0){
-      console.log('LINE ITEMY');
-      console.log(this.cart.included);
+      // console.log('LINE ITEMY');
+      // console.log(this.cart.included.attributes);
       for(let i = 0; i < this.cart.included.length; i++){
         this.ecomm.getLineItemsOptions(this.token.access_token, this.cart.included[i].id).subscribe(o => {
           console.log('OPCJE JEDNEGO Z ITEMÓW');

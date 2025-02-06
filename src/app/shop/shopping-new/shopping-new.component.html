@@ -5,7 +5,6 @@
 </app-cart-icon>
 <div class="container">
   <ng-container *ngFor="let product of products" >
-    <!-- <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'"> -->
       <table>
         <app-product-list-item
           [product]="product"
@@ -16,7 +15,7 @@
       </table>
   </ng-container>
   <app-button
-  *ngIf="ord"
+  *ngIf="!badgeHidden"
   text="idź do checkoutu"
   [link]="checkout"
   [orderId]="ord"

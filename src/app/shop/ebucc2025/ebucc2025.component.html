@@ -4,10 +4,10 @@
   (click)="openDialog();">
 </app-cart-icon>
 <h1>EBUCC 2025 Accomodation options</h1>
-<p>Book smth from the list or dm us if you have any questions</p>
-<ng-container *ngFor="let product of products" >
-  <div>
-  <!-- <div *ngIf="product.categories && product.categories[0] != 'EBUCC 2025 acco'"> -->
+<p>Book smth from the list or dm us if you have any questions <a href="mailto:office@ebucc2025.pl">office&#64;ebucc2025.pl</a></p>
+
+<ng-container *ngIf="true">
+  <div *ngFor="let product of products">
     <table>
       <app-product-list-item
         [product]="product"
@@ -21,7 +21,7 @@
 
 
 <app-button
-  *ngIf="ord"
+  *ngIf="!badgeHidden"
   text="idź do checkoutu"
   [link]="checkout"
   [orderId]="ord"

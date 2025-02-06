@@ -10,11 +10,11 @@
                 {{ product.title }}
               </a>
             </h2>
-            <p>cena: {{ product.price }} <span *ngIf="product.stock">| stan magazynu: {{ product.stock }}</span></p>
+            <p><span *ngIf="product.price">cena: {{ product.price }} </span><span *ngIf="product.stock">| dostępność: {{ product.stock }}</span><br><span *ngIf="product.capacity"> ☺︎ capacity: {{ product.capacity }}</span></p>
         </td>
         <td style="font-size: 1rem;">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
-            <fa-icon (click)="createOrder()" [icon]="cartIcon" ></fa-icon>
+            <fa-icon (click)="createOrder()" [icon]="cartIcon"  *ngIf="product.price"></fa-icon>
 
         </td>
       </tr>
