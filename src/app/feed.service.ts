@@ -24,7 +24,7 @@ export class FeedService {
     })
   }
   getAcco(){
-    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"][privateBathroom == "yes"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->name, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->name}`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"][privateBathroom == "yes"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->name, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->name} | order(priority asc)`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -57,18 +57,21 @@ export class FeedService {
       images: []
 
     }
-    for (let i = 0; i < p.defaultProductVariant.images.length; i++){
 
-      const image =
-      p.defaultProductVariant.images &&
-      p.defaultProductVariant.images.length > 0
-        ? p.defaultProductVariant.images[i].asset._ref
-        : null;
-
-      if (image) {
-        output.images?.push(imageUrlBuilder(sanity).image(image).url())
-      }
+    if(p.defaultProductVariant.images!==undefined){
+      for (let i = 0; i < p.defaultProductVariant.images.length; i++){
+          const image =
+          p.defaultProductVariant.images &&
+          p.defaultProductVariant.images.length > 0
+            ? p.defaultProductVariant.images[i].asset._ref
+            : null;
+    
+          if (image) {
+            output.images?.push(imageUrlBuilder(sanity).image(image).url())
+          }
+        }
     }
+
     console.log(output);
     return output;
   }
