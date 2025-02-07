@@ -3,7 +3,6 @@
   <!-- <h1>sklep</h1> -->
 </div>
 <!-- <h1 class="margin-bottom-big">Wypożyczalnia sprzętu turniejowego</h1> -->
-<div class="stripe"></div>
 <!-- <main *ngIf="token | async ; else loadingBlock"> TEMP STAIC TOKEN -->
 <main *ngIf="token ; else loadingBlock">
   <app-shopping-new *ngIf="route.snapshot.url.join('/') == 'sklep'"></app-shopping-new>

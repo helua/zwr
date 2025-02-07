@@ -314,6 +314,24 @@ fa-icon{
   margin-bottom: 70px;
 
 }
+.stripe-ebucc{
+  margin-top: 40px;
+  height: 40vh;
+  background-position: 20%;
+  margin-bottom: 70px;
+  background-image: url(assets/ebucc-cover.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // filter: grayscale(90%) hue-rotate(13deg) contrast(2) brightness(.6);
+  width: 100%;
+  & img.ebucc-logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 .background{
   height: calc(100vh  - 26rem);
