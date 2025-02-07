@@ -21,8 +21,9 @@ export class ProductListItemComponent implements OnInit {
   cart: any = {cart: {order: 's'}, order: 'sda'};
   @Output() updateCart = new EventEmitter<any>();
   token: any = token;
+  link: string = '/sklep'
 
-  constructor(private ecomm: EcommerceService, private shop: ShoppingService) { }
+  constructor(private ecomm: EcommerceService) { }
 
   ngOnInit() {
 

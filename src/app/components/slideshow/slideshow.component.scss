@@ -102,16 +102,16 @@ caption.text {
 .dots{
   position: absolute;
   bottom: 4px;
-  left: 40%;
-  transform: translateX(-40%);
+  left: 50%;
+  transform: translateX(-50%);
   @include respond(phone){
     display: none;
   }
 }
 .dot{
   cursor: pointer;
-  height: 1rem;
-  width: 1rem;
+  height: .9rem;
+  width: .9rem;
   margin: 0 4px;
   background-color: white;
   border-radius: 50%;

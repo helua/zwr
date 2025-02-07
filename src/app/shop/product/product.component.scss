@@ -73,7 +73,7 @@ a.add-to-cart{
 .holder-info{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   max-width: calc(86vw - 500px);
   @media screen and (max-width: 1300px){
     max-width: calc(96vw - 500px);
@@ -155,4 +155,7 @@ fa-icon#back{
   @include respond(phone){
     left: 4%;
   }
+}
+.body-wrapper{
+  padding: 0 11%;
 }
