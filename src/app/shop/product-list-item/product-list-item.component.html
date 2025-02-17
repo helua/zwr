@@ -10,7 +10,11 @@
                 {{ product.title }}
               </a>
             </h2>
-            <p><span *ngIf="product.price">✼ price: <b>{{ product.price }}</b> </span><span *ngIf="product.stock"><br>✼ availability: <b>{{ product.stock }}</b> house</span><br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }}</b> people</span></p>
+            <p><span *ngIf="product.price">✼ price: <b>{{ product.price }}</b></span>
+              <br><span *ngIf="product.stock">✼ availability: <b>{{ product.stock }}</b> house</span>
+                <br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }}</b> people</span>
+              <br><span *ngIf="product.price !== undefined"> ✼ price/person/night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b></span>
+            </p>
         </td>
         <td style="font-size: 1rem;">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->

@@ -38,12 +38,12 @@
     </ul> -->
 
     <table *ngIf="isCheckoutEnabled">
-      <tr><td>total ammount:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+      <tr><td>total amount:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
     </table>
     <table *ngIf="!isCheckoutEnabled && shipment">
       <tr><td>shopping:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
       <tr><td>delivery:</td><td>{{ shipment.attributes.formatted_total_amount }}</td></tr>
-      <tr><td>total ammount:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
+      <tr><td>total amount:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
     </table>
     <div *ngIf="!isCheckoutEnabled && shipment && !isPaymentCaptured" class="cart_confirm" >
       <p>Your reservation has been accepted.<br><br>

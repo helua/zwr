@@ -26,11 +26,15 @@ export class ProductListItemComponent implements OnInit {
   constructor(private ecomm: EcommerceService) { }
 
   ngOnInit() {
-
+    // console.log(this.product)
     //Commerce Layer Token
     // this.token = JSON.parse(getToken());
 
   }
+  createPricePerPersonPerNight(input: string): number {
+      return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 / this.product.capacity * 10 ) / 10 ;
+    }
+  
   createOrder(){
     if(!this.ord){
       console.log('nowe zamówienie')

@@ -11,7 +11,6 @@ export class NavComponent implements OnInit {
 
   constructor(private shop: ShoppingService, public route: ActivatedRoute){}
   ngOnInit(): void {
-    console.log(this.route.snapshot)
   }
   clearLocalStorage(){
     this.shop.clearLocalStorage();
