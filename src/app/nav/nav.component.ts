@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shop/shopping.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -8,8 +9,9 @@ import { ShoppingService } from '../shop/shopping.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private shop: ShoppingService){}
+  constructor(private shop: ShoppingService, public route: ActivatedRoute){}
   ngOnInit(): void {
+    console.log(this.route.snapshot)
   }
   clearLocalStorage(){
     this.shop.clearLocalStorage();

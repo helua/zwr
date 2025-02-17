@@ -51,6 +51,7 @@ export class Ebucc2025Component implements OnInit {
     //Commerce Layer data & synchro
     if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
+        console.log(p)
         if(p){
           console.log('Pobieram ceny')
           for (let i = 0; i < p.included.length; i++){

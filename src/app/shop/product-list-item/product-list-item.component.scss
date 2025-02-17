@@ -19,10 +19,10 @@
     // padding-top: 50px;
     // border-radius: 50%;
     background-color: none !important;
-    filter: grayscale(70%);
+    // filter: grayscale(70%);
     transition: .2s all;
     &:hover{
-      filter: hue-rotate(-30deg);
+      filter: hue-rotate(-5deg);
       border: 1px $color solid;
       box-sizing: border-box;
     }

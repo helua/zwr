@@ -13,7 +13,7 @@ export class EcommerceService {
   constructor(private http: HttpClient ) { }
 
   getPrices(token: string){
-    return  this.http.get<any>(this.url+'/api/skus?include=prices', {
+    return  this.http.get<any>(this.url+'/api/skus?include=prices&page[size]=25', {
       headers: {
         'Accept': 'application/vnd.api+json',
         'Authorization': 'Bearer '+token
@@ -29,7 +29,7 @@ export class EcommerceService {
     });
   }
   getStock(token: string){
-    return  this.http.get<any>(this.url+'/api/stock_items', {
+    return  this.http.get<any>(this.url+'/api/stock_items?page[size]=25', {
       headers: {
         'Accept': 'application/vnd.api+json',
         'Authorization': 'Bearer '+token
