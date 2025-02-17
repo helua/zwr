@@ -7,7 +7,7 @@ import { faCopyright, faCode, faImages } from '@fortawesome/free-solid-svg-icons
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  title = 'ZWR | Kontakt';
+  title = 'ZWR ✉️ Kontakt';
   description: MetaDefinition = {name: 'description', content: 'Masz pomysł na event? Chces wypożyczyć sprzęt? Skontaktuj się z nami'};
 
   copyIcon = faCopyright;

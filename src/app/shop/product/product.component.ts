@@ -115,7 +115,7 @@ export class ProductComponent implements OnInit {
             this.cart = c;
             setCart(c);
             setCheckoutButton(true.toString());
-            this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+            this.openSnackBar('Added to cart', 'Open cart');
             var isTrueSet = (getCheckoutButton() === 'false');
             this.badgeHidden = isTrueSet;
           });
@@ -132,7 +132,7 @@ export class ProductComponent implements OnInit {
           this.cart = c;
           setCart(c);
           setCheckoutButton(true.toString());
-          this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+          this.openSnackBar('Added to cart', 'Open cart');
           var isTrueSet = (getCheckoutButton() === 'false');
           this.badgeHidden = isTrueSet;
         });

@@ -1,11 +1,11 @@
   <h3>
     <fa-icon id="cart" [icon]="cartIcon" (click)="onClose()"></fa-icon>
-    Koszyk
+    Cart
   </h3>
 
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
-    <p class="cart_order-number">Zamówienie nr: {{cart.data.attributes.number}}<br>
-      <span class="cart_count-total">(liczba produktów: {{cart.data.attributes.skus_count}})</span>
+    <p class="cart_order-number">Reservation nr {{cart.data.attributes.number}}<br>
+      <span class="cart_count-total">(number of houses: {{cart.data.attributes.skus_count}})</span>
     </p>
 
     <main *ngFor="let line_item of cart.included">
@@ -20,7 +20,7 @@
             *ngIf="isCheckoutEnabled"
             [icon]="trashIcon"
             (click)="trashItem(line_item.id)"
-            matTooltip="Opróżnij koszyk"
+            matTooltip="Delete item"
             matTooltipShowDelay="200"
             matTooltipHideDelay="100">
           </fa-icon>
@@ -38,25 +38,25 @@
     </ul> -->
 
     <table *ngIf="isCheckoutEnabled">
-      <tr><td>suma:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+      <tr><td>total ammount:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
     </table>
     <table *ngIf="!isCheckoutEnabled && shipment">
-      <tr><td>zakupy:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
-      <tr><td>wysyłka:</td><td>{{ shipment.attributes.formatted_total_amount }}</td></tr>
-      <tr><td>suma:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
+      <tr><td>shopping:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+      <tr><td>delivery:</td><td>{{ shipment.attributes.formatted_total_amount }}</td></tr>
+      <tr><td>total ammount:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
     </table>
     <div *ngIf="!isCheckoutEnabled && shipment && !isPaymentCaptured" class="cart_confirm" >
-      <p>Twoje zamówienie zostało przyjęte.<br><br>
+      <p>Your reservation has been accepted.<br><br>
         <span>ZWR event agency</span>
       </p>
     </div>
     <div *ngIf="isCheckoutUnfinished" class="cart_confirm">
-      <p>Zamówienie jest niedokończone.<br>Idź do checkoutu i dokończ je.</p>
+      <p>Your reservation is not finished.<br>Go to checkout to confirm and pay</p>
     </div>
 
     <app-button
       *ngIf="ord && isCheckoutEnabled"
-      text="idź do checkoutu"
+      text="checkout"
       [link]="checkout"
       [orderId]="ord"
       [token]="token.access_token"
@@ -67,7 +67,7 @@
       *ngIf="isRefreshEnabled"
       [icon]="syncIcon"
       (click)="getCurrentOrder()"
-      matTooltip="Odśwież status zamówienia"
+      matTooltip="Refresh status"
       matTooltipShowDelay="200"
       matTooltipHideDelay="100">
     </fa-icon>
@@ -76,7 +76,7 @@
       *ngIf="!isCheckoutEnabled && shipment"
       [icon]="trashIcon"
       (click)="clearLocalStorage()"
-      matTooltip="Usuń potwierdzenie i zamów jeszcze raz"
+      matTooltip="Delete this confirmation and book again"
       matTooltipShowDelay="200"
       matTooltipHideDelay="100">
     </fa-icon>
@@ -84,7 +84,7 @@
 
   </div>
   <ng-template #emptyCart>
-    <p class="cart_info">Twój koszyk jest pusty</p>
+    <p class="cart_info">Your cart is empty</p>
   </ng-template>
   <fa-icon id="close" [icon]="closeIcon" (click)="onClose()"></fa-icon>
 

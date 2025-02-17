@@ -50,7 +50,7 @@
               {{product.handle}}
             </td>
           </tr> -->
-          <tr *ngIf="product.stock"><td>stock:</td><td>{{ product.stock }} available</td></tr>
+          <tr *ngIf="product.stock"><td>availability:</td><td>{{ product.stock }} available</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
       <p class="price" *ngIf="product.price">
@@ -63,7 +63,7 @@
       </p>
         <div *ngIf="!badgeHidden">
           <app-button
-            text="idź do checkoutu"
+            text="checkout"
             [link]="checkout"
             [orderId]="ord"
             [token]="token.access_token"

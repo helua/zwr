@@ -48,9 +48,8 @@ export class EcommerceService {
         "data": {
             "type": "orders",
             "attributes": {
-              "language_code": "pl",
+              "language_code": "en",
               "metadata": {
-                "paczkomat_id": "unset"
               },
             }
           }

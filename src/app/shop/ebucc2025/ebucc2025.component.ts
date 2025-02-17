@@ -84,7 +84,7 @@ export class Ebucc2025Component implements OnInit {
     this.cart = cart.cart;
     setCart(cart.cart);
     setCheckoutButton(true.toString());
-    this.openSnackBar('Dodano do koszyka', 'Zobacz koszyk');
+    this.openSnackBar('Added to cart', 'Open cart');
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
   }

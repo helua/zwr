@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
 
   // token: any;
   token: any = token;
-  title = 'ZWR | Sklep';
+  title = 'EBUCC 2025 Accommodation - Gdańsk-Stogi 6-8/6';
   description: MetaDefinition = { name: 'description', content: 'Sklep dla Was - dyski, bramki i inne bajry' };  
 
   constructor( private tok: TokenService, public route: ActivatedRoute, private titleService: Title, private metaService: Meta) { }
