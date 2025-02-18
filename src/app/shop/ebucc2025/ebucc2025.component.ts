@@ -7,6 +7,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ebucc-2025',

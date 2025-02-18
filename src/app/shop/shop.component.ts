@@ -16,7 +16,7 @@ export class ShopComponent implements OnInit {
   // token: any;
   token: any = token;
   title = 'EBUCC 2025 Accommodation';
-  description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1 km from the beach' };  
+  description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1km from the beach' };  
 
   constructor( private tok: TokenService, public route: ActivatedRoute, private titleService: Title, private metaService: Meta) { }
 
@@ -27,6 +27,9 @@ export class ShopComponent implements OnInit {
     // console.log(this.token)
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.description);
+    this.metaService.addTags([
+      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ebucc-cover.jpg'}
+    ]);
   }
 
 
