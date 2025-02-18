@@ -17,6 +17,9 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.description);
+    this.metaService.addTags([
+      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ZWR_bg.jpg'}
+    ]);
   }
 
 }

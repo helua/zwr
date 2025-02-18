@@ -10,16 +10,13 @@ import { TokenService } from './token.service';
 })
 export class AppComponent {
   title = 'zwr';
-  norobots: MetaDefinition = {robots: 'description', content: 'index, follow, imageindex'};
+  norobots: MetaDefinition = {robots: 'description', content: 'noindex, nofollow, noimageindex'};
 
   constructor(private metaService: Meta){};
 
   ngOnInit(){
     // clear();
     // this.metaService.updateTag(this.norobots);
-    this.metaService.addTags([
-      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ZWR_bg.jpg'}
-    ]);
     if(getCart() === null){
       setCart({
       data: {

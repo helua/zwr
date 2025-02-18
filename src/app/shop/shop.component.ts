@@ -22,7 +22,6 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     // this.token = this.tok.getToken();
-    console.log('Current Route:', this.route.snapshot.url.join('/'));
     // console.log('TOKEN POBRANY')
     // console.log(this.token)
     this.titleService.setTitle(this.title);
