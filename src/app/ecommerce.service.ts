@@ -139,7 +139,7 @@ export class EcommerceService {
         "attributes": {
           "quantity": 1,
           "options": {
-            "size": optionName
+            "stay": optionName
           },
           "metadata": {
             "foo": "bar"
