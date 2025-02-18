@@ -47,6 +47,11 @@
       letter-spacing: normal;
     }
   }
+  h4{
+    @include respond(phone){
+      padding: 0 !important;
+    }
+  }
 
   tr{
    vertical-align: middle;
