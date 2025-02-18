@@ -10,16 +10,16 @@ import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 export class MainComponent implements OnInit {
 
   title = 'ZWR event agency';
-  description: MetaDefinition = {name: 'description', content: 'Zawierucha ZWR agencja eventowa i wypożyczalnia sprzętu'};
+  description: MetaDefinition = {name: 'description', content: 'Zawierucha ZWR - agencja eventowa i wypożyczalnia sprzętu'};
 
   constructor(private titleService: Title, private metaService: Meta){}
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.description);
-    this.metaService.addTags([
-      {property: 'og:image', content: 'https://zwr.waw.pl/assets/ZWR_bg.jpg'}
-    ]);
+    // this.metaService.addTags([
+    //   {property: 'og:image', content: 'https://zwr.waw.pl/assets/ZWR_bg.jpg'}
+    // ]);
   }
 
 }
