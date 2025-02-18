@@ -127,7 +127,7 @@ table.tech{
     padding:  1rem 180px;
   }
   @include respond(phone){
-    padding: 0;
+    width: 100%;
   }
 }
 .info{
