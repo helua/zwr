@@ -126,9 +126,6 @@ table.tech{
   @media screen and (min-width: 1370px){
     padding:  1rem 180px;
   }
-  @include respond(phone){
-    width: 100%;
-  }
 }
 .info{
 

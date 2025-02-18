@@ -28,7 +28,7 @@
             </mat-form-field>
             <p class="price" *ngIf="selectedOption">extended stay: <b>{{ selectedOption.optionName }}</b></p>
           </ng-container>
-        <td style="font-size: 1rem;">
+        <td style="font-size: 1rem; padding: 5px 0">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
             <fa-icon (click)="createOrder()" [icon]="cartIcon"  *ngIf="product.price"></fa-icon>
         </td>
