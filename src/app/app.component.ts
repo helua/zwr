@@ -10,9 +10,9 @@ import { TokenService } from './token.service';
 })
 export class AppComponent {
   title = 'zwr';
-  norobots: MetaDefinition = {robots: 'description', content: 'noindex, nofollow, noimageindex'};
+  // norobots: MetaDefinition = {robots: 'description', content: 'noindex, nofollow, noimageindex'};
 
-  constructor(private metaService: Meta){};
+  constructor(){};
 
   ngOnInit(){
     // clear();

@@ -27,7 +27,7 @@ export class ShopComponent implements OnInit {
     this.titleService.setTitle(this.title);
     this.metaService.updateTag(this.description);
     this.metaService.addTags([
-      {property: 'og:image', content: 'http://zwr.waw.pl/assets/ebucc-cover.jpg'}
+      {property: 'og:image', content: 'https://zwr.waw.pl/assets/ebucc-cover.jpg'}
     ]);
   }
 
