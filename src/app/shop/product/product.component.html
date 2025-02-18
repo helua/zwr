@@ -34,7 +34,6 @@
           <tr *ngIf="product.widthUnfold"><td>szerokość przed rozłożeniem:</td> <td>{{product.widthUnfold}} cm</td></tr>
           <tr *ngIf="product.heightUnfold"><td>wysokość przed rozłożeniem:</td><td>{{product.heightUnfold}} cm</td></tr>
           <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr>
-          <tr *ngIf="product.standard"><td>standard:</td> <td>{{product.standard}}</td></tr>
           <tr *ngIf="product.capacity"><td>capacity:</td> <td>{{product.capacity}}</td></tr>
           <tr *ngIf="product.privateBathroom"><td>private bathroom:</td> <td>{{product.privateBathroom}}</td></tr>
           <tr *ngIf="product.bedTypes"><td>bed types:</td> <td><span *ngFor="let bedType of product.bedTypes" class="label category-label">{{ bedType }}</span></td></tr>
