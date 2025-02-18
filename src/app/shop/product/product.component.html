@@ -11,7 +11,7 @@
   <h2>{{ product.title }}</h2>
   <p class="code">{{product.vendor || 'ZWR'}} / {{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()" *ngIf="product.price">
-    Dodaj do koszyka
+    Add to the cart
     <fa-icon  [icon]="cartIcon" ></fa-icon>
   </a>
   <div class="holder">
@@ -51,7 +51,7 @@
             </td>
           </tr> -->
           <tr *ngIf="product.stock"><td>availability:</td><td>{{ product.stock }} available</td></tr>
-          <tr *ngIf="product.price"><td>price / person / night:</td><td> {{ createPricePerPersonPerNight(product.price) }} zł</td></tr>
+          <tr *ngIf="product.price"><td>price/person/night:</td><td> {{ createPricePerPersonPerNight(product.price) }} zł</td></tr>
           <tr *ngIf="product.address"><td>dafault stay dates:</td> <td>5-8/6/2025</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
@@ -67,7 +67,6 @@
           <p class="price" *ngIf="selectedOption">extended stay: <b>{{ selectedOption.optionName }}</b></p>
         </ng-container> -->
       <p class="price" *ngIf="product.price">
-        <!-- default stay  -->
         price: <b>{{ product.price }}</b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Dodaj do koszyka"
