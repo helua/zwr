@@ -50,30 +50,34 @@ export class CartComponent implements OnInit {
       // console.log(this.cart.included.attributes);
       for(let i = 0; i < this.cart.included.length; i++){
         this.ecomm.getLineItemsOptions(this.token.access_token, this.cart.included[i].id).subscribe(o => {
-          console.log('OPCJE JEDNEGO Z ITEMÓW');
-          console.log(o);
-          this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url})
-          console.log('FRONTOWE ITEM OPRACOWANY');
-          console.log(this.lineItems);
+          // console.log('OPCJE JEDNEGO Z ITEMÓW');
+          // console.log(o);
+          // this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url})
+          if(o.data.attributes.sku_code !== null){
+            this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url})
+          }
+          // console.log('FRONTOWE ITEM OPRACOWANY');
+          // console.log(this.lineItems);
             // jeśli ma sku_options
-            // if(o.included){
-            //   console.log('OPCJE Z CL');
-            //   console.log(o.included);
-            //   console.log('ZNALEZIONY PRODUKT POWINIEN POSIADAĆ OPCJE');
-            //   let item = this.lineItems.find((a: { id: string; }) => a.id === this.cart.included[i].id)
-            //   console.log(item);
-            //   let options: any = [];
-            //   for(let i = 0; i < o.included.length; i++){
-            //     console.log('PĘTLA DLA KAŻDEJ OPCJI LINE ITEMS')
-            //     console.log(o.included[i].attributes.name)
-            //     options.push(o.included[i].attributes.name);
-            //   }
-            //   console.log('TABELKA Z OPCJAMI DLA PRODUKTU');
-            //   console.log(options);
-            //   item.options = options;
-            //   console.log('PIERWSZY FRONT ITEMY PO DODANIU OPCJI');
-            //   console.log(this.lineItems[0].options);
-            // }
+            console.log(o)
+            if(o.included){
+              console.log('OPCJE Z CL');
+              console.log(o.included);
+              console.log('ZNALEZIONY PRODUKT POWINIEN POSIADAĆ OPCJE');
+              let item = this.lineItems.find((a: { id: string; }) => a.id === this.cart.included[i].id)
+              console.log(item);
+              let options: any = [];
+              for(let i = 0; i < o.included.length; i++){
+                console.log('PĘTLA DLA KAŻDEJ OPCJI LINE ITEMS')
+                console.log(o.included[i].attributes.name)
+                options.push(o.included[i].attributes.name);
+              }
+              console.log('TABELKA Z OPCJAMI DLA PRODUKTU');
+              console.log(options);
+              item.options = options;
+              console.log('PIERWSZY FRONT ITEMY PO DODANIU OPCJI');
+              console.log(this.lineItems[0].options);
+            }
           });
         }
       }

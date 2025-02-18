@@ -22,6 +22,8 @@ export class ProductListItemComponent implements OnInit {
   @Output() updateCart = new EventEmitter<any>();
   token: any = token;
   link: string = '/sklep'
+  selectedOption: any;
+
 
   constructor(private ecomm: EcommerceService) { }
 
@@ -41,8 +43,13 @@ export class ProductListItemComponent implements OnInit {
       this.ecomm.createEmptyOrder(this.token.access_token).subscribe(o => {
         this.ord = o.data.id;
         setOrderId(this.ord);
-        this.ecomm.addLineItems(this.token.access_token, o.data.id, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-          console.log(r)
+        this.ecomm.addLineItems(this.token.access_token, o.data.id, this.product.sku, this.product.title, this.product.images[0]).subscribe(l => {
+          console.log(l)
+          if(this.selectedOption){
+            this.ecomm.addLineItemOptions(this.token.access_token, l.data.id, this.selectedOption.optionId, this.selectedOption.optionName).subscribe(o => {
+              // console.log(o.data)
+            })
+          }
           this.ecomm.getCart(this.token.access_token, o.data.id).subscribe(c => {
                     console.log(c)
 

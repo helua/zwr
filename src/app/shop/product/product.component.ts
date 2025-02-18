@@ -39,6 +39,7 @@ export class ProductComponent implements OnInit {
   badgeHidden: boolean = true;
   // description: MetaDefinition = {};
   token: any = token;
+  selectedOption: any;
 
   constructor(
     private tok: TokenService,
@@ -64,6 +65,9 @@ export class ProductComponent implements OnInit {
       // this.token = JSON.parse(getToken());
     }
     this.sanityAndCommerceLayer();
+  }
+  createPricePerPersonPerNight(input: string): number {
+    return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 / this.product.capacity * 10 ) / 10 ;
   }
   sanityAndCommerceLayer(){
     this.route.paramMap.pipe(switchMap((params: ParamMap) =>
@@ -91,6 +95,26 @@ export class ProductComponent implements OnInit {
                   this.product.stock = pr.data[i].attributes.quantity;
                   console.log(this.product.sku === pr.data[i].attributes.sku_code, this.product)
                 }
+              }
+            }
+          })
+          this.ecomm.getOptions(this.token.access_token).subscribe(o => {
+            if(o){
+              console.log(o)
+              console.log(this.product)
+              for (let i = 0; i < o.data.length; i++){
+                let option = {optionId: o.data[i].id, optionName: o.data[i].attributes.name}
+                console.log(o.data[i].attributes.name);
+                        // console.log(option);
+                // Sprawdzam czy produkt już miał tablicę z opcjami, tworzę ją i wpycham tam znalezione opcje
+                if(!this.product.options){
+                    this.product.options = [];
+                    this.product.options?.push(option);
+                  }
+                else{
+                  this.product.options?.push(option);
+                }
+  
               }
             }
           })

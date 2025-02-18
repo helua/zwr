@@ -27,6 +27,7 @@ export interface Product {
   standard?: string;
   privateBathroom?: string;
   address?: string;
+  options?: any[];
 }
 
 export interface CartData {

@@ -66,7 +66,7 @@ export class ShoppingNewComponent implements OnInit {
             this.products.map((sku) => {
               if(sku.sku === p.data[i].attributes.sku_code){
                 this.products.filter(a => sku.sku === a.sku)[0].stock = p.data[i].attributes.quantity;
-              }
+                }
             })
           }
         }

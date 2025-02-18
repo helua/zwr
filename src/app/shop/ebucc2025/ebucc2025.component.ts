@@ -51,9 +51,9 @@ export class Ebucc2025Component implements OnInit {
     //Commerce Layer data & synchro
     if(this.token){
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
-        console.log(p)
+        // console.log(p)
         if(p){
-          console.log('Pobieram ceny')
+          // console.log('Pobieram ceny')
           for (let i = 0; i < p.included.length; i++){
             this.products.map((sku) => {
               if(sku.sku === p.included[i].attributes.sku_code){
@@ -74,6 +74,32 @@ export class Ebucc2025Component implements OnInit {
           }
         }
       });
+      this.ecomm.getOptions(this.token.access_token).subscribe(o => {
+        if(o){
+          // console.log(o.data[0].id)
+          for (let i = 0; i < o.data.length; i++){
+            // RegEx opcji każdego SKU
+            var re = new RegExp(o.data[i].attributes.sku_code_regex);
+              // Mapuję po produktach i sprawdzam czy RegEx opcji pasuję do SKU code
+              this.products.map((product) => {
+                if(product.sku && re.test(product.sku)){
+                  // Jeśli pasuje to przygotowuję objekt dla znalezionych opcji
+                  let option = {optionId: o.data[i].id, optionName: o.data[i].attributes.name}
+                  console.log(o.data[i].attributes.name);
+                  // console.log(option);
+                  // Sprawdzam czy produkt już miał tablicę z opcjami, tworzę ją i wpycham tam znalezione opcje
+                  if(!product.options){
+                    product.options = [];
+                    this.products.filter(a => product.sku === a.sku)[0].options?.push(option);
+                  }
+                  else{
+                    this.products.filter(a => product.sku === a.sku)[0].options?.push(option);
+                  }
+                }
+              })
+          }
+        }
+      })
     }
   });
   }

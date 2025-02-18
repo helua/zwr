@@ -14,12 +14,25 @@
               <br><span *ngIf="product.stock">✼ availability: <b>{{ product.stock }}</b> house</span>
                 <br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }}</b> people</span>
               <br><span *ngIf="product.price !== undefined"> ✼ price/person/night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b></span>
+              <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
             </p>
+        </td>
+        <td>
+          <ng-container *ngIf="product.options && product.options.length > 0" >
+            <mat-form-field appearance="fill"  style="margin-top: 2%;">
+              <mat-label>Extend stay</mat-label>
+              <mat-select [(value)]="selectedOption">
+                <mat-option *ngFor="let option of product.options" [value]="option">
+                  {{option.optionName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p class="price" *ngIf="selectedOption">extended stay: <b>{{ selectedOption.optionName }}</b></p>
+          </ng-container>
         </td>
         <td style="font-size: 1rem;">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
             <fa-icon (click)="createOrder()" [icon]="cartIcon"  *ngIf="product.price"></fa-icon>
-
         </td>
       </tr>
 

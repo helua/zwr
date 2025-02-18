@@ -36,6 +36,14 @@ export class EcommerceService {
       },
     });
   }
+  getOptions(token: string){
+    return  this.http.get<any>(this.url+'/api/sku_options', {
+      headers: {
+        'Accept': 'application/vnd.api+json',
+        'Authorization': 'Bearer '+token
+      },
+    });
+  }
   createEmptyOrder(token: string){
     const headersData = {
       'Accept': 'application/vnd.api+json',

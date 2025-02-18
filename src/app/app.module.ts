@@ -37,6 +37,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { Ebucc2025Component } from './shop/ebucc2025/ebucc2025.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
@@ -80,7 +82,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatBadgeModule,
     MatTooltipModule,
     MatSnackBarModule,
-    HammerModule
+    HammerModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
