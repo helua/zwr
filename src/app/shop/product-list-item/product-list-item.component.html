@@ -17,6 +17,7 @@
               <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
             </p>
         </td>
+        <td>
           <ng-container *ngIf="product.options && product.options.length > 0" >
             <mat-form-field appearance="fill"  style="margin-top: 2%;">
               <mat-label>Extend stay</mat-label>
@@ -28,9 +29,11 @@
             </mat-form-field>
             <p class="price" *ngIf="selectedOption">extended stay: <b>{{ selectedOption.optionName }}</b></p>
           </ng-container>
+        </td>
         <td style="font-size: 1rem; padding: 5px 0">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
             <fa-icon (click)="createOrder()" [icon]="cartIcon"  *ngIf="product.price"></fa-icon>
+            <h4>book</h4>
         </td>
       </tr>
 

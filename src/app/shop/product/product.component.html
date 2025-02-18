@@ -11,7 +11,7 @@
   <h2>{{ product.title }}</h2>
   <p class="code">{{product.vendor || 'ZWR'}} / {{ product.sku }}</p>
   <a class="add-to-cart" (click)="createOrder()" *ngIf="product.price">
-    Add to the cart
+    <span>Book this house </span>
     <fa-icon  [icon]="cartIcon" ></fa-icon>
   </a>
   <div class="holder">
@@ -68,7 +68,7 @@
       <p class="price" *ngIf="product.price">
         price: <b>{{ product.price }}</b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
-        matTooltip="Add to cart"
+        matTooltip="Book this house"
         matTooltipShowDelay="200"
         matTooltipHideDelay="100"
         ></fa-icon>

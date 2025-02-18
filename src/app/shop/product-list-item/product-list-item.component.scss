@@ -58,6 +58,9 @@
       &:nth-child(2){
         width: 65%;
       }
+      &:nth-child(3){
+        padding: 0 30px;
+      }
     }
 
     @include respond(phone){
