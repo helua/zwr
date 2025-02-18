@@ -39,7 +39,7 @@
           <tr *ngIf="product.privateBathroom"><td>private bathroom:</td> <td>{{product.privateBathroom}}</td></tr>
           <tr *ngIf="product.bedTypes"><td>bed types:</td> <td><span *ngFor="let bedType of product.bedTypes" class="label category-label">{{ bedType }}</span></td></tr>
           <tr *ngIf="product.standard"><td>standard:</td> <td>{{ product.standard }}</td></tr>
-          <tr *ngIf="product.address"><td>address:</td> <td><a [href]="product.address" target="_blank">{{product.address}}</a></td></tr>
+          <tr *ngIf="product.address"><td>address:</td> <td><a [href]="product.address" target="_blank">link</a></td></tr>
 
           <!-- <tr><td>przykładowy tooltip:</td>
             <td
