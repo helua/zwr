@@ -37,7 +37,7 @@ export class EcommerceService {
     });
   }
   getOptions(token: string){
-    return  this.http.get<any>(this.url+'/api/sku_options', {
+    return  this.http.get<any>(this.url+'/api/sku_options?page[size]=25', {
       headers: {
         'Accept': 'application/vnd.api+json',
         'Authorization': 'Bearer '+token

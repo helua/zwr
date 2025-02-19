@@ -50,23 +50,27 @@
             </td>
           </tr> -->
           <tr *ngIf="product.stock"><td>availability:</td><td>{{ product.stock }} available</td></tr>
-          <tr *ngIf="product.price"><td>price/person/night:</td><td> {{ createPricePerPersonPerNight(product.price) }} zł</td></tr>
           <tr *ngIf="product.address"><td>dafault stay dates:</td> <td>5-8/6/2025</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
         <!-- <ng-container *ngIf="product.options && product.options.length > 0" >
-          <mat-form-field appearance="fill"  style="margin-top: 2%;">
-            <mat-label>Extend stay</mat-label>
-            <mat-select [(value)]="selectedOption">
-              <mat-option *ngFor="let option of product.options" [value]="option">
-                {{option.optionName}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <p class="price" *ngIf="selectedOption">extended stay: <b>{{ selectedOption.optionName }}</b></p>
+          <mat-form-field appearance="legacy"  style="margin-top: 2%;">
+              <mat-label *ngIf="!selectedOption">Extend stay</mat-label>
+              <mat-label *ngIf="selectedOption">Extended stay:</mat-label>
+              <mat-select [(value)]="selectedOption">
+                <mat-option *ngFor="let option of product.options" [value]="option">
+                  {{option.optionName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> 
         </ng-container> -->
+        <tr *ngIf="product.price"><td></td><td> </td></tr>
+
       <p class="price" *ngIf="product.price">
-        price: <b>{{ product.price }}</b>
+        price/person/night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b>
+      </p>
+      <p class="price" *ngIf="product.price">
+        price total: <b>{{ product.price }}</b>
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Book this house"
         matTooltipShowDelay="200"

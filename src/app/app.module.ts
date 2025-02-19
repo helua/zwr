@@ -39,6 +39,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { Ebucc2025Component } from './shop/ebucc2025/ebucc2025.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContactPersonComponent } from './components/contact-person/contact-person.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any> {
@@ -66,6 +67,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     CartComponent,
     TopcatComponent,
     Ebucc2025Component,
+    ContactPersonComponent,
   ],
   imports: [
     BrowserModule,
