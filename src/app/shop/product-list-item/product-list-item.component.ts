@@ -62,7 +62,10 @@ export class ProductListItemComponent implements OnInit {
       console.log('istnieje zamówienie ')
       this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
         console.log(r)
-
+        if(this.selectedOption){
+          this.ecomm.addLineItemOptions(this.token.access_token, r.data.id, this.selectedOption.optionId, this.selectedOption.optionName).subscribe(o => {
+          })
+        }
         this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
           console.log(c)
           this.updateCart.emit({cart: c, ord: this.ord});

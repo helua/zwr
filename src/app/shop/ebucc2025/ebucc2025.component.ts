@@ -77,7 +77,7 @@ export class Ebucc2025Component implements OnInit {
       });
       this.ecomm.getOptions(this.token.access_token).subscribe(o => {
         if(o){
-          console.log(o.data[0].attributes.price_amount_cents)
+          // console.log(o.data[0].attributes.price_amount_cents)
           for (let i = 0; i < o.data.length; i++){
             // RegEx opcji każdego SKU
             var re = new RegExp(o.data[i].attributes.sku_code_regex);

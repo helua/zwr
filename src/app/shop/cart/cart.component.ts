@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
     this.shipment = JSON.parse(getShipment());
     var isTrueSet = (getCheckoutButton() === 'true');
     this.isCheckoutEnabled = isTrueSet;
-    console.log(this.cart.data.attributes)
+    // console.log(this.cart.data.attributes)
     if(this.cart.data.attributes.skus_count != 0){
       // console.log('LINE ITEMY');
       // console.log(this.cart.included.attributes);
@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
           // console.log('FRONTOWE ITEM OPRACOWANY');
           // console.log(this.lineItems);
             // jeśli ma sku_options
-            console.log(o)
+            // console.log(o.included)
             if(o.included){
               // console.log('OPCJE Z CL');
               // console.log(o.included);
