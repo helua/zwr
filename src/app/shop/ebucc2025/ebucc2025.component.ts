@@ -77,7 +77,7 @@ export class Ebucc2025Component implements OnInit {
       });
       this.ecomm.getOptions(this.token.access_token).subscribe(o => {
         if(o){
-          // console.log(o.data[0].id)
+          console.log(o.data[0].attributes.price_amount_cents)
           for (let i = 0; i < o.data.length; i++){
             // RegEx opcji każdego SKU
             var re = new RegExp(o.data[i].attributes.sku_code_regex);
@@ -86,7 +86,7 @@ export class Ebucc2025Component implements OnInit {
                 if(product.sku && re.test(product.sku)){
                   // Jeśli pasuje to przygotowuję objekt dla znalezionych opcji
                   let option = {optionId: o.data[i].id, optionName: o.data[i].attributes.name}
-                  console.log(o.data[i].attributes.name);
+                  // console.log(o.data[i].attributes.name);
                   // console.log(option);
                   // Sprawdzam czy produkt już miał tablicę z opcjami, tworzę ją i wpycham tam znalezione opcje
                   if(!product.options){

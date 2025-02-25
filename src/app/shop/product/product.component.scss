@@ -112,6 +112,13 @@ a.add-to-cart{
   margin: 0 4px;
   background-color: $mild;
 }
+.category-label{
+  padding: 1px 6px;
+  margin: 2px;
+  background-color: $mild;
+  white-space: nowrap;
+  font-size: .8rem;
+}
 .info-holder{
   text-shadow: 2px 2px rgba($color, 0.2);
   cursor: help;

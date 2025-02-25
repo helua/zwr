@@ -11,10 +11,10 @@
               </a>
             </h2>
             <p>
-              <span *ngIf="product.price !== undefined"> ✼ price/person/night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b></span>
-              <br><span *ngIf="product.price">✼ price total: <b>{{ product.price }}</b></span>
-              <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
+              <!-- <span *ngIf="product.price !== undefined"> ✼ price/person/night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b></span> -->
+              <br><span *ngIf="product.price">✼ house price / night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b></span>
               <br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }}</b> people</span>
+              <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
               <br><br>
               <span *ngIf="product.stock">✼ availability: <b>{{ product.stock }}</b> house</span>
             </p>

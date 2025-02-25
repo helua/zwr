@@ -4,8 +4,8 @@
   </h3>
 
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
-    <p class="cart_order-number">Reservation nr {{cart.data.attributes.number}}<br>
-      <span class="cart_count-total">(number of houses: {{cart.data.attributes.skus_count}})</span>
+    <p class="cart_order-number">Booking nr {{cart.data.attributes.number}}<br>
+      <span class="cart_count-total">(count of houses: {{cart.data.attributes.skus_count}})</span>
     </p>
     <main *ngFor="let line_item of lineItems">
       <div class="cart_product">
@@ -23,7 +23,6 @@
             <table style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
               <tr><td>stay:</td><td>5-8/6/2025</td></tr>
             </table>
-
           </ng-template>
             <fa-icon
             *ngIf="isCheckoutEnabled"
@@ -47,10 +46,11 @@
     </ul> -->
 
     <table *ngIf="isCheckoutEnabled">
-      <tr><td>total amount:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
+      <tr><td>booking status:</td><td>{{ cart.data.attributes.status }}</td></tr>
+      <tr><td>payment status:</td><td>{{ cart.data.attributes.payment_status }}</td></tr>
+      <tr><td>total amount:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
     </table>
     <table *ngIf="!isCheckoutEnabled && shipment">
-      <tr><td>shopping:</td><td>{{ cart.data.attributes.formatted_subtotal_amount }}</td></tr>
       <tr><td>delivery:</td><td>{{ shipment.attributes.formatted_total_amount }}</td></tr>
       <tr><td>total amount:</td><td>{{ cart.data.attributes.formatted_total_amount_with_taxes }}</td></tr>
     </table>
@@ -60,7 +60,7 @@
       </p>
     </div>
     <div *ngIf="isCheckoutUnfinished" class="cart_confirm">
-      <p>Your reservation is not finished.<br>Go to checkout to confirm and pay</p>
+      <p>Your reservation is not finished.<br>Go to checkout to confirm and pay.</p>
     </div>
 
     <app-button

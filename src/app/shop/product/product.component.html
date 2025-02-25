@@ -26,7 +26,7 @@
     <div class="holder-info">
       <div class="body-wrapper" [innerHTML]="product.body"></div>
         <table class="tech">
-          <tr *ngIf="product.categories"><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label category-label">{{ category }}</span></td></tr>
+          <tr *ngIf="product.categories"><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label">{{ category }}</span></td></tr>
           <tr *ngIf="product.length"><td>długość:</td> <td>{{product.length}} cm</td></tr>
           <tr *ngIf="product.width"><td>szerokość:</td> <td>{{product.width}} cm</td></tr>
           <tr *ngIf="product.height"><td>wysokość:</td><td>{{product.height}} cm</td></tr>
@@ -36,7 +36,7 @@
           <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr>
           <tr *ngIf="product.capacity"><td>capacity:</td> <td>{{product.capacity}}</td></tr>
           <tr *ngIf="product.privateBathroom"><td>private bathroom:</td> <td>{{product.privateBathroom}}</td></tr>
-          <tr *ngIf="product.bedTypes"><td>bed types:</td> <td><span *ngFor="let bedType of product.bedTypes" class="label category-label">{{ bedType }}</span></td></tr>
+          <tr *ngIf="product.bedTypes"><td>bed types:</td> <td style="display: flex; flex-wrap: wrap; justify-content: end;"><span *ngFor="let bedType of product.bedTypes" class="label category-label">{{ bedType }}</span></td></tr>
           <tr *ngIf="product.standard"><td>standard:</td> <td>{{ product.standard }}</td></tr>
           <tr *ngIf="product.address"><td>address:</td> <td><a [href]="product.address" target="_blank">link</a></td></tr>
 
@@ -66,11 +66,10 @@
         </ng-container> -->
         <tr *ngIf="product.price"><td></td><td> </td></tr>
 
+
       <p class="price" *ngIf="product.price">
-        price/person/night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b>
-      </p>
-      <p class="price" *ngIf="product.price">
-        price total: <b>{{ product.price }}</b>
+        price / night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b>
+
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Book this house"
         matTooltipShowDelay="200"

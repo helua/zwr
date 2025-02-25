@@ -55,7 +55,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(){
 
     this.ord = getOrderId();
-    console.log(this.ord);
+    // console.log(this.ord);
     this.cart = JSON.parse(getCart());
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
@@ -67,23 +67,23 @@ export class ProductComponent implements OnInit {
     this.sanityAndCommerceLayer();
   }
   createPricePerPersonPerNight(input: string): number {
-    return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 / this.product.capacity * 10 ) / 10 ;
+    return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 * 10 ) / 10 ;
   }
   sanityAndCommerceLayer(){
     this.route.paramMap.pipe(switchMap((params: ParamMap) =>
       this.http.getProduct(params.get('id')))).subscribe( product => {
         this.productRaw = product;
           if(product){
-            console.log(this.productRaw.result[0]);
+            // console.log(this.productRaw.result[0]);
             this.product = this.feed.workResult(this.productRaw.result[0]);
-            console.log(this.product)
+            // console.log(this.product)
           }
           this.ecomm.getPrices(this.token.access_token).subscribe(pr => {
             if(pr){
               for (let i = 0; i < pr.included.length; i++){
                 if(this.product.sku === pr.included[i].attributes.sku_code){
                   this.product.price = pr.included[i].attributes.formatted_amount;
-                  console.log(this.product.sku === pr.included[i].attributes.sku_code, this.product)
+                  // console.log(this.product.sku === pr.included[i].attributes.sku_code, this.product)
                 }
               }
             }
@@ -93,18 +93,18 @@ export class ProductComponent implements OnInit {
               for (let i = 0; i < pr.data.length; i++){
                 if(this.product.sku === pr.data[i].attributes.sku_code){
                   this.product.stock = pr.data[i].attributes.quantity;
-                  console.log(this.product.sku === pr.data[i].attributes.sku_code, this.product)
+                  // console.log(this.product.sku === pr.data[i].attributes.sku_code, this.product)
                 }
               }
             }
           })
           this.ecomm.getOptions(this.token.access_token).subscribe(o => {
             if(o){
-              console.log(o)
-              console.log(this.product)
+              // console.log(o)
+              // console.log(this.product)
               for (let i = 0; i < o.data.length; i++){
                 let option = {optionId: o.data[i].id, optionName: o.data[i].attributes.name}
-                console.log(o.data[i].attributes.name);
+                // console.log(o.data[i].attributes.name);
                         // console.log(option);
                 // Sprawdzam czy produkt już miał tablicę z opcjami, tworzę ją i wpycham tam znalezione opcje
                 if(!this.product.options){

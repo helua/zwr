@@ -34,7 +34,7 @@ export class ProductListItemComponent implements OnInit {
 
   }
   createPricePerPersonPerNight(input: string): number {
-      return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 / this.product.capacity * 10 ) / 10 ;
+      return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 * 10 ) / 10 ;
     }
   
   createOrder(){

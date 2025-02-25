@@ -72,8 +72,8 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
     const slides = Array.from(document.getElementsByClassName(this.slidesId) as HTMLCollectionOf<HTMLElement>);
     const dots = Array.from(document.getElementsByClassName('dots') as HTMLCollectionOf<HTMLElement>)[0];
     const dotsCurrent = Array.from(document.getElementsByClassName('dot-'+this.slidesId) as HTMLCollectionOf<HTMLElement>);
-    console.log(n)
-    console.log(slides.length)
+    // console.log(n)
+    // console.log(slides.length)
     //all slides hide
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
@@ -113,7 +113,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit{
   //navigaye on let / right arrow keys
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log(event);
+    // console.log(event);
     if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
       this.currentSlide(this.slideIndex + 1);
     }
