@@ -7,34 +7,37 @@
     <p class="cart_order-number">Booking nr {{cart.data.attributes.number}}<br>
       <span class="cart_count-total">(count of houses: {{cart.data.attributes.skus_count}})</span>
     </p>
-    <main *ngFor="let line_item of lineItems">
-      <div class="cart_product">
-        <div class="cart_product-image">
-          <img [src]="line_item.img" alt="">
-        </div>
-        <div class="cart_product-title">
-          <h4>{{line_item.name}}<br>
-            <span class="cart_count-total">{{line_item.sku_code}}</span>
-          </h4>
-          <table *ngIf="line_item.options else defaultStay" style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
-            <tr *ngFor="let option of line_item.options"><td>stay:</td><td>{{option}}</td></tr>
-          </table>
-          <ng-template #defaultStay >
-            <table style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
-              <tr><td>stay:</td><td>5-8/6/2025</td></tr>
+    <div class="line-items">
+      <div *ngFor="let line_item of lineItems">
+        <div class="cart_product">
+          <div class="cart_product-image">
+            <img [src]="line_item.img" alt="">
+          </div>
+          <div class="cart_product-title">
+            <h4>{{line_item.name}}<br>
+              <span class="cart_count-total">{{line_item.sku_code}}</span>
+            </h4>
+            <table *ngIf="line_item.options else defaultStay" style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
+              <tr *ngFor="let option of line_item.options"><td>stay:</td><td>{{option}}</td></tr>
             </table>
-          </ng-template>
-            <fa-icon
-            *ngIf="isCheckoutEnabled"
-            [icon]="trashIcon"
-            (click)="trashItem(line_item.id)"
-            matTooltip="Delete item"
-            matTooltipShowDelay="200"
-            matTooltipHideDelay="100">
-          </fa-icon>
+            <ng-template #defaultStay >
+              <table style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
+                <tr><td>stay:</td><td>5-8/6/2025</td></tr>
+              </table>
+            </ng-template>
+              <fa-icon
+              *ngIf="isCheckoutEnabled"
+              [icon]="trashIcon"
+              (click)="trashItem(line_item.id)"
+              matTooltip="Delete booking"
+              matTooltipShowDelay="200"
+              matTooltipHideDelay="100">
+            </fa-icon>
+          </div>
         </div>
       </div>
-    </main>
+    </div>
+
 
     <!-- <ul class="cart_totals">
       <li>podsuma: {{cart.data.attributes.formatted_subtotal_amount}}</li>
@@ -59,7 +62,9 @@
         <span>ZWR event agency</span>
       </p>
     </div>
-    <div *ngIf="isCheckoutUnfinished" class="cart_confirm">
+
+    <!-- <div *ngIf="isCheckoutUnfinished" class="cart_confirm"> -->
+    <div class="cart_confirm">
       <p>Your reservation is not finished.<br>Go to checkout to confirm and pay.</p>
     </div>
 
@@ -71,15 +76,15 @@
       [token]="token.access_token"
       >
     </app-button>
-
-    <fa-icon id="refresh"
+    <!-- TEMPORARY DELETE THE REFRESH BUTTON-->
+    <!-- <fa-icon id="refresh"
       *ngIf="isRefreshEnabled"
       [icon]="syncIcon"
       (click)="getCurrentOrder()"
       matTooltip="Refresh status"
       matTooltipShowDelay="200"
       matTooltipHideDelay="100">
-    </fa-icon>
+    </fa-icon> -->
 
     <fa-icon id="delete"
       *ngIf="!isCheckoutEnabled && shipment"

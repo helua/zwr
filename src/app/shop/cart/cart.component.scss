@@ -48,9 +48,13 @@
         font-family: $f4;
         @include respond(phone){
           font-size: 1.5rem;
-
         }
-
+    }
+    & .line-items{
+      @include respond(phone){
+        max-height: 300px;
+        overflow-y: scroll;
+      }
     }
     & .cart_product{
       margin: .5rem 0;
@@ -84,8 +88,8 @@
         }
         & fa-icon{
           position: absolute;
-          bottom: 1%;
-          right: 1%;
+          bottom: 4%;
+          right: 4%;
           top: unset;
           font-size: 1.3rem;
         }

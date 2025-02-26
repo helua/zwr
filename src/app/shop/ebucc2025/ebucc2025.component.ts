@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { EcommerceService } from 'src/app/ecommerce.service';
 import { FeedService } from 'src/app/feed.service';
-import { getCart, getCheckoutButton, getOrderId, getToken, setCart, setCheckoutButton, setOrderId } from 'src/app/localStorage';
+import { clear, getCart, getCheckoutButton, getOrderId, getToken, setCart, setCheckoutButton, setOrderId } from 'src/app/localStorage';
 import { Product, token } from 'src/app/shop/Product';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ebucc-2025',
@@ -33,11 +32,12 @@ export class Ebucc2025Component implements OnInit {
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    // clear;
     this.ord = getOrderId();
     this.cart = JSON.parse(getCart());
     var isTrueSet = (getCheckoutButton() === 'false');
     this.badgeHidden = isTrueSet;
-    //Commerce Layer Token
+    //Commerce Layer Token temporary desactivated
     // this.token = JSON.parse(getToken());
     this.sanityAndCommerceLayer();
   }
@@ -54,7 +54,6 @@ export class Ebucc2025Component implements OnInit {
       this.ecomm.getPrices(this.token.access_token).subscribe(p => {
         // console.log(p)
         if(p){
-          // console.log('Pobieram ceny')
           for (let i = 0; i < p.included.length; i++){
             this.products.map((sku) => {
               if(sku.sku === p.included[i].attributes.sku_code){

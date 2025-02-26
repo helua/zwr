@@ -6,7 +6,8 @@
     [badgeHidden]="badgeHidden"
     (click)="openDialog();">
   </app-cart-icon>
-  <fa-icon id="back" (click)="goBack();" [icon]="arrowIcon" ></fa-icon>
+  <!-- <fa-icon id="back" (click)="goBack();" [icon]="arrowIcon" ></fa-icon> -->
+  <a routerLink="/ebucc2025"><fa-icon id="back" [icon]="arrowIcon"></fa-icon></a>
 
   <h2>{{ product.title }}</h2>
   <p class="code">{{product.vendor || 'ZWR'}} / {{ product.sku }}</p>
@@ -27,18 +28,18 @@
       <div class="body-wrapper" [innerHTML]="product.body"></div>
         <table class="tech">
           <tr *ngIf="product.categories"><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label">{{ category }}</span></td></tr>
-          <tr *ngIf="product.length"><td>długość:</td> <td>{{product.length}} cm</td></tr>
+          <!-- <tr *ngIf="product.length"><td>długość:</td> <td>{{product.length}} cm</td></tr>
           <tr *ngIf="product.width"><td>szerokość:</td> <td>{{product.width}} cm</td></tr>
           <tr *ngIf="product.height"><td>wysokość:</td><td>{{product.height}} cm</td></tr>
           <tr *ngIf="product.lengthUnfold"><td>długość przed rozłożeniem:</td> <td>{{product.lengthUnfold}} cm</td></tr>
           <tr *ngIf="product.widthUnfold"><td>szerokość przed rozłożeniem:</td> <td>{{product.widthUnfold}} cm</td></tr>
           <tr *ngIf="product.heightUnfold"><td>wysokość przed rozłożeniem:</td><td>{{product.heightUnfold}} cm</td></tr>
-          <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr>
+          <tr *ngIf="product.color"><td>kolor:</td> <td>{{product.color}}</td></tr> -->
           <tr *ngIf="product.capacity"><td>capacity:</td> <td>{{product.capacity}}</td></tr>
           <tr *ngIf="product.privateBathroom"><td>private bathroom:</td> <td>{{product.privateBathroom}}</td></tr>
           <tr *ngIf="product.bedTypes"><td>bed types:</td> <td style="display: flex; flex-wrap: wrap; justify-content: end;"><span *ngFor="let bedType of product.bedTypes" class="label category-label">{{ bedType }}</span></td></tr>
           <tr *ngIf="product.standard"><td>standard:</td> <td>{{ product.standard }}</td></tr>
-          <tr *ngIf="product.address"><td>address:</td> <td><a [href]="product.address" target="_blank">link</a></td></tr>
+          <tr *ngIf="product.address"><td>address:</td> <td> ul. Wydmy 10, 80-656 Gdańsk</td></tr>
 
           <!-- <tr><td>przykładowy tooltip:</td>
             <td
@@ -53,7 +54,7 @@
           <tr *ngIf="product.address"><td>dafault stay dates:</td> <td>5-8/6/2025</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
-        <!-- <ng-container *ngIf="product.options && product.options.length > 0" >
+        <ng-container *ngIf="product.options && product.options.length > 0" >
           <mat-form-field appearance="legacy"  style="margin-top: 2%;">
               <mat-label *ngIf="!selectedOption">Extend stay</mat-label>
               <mat-label *ngIf="selectedOption">Extended stay:</mat-label>
@@ -61,14 +62,15 @@
                 <mat-option *ngFor="let option of product.options" [value]="option">
                   {{option.optionName}}
                 </mat-option>
+                <mat-option [value]="null">5-8/6/2025 (default)</mat-option>
               </mat-select>
             </mat-form-field> 
-        </ng-container> -->
+        </ng-container>
         <tr *ngIf="product.price"><td></td><td> </td></tr>
 
 
       <p class="price" *ngIf="product.price">
-        price / night: <b>{{ createPricePerPersonPerNight(product.price) }} zł</b>
+        price / night: <b>{{ createPricePerNight(product.price) }} zł</b>
 
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"
         matTooltip="Book this house"

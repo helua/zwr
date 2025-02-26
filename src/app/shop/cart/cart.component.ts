@@ -42,6 +42,8 @@ export class CartComponent implements OnInit {
     // this.token = JSON.parse(getToken());
     this.ord =  this.data.ord;
     this.cart = JSON.parse(getCart());
+    //może coś takiego alternatywnie jak to nie zadziała???
+    //this.cart = this.data.cart.cart
     this.shipment = JSON.parse(getShipment());
     var isTrueSet = (getCheckoutButton() === 'true');
     this.isCheckoutEnabled = isTrueSet;
@@ -117,12 +119,14 @@ export class CartComponent implements OnInit {
       setCart(c);
       this.cart = c;
       if(c.included.length === 3){
-        this.isCheckoutEnabled = false;
-        setCheckoutButton(this.isCheckoutEnabled.toString());
-        this.shipment = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'shipments');
-        setShipment(this.shipment);
-        this.isCheckoutUnfinished = false;
-        setOrderId('');//wtfuck
+      //   this.isCheckoutEnabled = false;
+      //   setCheckoutButton(this.isCheckoutEnabled.toString());
+      //   this.shipment = this.cart.included.find((e: { attributes: { item_type: string; }; }) => e.attributes.item_type === 'shipments');
+      //   setShipment(this.shipment);
+      //   this.isCheckoutUnfinished = false;
+      //   setOrderId('');//wtfuck
+      this.isCheckoutUnfinished = true;
+      //temp
       }
       else{
         this.isCheckoutUnfinished = true;

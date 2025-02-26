@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { emit } from 'process';
 import { EcommerceService } from 'src/app/ecommerce.service';
-import { getOrderId, getToken, setOrderId } from 'src/app/localStorage';
+import { getOrderId, getToken, setCart, setOrderId } from 'src/app/localStorage';
 import { ShoppingService } from '../shopping.service';
 import { token } from '../Product';
 
@@ -33,45 +33,66 @@ export class ProductListItemComponent implements OnInit {
     // this.token = JSON.parse(getToken());
 
   }
-  createPricePerPersonPerNight(input: string): number {
-      return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 * 10 ) / 10 ;
-    }
+  createPricePerNight(input: string): number {
+    return Math.floor(parseFloat(input.slice(0, -6).replace(' ', '').replace(',', '.')) / 3 * 10 ) / 10 ;
+  }
   
   createOrder(){
     if(!this.ord){
       console.log('nowe zamówienie')
-      this.ecomm.createEmptyOrder(this.token.access_token).subscribe(o => {
-        this.ord = o.data.id;
+      this.ecomm.createEmptyOrder(this.token.access_token).subscribe(or => {
+        this.ord = or.data.id;
         setOrderId(this.ord);
-        this.ecomm.addLineItems(this.token.access_token, o.data.id, this.product.sku, this.product.title, this.product.images[0]).subscribe(l => {
-          console.log(l)
-          if(this.selectedOption){
-            this.ecomm.addLineItemOptions(this.token.access_token, l.data.id, this.selectedOption.optionId, this.selectedOption.optionName).subscribe(o => {
-              // console.log(o.data)
-            })
+        this.ecomm.addLineItems(this.token.access_token, or.data.id, this.product.sku, this.product.title, this.product.images[0]).subscribe(
+          {      
+            next: (l) => {
+              if(this.selectedOption){
+                this.ecomm.addLineItemOptions(this.token.access_token, l.data.id, this.selectedOption.optionId, this.selectedOption.optionName).subscribe(op => {
+                  this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+                    setCart(c);
+                    this.updateCart.emit({cart: c, ord: this.ord});
+                  });
+                })
+              }
+              else{
+                this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+                  setCart(c);
+                  this.updateCart.emit({cart: c, ord: this.ord});
+                });
+              }
+            },
+            error: (err) => {
+              alert(err.error.errors[0].title);
+            }
           }
-          this.ecomm.getCart(this.token.access_token, o.data.id).subscribe(c => {
-                    console.log(c)
-
-            this.updateCart.emit({cart: c, ord: o.data.id});
-          });
-        });
+        );
       });
     }
     if(this.ord){
-      console.log('istnieje zamówienie ')
-      this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(r => {
-        console.log(r)
-        if(this.selectedOption){
-          this.ecomm.addLineItemOptions(this.token.access_token, r.data.id, this.selectedOption.optionId, this.selectedOption.optionName).subscribe(o => {
-          })
+      console.log('istnieje zamówienie ' + this.ord)
+      this.ecomm.addLineItems(this.token.access_token, this.ord, this.product.sku, this.product.title, this.product.images[0]).subscribe(
+        {
+          next: (l) => {
+            if(this.selectedOption){
+              this.ecomm.addLineItemOptions(this.token.access_token, l.data.id, this.selectedOption.optionId, this.selectedOption.optionName).subscribe(op => {
+                this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+                  setCart(c);
+                  this.updateCart.emit({cart: c, ord: this.ord});
+                });
+              })
+            }
+            else{
+              this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
+                setCart(c);
+                this.updateCart.emit({cart: c, ord: this.ord});
+              });
+            }
+          },
+          error: (err) => {
+            alert(err.error.errors[0].title);
+          }
         }
-        this.ecomm.getCart(this.token.access_token, this.ord).subscribe(c => {
-          console.log(c)
-          this.updateCart.emit({cart: c, ord: this.ord});
-        });
-      });
-
+      )
     }
   }
   //use of Shopping Service not working
