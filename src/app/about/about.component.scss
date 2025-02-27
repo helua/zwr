@@ -130,6 +130,9 @@ p{
 
 
 }
+.fresh{
+  width: 67rem;
+}
 .window {
   margin: 1.7rem;
   padding: 13px;
@@ -204,6 +207,7 @@ p{
 	.fresh > .window{
 		background-color: darkkhaki;
 		border: 5px dotted $color-dark;
+    width: 27.5rem;
 
 	}
 
