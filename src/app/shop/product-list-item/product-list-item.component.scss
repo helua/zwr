@@ -27,7 +27,7 @@
       box-sizing: border-box;
     }
     @include respond(tab-land){
-      width: 250px;
+      width: 200px;
     }
     @include respond(phone){
       width: 100%;
@@ -52,7 +52,6 @@
       padding: 0 !important;
     }
   }
-
   tr{
    vertical-align: middle;
    width: 100%;
@@ -61,10 +60,13 @@
     position: relative;
     @include respond(phoneUp){
       &:nth-child(2){
-        width: 65%;
+        width: 60%;
       }
       &:nth-child(3){
-        padding: 0 30px;
+        padding: 0 10px;
+      }
+      &:nth-child(4){
+        padding: 0 10px;
       }
     }
 
