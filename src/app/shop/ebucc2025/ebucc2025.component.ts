@@ -7,6 +7,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from '../cart/cart.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ebucc-2025',
@@ -24,12 +25,16 @@ export class Ebucc2025Component implements OnInit {
   badgeHidden: boolean = true;
   checkout: string = 'https://checkout.zwr.waw.pl/';
   token: any = token;
-
+  title = 'EBUCC 2025 Accommodation';
+  description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1km from the beach' };  
+  
   constructor(
     private feed: FeedService,
     private ecomm: EcommerceService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar,
+    private titleService: Title,
+    private metaService: Meta) { }
 
   ngOnInit(): void {
     // clear;
@@ -40,6 +45,11 @@ export class Ebucc2025Component implements OnInit {
     //Commerce Layer Token temporary desactivated
     // this.token = JSON.parse(getToken());
     this.sanityAndCommerceLayer();
+    this.titleService.setTitle(this.title);
+    this.metaService.updateTag(this.description);
+    this.metaService.addTags([
+      {property: 'og:image', content: 'https://zwr.waw.pl/assets/ebucc-cover.jpg'}
+    ]);
   }
   sanityAndCommerceLayer(){
    //Sanity
