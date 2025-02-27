@@ -13,7 +13,8 @@
             <p>
               <!-- <span *ngIf="product.price !== undefined"> ✼ price/person/night: <b>{{ createPricePerNight(product.price) }} zł</b></span> -->
               <br><span *ngIf="product.price">✼ house price / night: <b>{{ createPricePerNight(product.price) }} zł</b></span>
-              <br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }}</b> people</span>
+              <br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }} people</b></span>
+              <br><span *ngIf="product.standard"> ✼ standard: <b>{{ product.standard }}</b></span>
               <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
               <br><br>
               <span *ngIf="product.stock">✼ availability: <b>{{ product.stock }}</b> house</span>

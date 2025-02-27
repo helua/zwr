@@ -14,22 +14,26 @@
             <img [src]="line_item.img" alt="">
           </div>
           <div class="cart_product-title">
-            <h4>{{line_item.name}}<br>
-              <span class="cart_count-total">{{line_item.sku_code}}</span>
+            <h4><a [routerLink]="'ebucc2025/'+line_item.sku" (click)="onClose()">{{line_item.name}}</a><br>
+              <span class="cart_mild">{{line_item.sku}}</span>
+
             </h4>
+
             <table *ngIf="line_item.options else defaultStay" style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
               <tr *ngFor="let option of line_item.options"><td>stay:</td><td>{{option}}</td></tr>
+              <tr><td>price:</td><td>{{line_item.unit_price}}</td></tr>
             </table>
             <ng-template #defaultStay >
               <table style="padding: 0.3rem 18% 3rem 3%; font-size: .9rem;">
                 <tr><td>stay:</td><td>5-8/6/2025</td></tr>
+                <tr><td>price:</td><td>{{line_item.unit_price}}</td></tr>
               </table>
             </ng-template>
               <fa-icon
               *ngIf="isCheckoutEnabled"
               [icon]="trashIcon"
               (click)="trashItem(line_item.id)"
-              matTooltip="Delete booking"
+              matTooltip="Delete from cart"
               matTooltipShowDelay="200"
               matTooltipHideDelay="100">
             </fa-icon>
@@ -64,6 +68,9 @@
     </div>
 
     <!-- <div *ngIf="isCheckoutUnfinished" class="cart_confirm"> -->
+    <div class="cart_confirm">
+      <p>Additional Tourist Tax of 3,22&nbsp;zł&nbsp;/&nbsp;person&nbsp;/&nbsp;night applies (paid at check-in).</p>
+    </div>
     <div class="cart_confirm">
       <p>Your reservation is not finished.<br>Go to checkout to confirm and pay.</p>
     </div>

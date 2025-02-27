@@ -8,8 +8,28 @@
 </div>
 
 <h1>EBUCC 2025 Accommodation</h1>
-<p>Book smth from the list or dm us if you have any questions at <a href="mailto:office@ebucc2025.pl">office&#64;ebucc2025.pl</a> or at <a href="tel:+48793818143">(+48) 793 818 143</a></p>
+<p>
+  The EBUCC2025 Local Organising Committee has lined up an awesome accomodation offer just for you!<br><br>
 
+Be sure to secure a spot in one of our cozy bungalows located less than 1km from the beach and the EBUCC2025 venue — through our
+special booking site.<br><br>
+
+Get ready to chill in nature, surrounded by trees in a coastal forest right by Stogi Beach in Gdańsk—the very place where the magic of EBUCC2025 will unfold!<br>
+
+Book a Deluxe Bungalow and enjoy free access to an outdoor SPA complete with sauna, and jacuzzi. Or grab a budget bungalow and save some cash for the party and other epic experiences!
+<br>
+<br>
+Book smth from the list or dm us if you have any questions at <a href="mailto:office@ebucc2025.pl">office&#64;ebucc2025.pl</a> or at <a href="tel:+48793818143">(+48) 793 818 143</a>
+<br>
+Secure your spot now and make your EBUCC2025 stay unforgettable!
+</p>
+<app-button
+  *ngIf="!badgeHidden"
+  text="checkout"
+  [link]="checkout"
+  [orderId]="ord"
+  [token]="token.access_token">
+</app-button>
 <ng-container *ngIf="true">
   <div *ngFor="let product of products">
     <table>

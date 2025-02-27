@@ -42,6 +42,7 @@ export class CartComponent implements OnInit {
     // this.token = JSON.parse(getToken());
     this.ord =  this.data.ord;
     this.cart = JSON.parse(getCart());
+    console.log(this.cart)
     //może coś takiego alternatywnie jak to nie zadziała???
     //this.cart = this.data.cart.cart
     this.shipment = JSON.parse(getShipment());
@@ -57,7 +58,7 @@ export class CartComponent implements OnInit {
           // console.log(o);
           // this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url})
           if(o.data.attributes.sku_code !== null){
-            this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url})
+            this.lineItems.push({id: this.cart.included[i].id, sku: this.cart.included[i].attributes.sku_code, name: this.cart.included[i].attributes.name, img: this.cart.included[i].attributes.image_url, unit_price: this.cart.included[i].attributes.formatted_total_amount})
           }
           // console.log('FRONTOWE ITEM OPRACOWANY');
           // console.log(this.lineItems);

@@ -116,7 +116,7 @@ export class Ebucc2025Component implements OnInit {
   }
   openDialog() {
       const dialogRef = this.dialog.open(CartComponent, {
-        width: '466px',
+        width: '500px',
         maxWidth: '97vw',
         data: { ord: this.ord },
       });

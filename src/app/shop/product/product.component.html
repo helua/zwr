@@ -25,9 +25,12 @@
     </div>
 
     <div class="holder-info">
-      <div class="body-wrapper" [innerHTML]="product.body"></div>
+      <div class="body-wrapper" [innerHTML]="product.body">
+        <blockquote >test</blockquote>
+      </div>
+      
         <table class="tech">
-          <tr *ngIf="product.categories"><td>kategoria:</td> <td><span *ngFor="let category of product.categories" class="label">{{ category }}</span></td></tr>
+          <tr *ngIf="product.categories"><td>event:</td> <td><span *ngFor="let category of product.categories" class="label">{{ category }}</span></td></tr>
           <!-- <tr *ngIf="product.length"><td>długość:</td> <td>{{product.length}} cm</td></tr>
           <tr *ngIf="product.width"><td>szerokość:</td> <td>{{product.width}} cm</td></tr>
           <tr *ngIf="product.height"><td>wysokość:</td><td>{{product.height}} cm</td></tr>
