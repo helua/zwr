@@ -208,7 +208,9 @@ p{
 		background-color: darkkhaki;
 		border: 5px dotted $color-dark;
     width: 27.5rem;
-
+	@include respond(phone){
+    width: 22.5rem;
+  }
 	}
 
 	.video{
