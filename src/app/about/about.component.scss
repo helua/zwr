@@ -132,6 +132,9 @@ p{
 }
 .fresh{
   width: 67rem;
+  	@include respond(phone){
+    width: 100%;
+  }
 }
 .window {
   margin: 1.7rem;
@@ -209,7 +212,7 @@ p{
 		border: 5px dotted $color-dark;
     width: 27.5rem;
 	@include respond(phone){
-    width: 22.5rem;
+    width: 86%;
   }
 	}
 
