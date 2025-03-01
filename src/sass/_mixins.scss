@@ -9,7 +9,7 @@
       @media only screen and (max-width: 1119px) { @content };     //900px
   }
   @if $breakpoint == tab-land {
-      @media only screen and (max-width: 75em) { @content };    //1200px
+      @media only screen and (max-width: 1080px) { @content };    //1200px
   }
   @if $breakpoint == small-desktop {
       @media only screen and (max-width: 1400px) { @content };    //1200px
@@ -20,5 +20,8 @@
   // reverse
   @if $breakpoint == phoneUp {
     @media only screen and (min-width: 37.5em) { @content };    //>600px
+}
+  @if $breakpoint == tabUp {
+    @media only screen and (min-width: 1080px) { @content };    //>600px
 }
 }

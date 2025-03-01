@@ -193,7 +193,7 @@ p{
     width: 58rem;
   }
 	@include respond(tab-port){
-    width: 52rem;
+    width: 100%;
   }
   @include respond(phone){
     width: 100%;
@@ -201,13 +201,15 @@ p{
 
   & > .window{
     width: 29rem;
-    @include respond(tab-land){
-      width: 22.5rem;
-      margin: 2rem;
-      display: inline-block;
-    }
     @include respond(tab-port){
+      width: 18.5rem;
+      display: inline-block;
+      margin: 2rem;
+    }
+
+    @include respond(tabUp){
       width: 19.5rem;
+      margin: 0;
     }
     @include respond(phone){
       width: 77%;

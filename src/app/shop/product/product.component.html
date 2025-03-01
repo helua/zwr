@@ -53,11 +53,11 @@
               {{product.handle}}
             </td>
           </tr> -->
-          <tr *ngIf="product.stock"><td>availability:</td><td>{{ product.stock }} available</td></tr>
-          <tr *ngIf="product.address"><td>dafault stay dates:</td> <td>5-8/6/2025</td></tr>
+          <tr><td>availability:</td><td>{{ product.stock }} available</td></tr>
+          <tr><td>dafault stay dates:</td> <td>5-8/6/2025</td></tr>
           <tr *ngIf="product.status"><td>status:</td> <td><span *ngFor="let status of product.statuses" class="label category-label">{{ status }}</span></td></tr>
         </table>
-        <ng-container *ngIf="product.options && product.options.length > 0" >
+        <ng-container *ngIf="product.stock !== 0 && product.options && product.options.length > 0" >
           <mat-form-field appearance="legacy"  style="margin-top: 2%;">
               <mat-label *ngIf="!selectedOption">Extend stay</mat-label>
               <mat-label *ngIf="selectedOption">Extended stay:</mat-label>
@@ -72,7 +72,7 @@
         <tr *ngIf="product.price"><td></td><td> </td></tr>
 
 
-      <p class="price" *ngIf="product.price">
+      <p class="price" *ngIf="product.price && product.stock !== 0">
         price / night: <b>{{ createPricePerNight(product.price) }} zł</b>
 
         <fa-icon  [icon]="cartIcon" (click)="createOrder()"

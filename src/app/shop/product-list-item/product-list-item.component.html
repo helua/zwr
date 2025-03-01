@@ -17,11 +17,11 @@
               <br><span *ngIf="product.standard"> ✼ standard: <b>{{ product.standard }}</b></span>
               <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
               <br><br>
-              <span *ngIf="product.stock">✼ availability: <b>{{ product.stock }}</b> house</span>
+              <span>✼ availability: <b>{{ product.stock }}</b> available</span>
             </p>
         </td>
         <td>
-          <ng-container *ngIf="product.options && product.options.length > 0" >
+          <ng-container *ngIf="product.stock !== 0 && product.options && product.options.length > 0" >
             <mat-form-field appearance="legacy"  style="margin-top: 2%;">
               <mat-label *ngIf="!selectedOption">Extend stay</mat-label>
               <mat-label *ngIf="selectedOption">Extended stay:</mat-label>
@@ -37,8 +37,8 @@
         </td>
         <td style="font-size: 1rem; padding: 5px 0">
           <!-- <a class="add-to-cart" (click)="createOrder3(token, ord, product)" > -->
-            <fa-icon (click)="createOrder()" [icon]="cartIcon"  *ngIf="product.price"></fa-icon>
-            <h4>book</h4>
+            <fa-icon (click)="createOrder()" [icon]="cartIcon"  *ngIf="product.price && product.stock !== 0"></fa-icon>
+            <h4 *ngIf="product.price && product.stock !== 0">book</h4>
         </td>
       </tr>
 
