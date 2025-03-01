@@ -131,7 +131,7 @@ p{
 
 }
 .fresh{
-  width: 57rem;
+  width: 77rem;
   	@include respond(tab-port){
     width: 100%;
   }
@@ -139,17 +139,17 @@ p{
 .fresh > .window{
   background-color: darkkhaki;
   border: 5px dotted $color-dark;
-  width: 22.5rem;
+  width: 32.5rem;
   @include respond(tab-port){
     display: block;
     width: 60%;
     margin: 10% auto;
   }
-@include respond(phone){
-  width: 86%;
-  margin: 5%;
-  padding: calc(2% - 1px);
-}
+  @include respond(phone){
+    width: 86%;
+    margin: 5%;
+    padding: calc(2% - 1px);
+  }
 }
 .window {
   margin: 1.7rem;
