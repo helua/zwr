@@ -5,7 +5,7 @@
 
   <div *ngIf="cart.data.attributes.skus_count !== 0; else emptyCart">
     <p class="cart_order-number">Booking nr {{cart.data.attributes.number}}<br>
-      <span class="cart_count-total">(count of houses: {{cart.data.attributes.skus_count}})</span>
+      <span class="cart_count-total">(count of rooms: {{cart.data.attributes.skus_count}})</span>
     </p>
     <div class="line-items">
       <div *ngFor="let line_item of lineItems">
