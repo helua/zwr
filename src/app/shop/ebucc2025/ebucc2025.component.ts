@@ -27,6 +27,7 @@ export class Ebucc2025Component implements OnInit {
   token: any = token;
   title = 'EBUCC 2025 Accommodation';
   description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1km from the beach' };  
+  beds: number = 0;
   
   constructor(
     private feed: FeedService,
@@ -52,66 +53,70 @@ export class Ebucc2025Component implements OnInit {
     ]);
   }
   sanityAndCommerceLayer(){
-   //Sanity
-   this.feed.getAcco().subscribe( products => {
-    this.productsRaw = products;
-    // console.log(this.productsRaw)
-    for (let i = 0; i < this.productsRaw.result.length; i++){
-      this.products.push(this.feed.workResult(this.productsRaw.result[i]));
-    }
-    //Commerce Layer data & synchro
-    if(this.token){
-      this.ecomm.getPrices(this.token.access_token).subscribe(p => {
-        // console.log(p)
-        if(p){
-          for (let i = 0; i < p.included.length; i++){
-            this.products.map((sku) => {
-              if(sku.sku === p.included[i].attributes.sku_code){
-                this.products.filter(a => sku.sku === a.sku)[0].price = p.included[i].attributes.formatted_amount;
-              }
-            })
-          }
-        }
-      });
-      this.ecomm.getStock(this.token.access_token).subscribe(p => {
-        if(p){
-          for (let i = 0; i < p.data.length; i++){
-            this.products.map((sku) => {
-              if(sku.sku === p.data[i].attributes.sku_code){
-                this.products.filter(a => sku.sku === a.sku)[0].stock = p.data[i].attributes.quantity;
-              }
-            })
-          }
-        }
-      });
-      this.ecomm.getOptions(this.token.access_token).subscribe(o => {
-        if(o){
-          // console.log(o.data[0].attributes.price_amount_cents)
-          for (let i = 0; i < o.data.length; i++){
-            // RegEx opcji każdego SKU
-            var re = new RegExp(o.data[i].attributes.sku_code_regex);
-              // Mapuję po produktach i sprawdzam czy RegEx opcji pasuję do SKU code
-              this.products.map((product) => {
-                if(product.sku && re.test(product.sku)){
-                  // Jeśli pasuje to przygotowuję objekt dla znalezionych opcji
-                  let option = {optionId: o.data[i].id, optionName: o.data[i].attributes.name}
-                  // console.log(o.data[i].attributes.name);
-                  // console.log(option);
-                  // Sprawdzam czy produkt już miał tablicę z opcjami, tworzę ją i wpycham tam znalezione opcje
-                  if(!product.options){
-                    product.options = [];
-                    this.products.filter(a => product.sku === a.sku)[0].options?.push(option);
-                  }
-                  else{
-                    this.products.filter(a => product.sku === a.sku)[0].options?.push(option);
-                  }
+    //Sanity
+    this.feed.getAcco().subscribe( products => {
+      this.productsRaw = products;
+      // console.log(this.productsRaw)
+      for (let i = 0; i < this.productsRaw.result.length; i++){
+        this.products.push(this.feed.workResult(this.productsRaw.result[i]));
+      }
+      //Commerce Layer data & synchro
+      if(this.token){
+        this.ecomm.getPrices(this.token.access_token).subscribe(p => {
+          // console.log(p)
+          if(p){
+            for (let i = 0; i < p.included.length; i++){
+              this.products.map((sku) => {
+                if(sku.sku === p.included[i].attributes.sku_code){
+                  this.products.filter(a => sku.sku === a.sku)[0].price = p.included[i].attributes.formatted_amount;
                 }
               })
+            }
           }
-        }
-      })
-    }
-  });
+        });
+        this.ecomm.getStock(this.token.access_token).subscribe(p => {
+          if(p){
+            for (let i = 0; i < p.data.length; i++){
+              this.products.map((sku) => {
+                if(sku.sku === p.data[i].attributes.sku_code){
+                  this.products.filter(a => sku.sku === a.sku)[0].stock = p.data[i].attributes.quantity;
+                }
+              })
+            }
+          }
+        });
+        this.ecomm.getOptions(this.token.access_token).subscribe(o => {
+          if(o){
+            // console.log(o.data[0].attributes.price_amount_cents)
+            for (let i = 0; i < o.data.length; i++){
+              // RegEx opcji każdego SKU
+              var re = new RegExp(o.data[i].attributes.sku_code_regex);
+                // Mapuję po produktach i sprawdzam czy RegEx opcji pasuję do SKU code
+                this.products.map((product) => {
+                  if(product.sku && re.test(product.sku)){
+                    // Jeśli pasuje to przygotowuję objekt dla znalezionych opcji
+                    let option = {optionId: o.data[i].id, optionName: o.data[i].attributes.name}
+                    // console.log(o.data[i].attributes.name);
+                    // console.log(option);
+                    // Sprawdzam czy produkt już miał tablicę z opcjami, tworzę ją i wpycham tam znalezione opcje
+                    if(!product.options){
+                      product.options = [];
+                      this.products.filter(a => product.sku === a.sku)[0].options?.push(option);
+                    }
+                    else{
+                      this.products.filter(a => product.sku === a.sku)[0].options?.push(option);
+                    }
+                  }
+                })
+            }
+          }
+        })
+      }
+      //beds calculation
+      for (let i = 0; i < this.products.length; i++) {
+        this.beds += this.products[i].capacity || 0;
+      }  
+    });
   }
   //z komponentu product list
   onUpdatedCart(cart: any){
