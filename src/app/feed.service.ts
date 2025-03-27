@@ -24,7 +24,7 @@ export class FeedService {
     })
   }
   getAcco(){
-    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"][privateBathroom == "yes"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->name, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->name} | order(priority asc)`, {
+    return this.http.get(`https://887dorwc.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=="product"][privateBathroom == "2 bathrooms" || privateBathroom == "yes"]{title, priority, slug, defaultProductVariant, tags, "categoryTitles": categories[]->title, "statusTitles": statuses[]->title, "vendor": vendor->name, body, capacity, privateBathroom, address, "bedTypes": bedTypes[]->title, "standard": standard->name} | order(priority asc)`, {
       headers: {
         'Content-Type': 'application/json',
       },

@@ -112,6 +112,7 @@ export class Ebucc2025Component implements OnInit {
           }
         })
       }
+      // console.log(this.products)
       //beds calculation
       for (let i = 0; i < this.products.length; i++) {
         this.beds += this.products[i].capacity || 0;
