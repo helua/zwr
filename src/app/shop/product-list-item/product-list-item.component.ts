@@ -23,6 +23,8 @@ export class ProductListItemComponent implements OnInit {
   token: any = token;
   link: string = '/sklep'
   selectedOption: any;
+  extendCopy: string = 'Extend stay';
+  additionalBeds: string = 'no';
 
 
   constructor(private ecomm: EcommerceService) { }
@@ -31,6 +33,18 @@ export class ProductListItemComponent implements OnInit {
     // console.log(this.product)
     //Commerce Layer Token
     // this.token = JSON.parse(getToken());
+    if(/[23]-4ppl/.test(this.product.sku)){
+      // console.log(this.product.sku)
+      this.extendCopy= 'Extend stay / Add beds'
+    }
+    if(/2-4ppl/.test(this.product.sku)){
+      // console.log(this.product.sku)
+      this.additionalBeds= '2 beds'
+    }
+    if(/3-4ppl/.test(this.product.sku)){
+      // console.log(this.product.sku)
+      this.additionalBeds= '1 bed'
+    }
 
   }
   createPricePerNight(input: string): number {

@@ -13,7 +13,8 @@
             <p>
               <!-- <span *ngIf="product.price !== undefined"> ✼ price/person/night: <b>{{ createPricePerNight(product.price) }} zł</b></span> -->
               <br><span *ngIf="product.price">✼ house price / night: <b>{{ createPricePerNight(product.price) }} zł</b></span>
-              <br><span *ngIf="product.capacity"> ✼ capacity: <b>{{ product.capacity }} people</b></span>
+              <br><span *ngIf="product.capacity"> ✼ default capacity: <b>{{ product.capacity }} people</b></span>
+              <br><span *ngIf="product.capacity"> ✼ additional beds available: <b>{{additionalBeds}}</b></span>
               <br><span *ngIf="product.standard"> ✼ standard: <b>{{ product.standard }}</b></span>
               <br><span> ✼ default stay dates: <b>5-8/6/2025</b></span>
               <br><br>
@@ -23,7 +24,7 @@
         <td>
           <ng-container *ngIf="product.stock !== 0 && product.options && product.options.length > 0" >
             <mat-form-field appearance="legacy"  style="margin-top: 2%;">
-              <mat-label *ngIf="!selectedOption">Extend stay</mat-label>
+              <mat-label *ngIf="!selectedOption">{{extendCopy}}</mat-label>
               <mat-label *ngIf="selectedOption">Extended stay:</mat-label>
               <mat-select [(value)]="selectedOption">
                 <mat-option *ngFor="let option of product.options" [value]="option">

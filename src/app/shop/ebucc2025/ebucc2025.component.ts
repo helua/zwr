@@ -28,6 +28,7 @@ export class Ebucc2025Component implements OnInit {
   title = 'EBUCC 2025 Accommodation';
   description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1km from the beach' };  
   beds: number = 0;
+  extraBeds: number = 0;
   
   constructor(
     private feed: FeedService,
@@ -116,6 +117,17 @@ export class Ebucc2025Component implements OnInit {
       //beds calculation
       for (let i = 0; i < this.products.length; i++) {
         this.beds += this.products[i].capacity || 0;
+      }  
+      //extra beds calculation
+      for (let i = 0; i < this.products.length; i++) {
+        if(this.products[i].sku !== undefined){
+          if(/2-4ppl/.test(this.products[i].sku)){
+            this.extraBeds += 2;
+          }
+          if(/3-4ppl/.test(this.products[i].sku)){
+            this.extraBeds += 1;
+          }
+        }
       }  
     });
   }

@@ -11,7 +11,7 @@ export interface Product {
   vendor?: string;
   body?: string;
   images?: string[];
-  sku?: string;
+  sku: string;
   width?: number;
   length?: number;
   height?: number;
