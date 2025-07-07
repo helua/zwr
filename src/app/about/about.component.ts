@@ -42,8 +42,7 @@ export class AboutComponent implements OnInit, AfterViewChecked {
     "WLU 2019/20"
   ];
   instagramToken: any;
-  instagramString: string ='IGQVJWUkI2SUxOQUxRVk95U1d1WldHQ3pvYlFaaUc4SUR2MjAxRzk3SVR3dk9SUk5SUEdOMnFRWkgtMC1ZAMXdoUnExTU9TMGstWjVnbFZAfekNyZAU9iWGlUYlMyT3lCMl9tWENod3kyNHZArMS11UlJHYgZDZD';
-  // instagramString: string ='IGQVJYWUpaRHJvV0VpWEJRRFBGNVlOS0Eycm44SXNuXzRLdGVSN1BqcnQwR3cxVktfS29Ra3RpWWlSWmxLMHJpaFdvZAEZApN3hsV1NnZA1pVeWx3RjU3ZAUhvam52ZAFhCMEJUVDExYjJ3';
+  instagramString: string ='abc';
   vimeoIcon = faVimeoV;
   instagramIcon = faInstagram;
   facebookIcon = faFacebookF;
@@ -57,21 +56,21 @@ export class AboutComponent implements OnInit, AfterViewChecked {
       // this.getFeed();
   }
 
-  getToken(){
-    this.insta.refreshToken().subscribe(t => {
-      this.instagramToken = t;
-      this.instagramString = this.instagramToken.Token;
-    });
+  // getToken(){
+  //   this.insta.refreshToken().subscribe(t => {
+  //     this.instagramToken = t;
+  //     this.instagramString = this.instagramToken.Token;
+  //   });
 
 
-  }
-  getFeed(){
-    var Instafeed = require("../../scripts/instafeed.min.js");
-    var feed = new Instafeed({
-      accessToken: this.instagramString
-      });
-      feed.run();
-  }
+  // }
+  // getFeed(){
+  //   var Instafeed = require("../../scripts/instafeed.min.js");
+  //   var feed = new Instafeed({
+  //     accessToken: this.instagramString
+  //     });
+  //     feed.run();
+  // }
 
   ngAfterViewChecked(){
     const a = Array.from(document.getElementById('instafeed')?.getElementsByTagName('a') as HTMLCollectionOf<HTMLElement>);
