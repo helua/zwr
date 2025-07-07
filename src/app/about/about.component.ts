@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
-import { InstaService } from '../insta.service';
 import { faFacebookF, faInstagram, faVimeoV } from '@fortawesome/free-brands-svg-icons';
 import { getIndex, setIndex } from 'src/app/localStorage';
 
@@ -47,7 +46,7 @@ export class AboutComponent implements OnInit, AfterViewChecked {
   instagramIcon = faInstagram;
   facebookIcon = faFacebookF;
 
-  constructor(private titleService: Title, private metaService: Meta, private insta: InstaService){}
+  constructor(private titleService: Title, private metaService: Meta){}
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
