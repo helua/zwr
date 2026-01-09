@@ -15,8 +15,8 @@ export class ShopComponent implements OnInit {
 
   // token: any;
   token: any = token;
-  title = 'EBUCC 2025 Accommodation';
-  description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1km from the beach' };  
+  title = 'EBUCC 2025';
+  description: MetaDefinition = { name: 'description', content: 'We organised 2025 European Ultimate Club Championships in Gdańsk, Poland' };  
 
   constructor( private tok: TokenService, public route: ActivatedRoute, private titleService: Title, private metaService: Meta) { }
 

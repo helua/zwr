@@ -25,7 +25,7 @@ export class Ebucc2025Component implements OnInit {
   badgeHidden: boolean = true;
   checkout: string = 'https://checkout.zwr.waw.pl/';
   token: any = token;
-  title = 'EBUCC 2025 Accommodation';
+  title = 'EBUCC 2025 Gdańsk, Poland';
   description: MetaDefinition = { name: 'description', content: 'Book your team stay at EBUCC 2025 1km from the beach' };  
   beds: number = 0;
   extraBeds: number = 0;
